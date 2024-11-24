@@ -47,11 +47,27 @@
 </head>
 <body>
     <section class="gallery">
-        <img src="image1.jpg" alt="Artwork">
-        <img src="image2.jpg" alt="Artwork">
-        <img src="image3.jpg" alt="Artwork">
-        <img src="image4.jpg" alt="Artwork">
-        <img src="image5.jpg" alt="Artwork">
+        <img src="image21.jpg" alt="Artwork">
+        <img src="image20.JPEG" alt="Artwork">
+        <img src="image19.JPEG" alt="Artwork">
+        <img src="image18.JPEG" alt="Artwork">
+        <img src="image17.JPEG" alt="Artwork">
+        <img src="image16.jpg" alt="Artwork">
+        <img src="image15.jpg" alt="Artwork">
+        <img src="image14.jpg" alt="Artwork">
+        <img src="image13.JPG" alt="Artwork">
+        <img src="image12.JPG" alt="Artwork">
+        <img src="image11.JPG" alt="Artwork">
+        <img src="image10.JPG" alt="Artwork">
+        <img src="image9.JPG" alt="Artwork">
+        <img src="image8.JPG" alt="Artwork">
+        <img src="image7.JPG" alt="Artwork">
+        <img src="image6.JPG" alt="Artwork">
+        <img src="image5.JPG" alt="Artwork">
+        <img src="image4.JPG" alt="Artwork">
+        <img src="image3.JPG" alt="Artwork">
+        <img src="image2.JPEG" alt="Artwork">
+        <img src="image1.JPG" alt="Artwork">
     </section>
     <footer>
         <p>Contact: <a href="mailto:jayden@newschool.edu">jayden@newschool.edu</a></p>
