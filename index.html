@@ -13,61 +13,52 @@
             color: #999999;
         }
         .container {
-            padding: 0px;
-            max-width: 100%;
-        }
-        .logo {
-            margin-bottom: 40px;
-        }
-        .logo img {
-            width: 1000px;
-            height: auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column; /* 讓menu和logo排成一列 */
+            align-items: flex-start; /* 將所有項目對齊左側 */
+            width: 100%;
         }
         .menu {
             display: flex;
             flex-direction: column;
+            align-items: flex-start; /* 確保menu靠左 */
+            margin-bottom: 20px; /* 給menu和logo之間一些間隔 */
         }
         .menu a {
             text-decoration: none;
             color: #999999;
-            font-size: 40px;
+            font-size: 30px;
             margin-bottom: -10px;
             font-weight: 300;
 	    letter-spacing: -2px;
+	    
         }
         .menu a:hover {
             text-decoration: underline;
         }
-        /* 手機專用調整 */
-        @media (max-width: 768px) {
-            .container {
-                padding: 0px;
-            }
-            .menu a {
-                font-size: 40px; /* 手機上稍微增大字體 */
-                margin-bottom: -10px;
-                font-weight: 300;
-	        letter-spacing: -2px;
-            }
-            .logo img {
-                width: 570px; /* 調整 logo 大小以適應小螢幕 */
-		margin-bottom: 320px;
-            }
+        .logo {
+            margin-top: 60px; /* 給logo一點間隔 */
+	    margin-left: 0px;
+        }
+        .logo img {
+            width: 1650px;
+            height: auto;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="logo">
-            <a href="index.html">
-                <img src="logo.png" alt="Jayden Liu Logo">
-            </a>
-        </div>
         <div class="menu">
             <a href="performing_art.html">01 PERFORMING ARTS</a>
             <a href="visual_art.html">02 VISUAL ARTS</a>
             <a href="cv.html">03 CV</a>
             <a href="mailto:jayden@newschool.edu">04 CONTACT</a>
+        </div>
+        <div class="logo">
+            <a href="index.html">
+                <img src="logo.png" alt="Jayden Liu Logo">
+            </a>
         </div>
     </div>
 </body>
