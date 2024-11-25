@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Performing Art</title>
+    <style>
+        body {
+            font-family: Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: #999999;
+        }
+        .container {
+            display: flex;
+            flex-direction: column; /* 讓menu和logo排成一列 */
+            align-items: flex-start; /* 將所有項目對齊左側 */
+            width: 100%;
+        }
+        .menu {
+	    padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        .menu a {
+            text-decoration: none;
+            color: #999999;
+            font-size: 30px;
+            margin-bottom: -8px;
+            font-weight: 300;
+	    letter-spacing: -2px;
+        }
+        .menu a.active {
+            font-weight: bold;
+        }
+        .menu a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            margin-top: 60px;
+        }
+        .content .gallery {
+	    padding: 0;
+            display: grid;
+            grid-template-columns: repeat(1, 1fr); /* 每行三张图片 */
+            gap: 0px; /* 图片之间的间距 */
+            justify-content: center;
+            padding: 0px;
+        }
+        .content .gallery img {
+            width: auto; /* 保持原始宽度 */
+            height: auto; /* 保持原始高度 */
+            max-width: 100%; /* 避免超出容器 */
+            margin: 0 auto; /* 图片水平居中 */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Menu -->
+        <div class="menu">
+            <a href="performing_art.html" class="active">01 PERFORMING ARTS</a>
+            <a href="visual_art.html">02 VISUAL ARTS</a>
+            <a href="cv.html">03 CV</a>
+	    <a href="mailto:jayden@newschool.edu">04 CONTACT</a>
+            <a href="index.html">(back)</a>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <div class="gallery">
+                <img src="image20.JPEG" alt="Performing Art">
+       		<img src="image19.JPEG" alt="Performing Art">
+        	<img src="image18.JPEG" alt="Performing Art">
+        	<img src="image17.JPEG" alt="Performing Art">
+        	<img src="image16.jpg" alt="Performing Art">
+        	<img src="image15.jpg" alt="Performing Art">
+        	<img src="image14.jpg" alt="Performing Art">
+        	<img src="image13.JPG" alt="Performing Art">
+        	<img src="image12.JPG" alt="Performing Art">
+        	<img src="image11.JPG" alt="Performing Art">
+        	<img src="image10.JPG" alt="Performing Art">
+        	<img src="image9.JPG" alt="Performing Art">
+        	<img src="image8.JPG" alt="Performing Art">
+        	<img src="image7.JPG" alt="Performing Art">
+        	<img src="image6.JPG" alt="Performing Art">
+        	<img src="image5.JPG" alt="Performing Art">
+        	<img src="image4.JPG" alt="Performing Art">
+        	<img src="image3.JPG" alt="Performing Art">
+        	<img src="image2.JPEG" alt="Performing Art">
+        	<img src="image1.JPG" alt="Performing Art">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
