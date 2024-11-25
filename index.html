@@ -39,12 +39,29 @@
         }
         .logo {
             margin-top: 40px; /* 給logo一點間隔 */
-	    margin-left: 0px;
+	    text-align: left;
         }
         .logo img {
             width: 1710px;
             height: auto;
         }
+	@media only screen and (max-width: 768px) {
+	    .container {
+                align-items: flex-start; /* Left align */
+            }
+            .menu {
+                padding-left: 20px;
+            }
+	    .logo {
+                margin-top: 0px; /* 控制 logo 与 menu 的间距 */
+                padding-left: 250px;
+            }
+   	    .logo img {
+        	content: url('logoforphone.png'); /* 替换为手机版 logo */
+                width: 300px;
+                height: auto;
+    }
+}
     </style>
 </head>
 <body>
