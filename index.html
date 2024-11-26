@@ -12,19 +12,21 @@
             padding: 0;
             background-color: #000000;
             color: #ffffff;
+            height: 100vh; /* 確保網頁填滿視窗高度 */
         }
         .container {
             display: flex;
             flex-direction: column;
             align-items: flex-start;
             width: 100%;
+            height: 100%; /* 讓容器高度填滿頁面 */
+            position: relative; /* 設定基準位置 */
         }
         .menu {
             padding: 20px;
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-            margin-bottom: 20px;
         }
         .menu a {
             text-decoration: none;
@@ -38,21 +40,23 @@
             text-decoration: underline;
         }
         .logo {
-            margin-top: 60px;
-            text-align: left;
+            position: absolute; /* 絕對定位 */
+            bottom: 0; /* 將元素對齊容器底部 */
+            left: 0;
+            width: 100%; /* 讓圖片寬度填滿頁面 */
         }
         .logo img {
-            width: 1710px;
-            height: auto;
+            width: 100%; /* 圖片寬度填滿容器 */
+            height: auto; /* 保持圖片比例 */
         }
         @media only screen and (max-width: 768px) {
             .logo {
-                margin-top: 20px;
-                padding-left: 0px;
+                position: static; /* 手機版恢復正常流 */
+                margin-top: 60px;
             }
             .logo img {
                 content: url('logoforphone.png');
-                width: 430px;
+                width: 100%;
                 height: auto;
             }
         }
@@ -69,6 +73,3 @@
         <div class="logo">
             <img src="logo.png" alt="Jayden Liu Logo">
         </div>
-    </div>
-</body>
-</html>
