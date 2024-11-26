@@ -13,9 +13,6 @@
             color: #ffffff;
         }
         .container {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
             width: 100%;
         }
         .menu {
@@ -40,26 +37,38 @@
             text-decoration: underline;
         }
         .content {
-            margin-top: 0px;
-            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 0px;
+            padding: 0px;
         }
-        .section {
-            margin-bottom:20px;
+        .column {
+            flex: 1;
+            max-width: 25%;
+            padding: 20px;
+            box-sizing: border-box;
         }
-        .section h2 {
-	    margin-top: 80px;
-	    padding-left: 20px;
+        .column h2 {
             font-size: 16px;
             font-weight: 600;
             letter-spacing: -0.5px;
-	    margin-bottom: -14px;
+            margin-bottom: -14px;
         }
-        .section p {
-	    padding-left: 20px;
+        .column p {
             font-size: 16px;
             font-weight: 300;
             letter-spacing: -0.5px;
-	    margin-bottom: -20px;
+            line-height: 1.2;
+        }
+        @media (max-width: 768px) {
+            .content {
+                flex-direction: column;
+            }
+            .column {
+                max-width: 100%;
+                margin-bottom: 10px;
+            }
         }
     </style>
 </head>
@@ -76,50 +85,55 @@
 
         <!-- Content -->
         <div class="content">
-            <!-- Personal Information Section -->
-            <div class="section">
+            <!-- Left Column: Education -->
+            <div class="column">
                 <h2>EDUCATION</h2>
-		<p>MFA Fine Arts
-		<br>Parsons School of Design
-		<br>New York, NY&nbsp;&nbsp;|&nbsp;&nbsp;2024 – 2026
-		<br><br>BA Drama and Theatre
-		<br>National Taiwan University
-		<br>Taipei, Taiwan&nbsp;&nbsp;|&nbsp;&nbsp;2019 – 2023</p>
+                <p>MFA Fine Arts<br>
+                Parsons School of Design<br>
+                New York, NY&nbsp;&nbsp;|&nbsp;&nbsp;2024 – 2026<br><br>
+                BA Drama and Theatre<br>
+                National Taiwan University<br>
+                Taipei, Taiwan&nbsp;&nbsp;|&nbsp;&nbsp;2019 – 2023</p>
             </div>
 
-            <!-- Education Section -->
-            <div class="section">
+            <!-- Empty Column -->
+            <div class="column">
+                <!-- Intentionally Left Empty -->
+            </div>
+
+            <!-- Third Column: Group Exhibitions -->
+            <div class="column">
                 <h2>GROUP EXHIBITIONS</h2>
-		<p><i>To Continue Being Alive</i>
-                <br>25 East Gallery
-		<br>New York, NY&nbsp;&nbsp;|&nbsp;&nbsp;Dec 6, 2024</p>
+                <p><i>To Continue Being Alive</i><br>
+                25 East Gallery<br>
+                New York, NY&nbsp;&nbsp;|&nbsp;&nbsp;Dec 6, 2024</p>
             </div>
 
-            <!-- Experience Section -->
-            <div class="section">
+            <!-- Right Column: Experience -->
+            <div class="column">
                 <h2>EXPERIENCE</h2>
-                <p>Actor
-		<br><i>安德烈之屋</i>
-		<br>Tainaner Ensemble
-		<br>Experimental Theater
-		<br>Taipei, Taiwan&nbsp;&nbsp;|&nbsp;&nbsp;Aug 23 - 25, 2024
-		<br><br>Asistant Projection Designer
-		<br><i>Reality No-Show</i>
-		<br>Tainaner Ensemble
-		<br>Taipei Performing Arts Center
-		<br>Taipei, Taiwan&nbsp;&nbsp;|&nbsp;&nbsp;Sep 30 - Oct 8, 2023
-		<br>National Kaohsiung Center for the Arts
-		<br>Kaohsiung, Taiwan&nbsp;&nbsp;|&nbsp;&nbsp;Nov 10 - 12, 2023
-		<br><br>Actor
-		<br><i>Long Live the Mango Tree</i>
-		<br>Goaty Ensemble
-		<br>University Café
-		<br>Taipei, Taiwan&nbsp;&nbsp;|&nbsp;&nbsp;Nov 4, 2023
-		<br><br>Actor
-		<br><i>Things to Do at a Trial When You're Innocent</i>
-		<br>Goaty Ensemble
-		<br>一日弎時 Mononi
-		<br>Taipei, Taiwan&nbsp;&nbsp;|&nbsp;&nbsp;Aug 30 - Sep 3, 2023</p>
+                <p>Actor<br>
+                <i>安德烈之屋</i><br>
+                Tainaner Ensemble<br>
+                Experimental Theater<br>
+                Taipei, Taiwan&nbsp;&nbsp;|&nbsp;&nbsp;Aug 23 - 25, 2024<br><br>
+                Assistant Projection Designer<br>
+                <i>Reality No-Show</i><br>
+                Tainaner Ensemble<br>
+                Taipei Performing Arts Center<br>
+                Taipei, Taiwan&nbsp;&nbsp;|&nbsp;&nbsp;Sep 30 - Oct 8, 2023<br>
+                National Kaohsiung Center for the Arts<br>
+                Kaohsiung, Taiwan&nbsp;&nbsp;|&nbsp;&nbsp;Nov 10 - 12, 2023<br><br>
+                Actor<br>
+                <i>Long Live the Mango Tree</i><br>
+                Goaty Ensemble<br>
+                University Café<br>
+                Taipei, Taiwan&nbsp;&nbsp;|&nbsp;&nbsp;Nov 4, 2023<br><br>
+                Actor<br>
+                <i>Things to Do at a Trial When You're Innocent</i><br>
+                Goaty Ensemble<br>
+                一日弎時 Mononi<br>
+                Taipei, Taiwan&nbsp;&nbsp;|&nbsp;&nbsp;Aug 30 - Sep 3, 2023</p>
             </div>
         </div>
     </div>
