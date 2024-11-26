@@ -15,12 +15,12 @@
         }
         .container {
             display: flex;
-            flex-direction: column; /* 讓menu和logo排成一列 */
-            align-items: flex-start; /* 將所有項目對齊左側 */
+            flex-direction: column;
+            align-items: flex-start;
             width: 100%;
         }
         .menu {
-	    padding: 20px;
+            padding: 20px;
             display: flex;
             flex-direction: column;
             align-items: flex-start;
@@ -32,7 +32,7 @@
             font-size: 20px;
             margin-bottom: -4px;
             font-weight: 500;
-	    letter-spacing: -1px;
+            letter-spacing: -1px;
         }
         .menu a.active {
             font-style: italic;
@@ -44,18 +44,23 @@
             margin-top: 40px;
         }
         .content .gallery {
-	    padding: 0;
             display: grid;
             grid-template-columns: repeat(3, 1fr); /* 每行三张图片 */
             gap: 0px; /* 图片之间的间距 */
             justify-content: center;
-            padding: 0px;
         }
         .content .gallery img {
-            width: auto; /* 保持原始宽度 */
-            height: auto; /* 保持原始高度 */
-            max-width: 100%; /* 避免超出容器 */
+            width: auto;
+            height: auto;
+            max-width: 100%;
             margin: 0 auto; /* 图片水平居中 */
+        }
+        /* 手機版設計 */
+        @media (max-width: 768px) {
+            .content .gallery {
+                grid-template-columns: 1fr; /* 每行顯示一張圖片 */
+                gap: 0px; /* 圖片間距 */
+            }
         }
     </style>
 </head>
@@ -66,7 +71,7 @@
             <a href="performing_art.html">01 PERFORMING ARTS</a>
             <a href="visual_art.html" class="active">02 VISUAL ARTS</a>
             <a href="cv.html">03 CV</a>
-	    <a href="mailto:jayden@newschool.edu">04 CONTACT</a>
+            <a href="mailto:jayden@newschool.edu">04 CONTACT</a>
             <a href="index.html">(back)</a>
         </div>
 
@@ -74,8 +79,8 @@
         <div class="content">
             <div class="gallery">
                 <img src="image21.JPG" alt="Visual Art">
-		<img src="image22.JPG" alt="Visual Art">
-		<img src="image23.JPG" alt="Visual Art">
+                <img src="image22.JPG" alt="Visual Art">
+                <img src="image23.JPG" alt="Visual Art">
             </div>
         </div>
     </div>
