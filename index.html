@@ -7,69 +7,180 @@
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
     <style>
         body {
-            font-family: Helvetica, Arial, sans-serif;
+            font-family: "Helvetica", Arial, sans-serif; /* 字體為 Helvetica */
             margin: 0;
             padding: 0;
-            background-color: #000000;
-            color: #ffffff;
-            height: 100vh; /* 確保網頁填滿視窗高度 */
+            background-color: #ffffff; /* 背景顏色為白色 */
+            color: #dd0000; /* 所有文字顏色為紅色 */
+            font-size: 16px; /* 全局字體大小設為16px */
+            font-weight: 300; /* 全局字重為300 */
         }
         .container {
+            padding: 0px; /* 增加頁面整體內邊距 */
+            display: flex;
+            box-sizing: border-box;
+        }
+        .left {
+            width: 30%; /* 左側佔30% */
             display: flex;
             flex-direction: column;
+            justify-content: flex-start;
             align-items: flex-start;
-            width: 100%;
-            height: 100%; /* 讓容器高度填滿頁面 */
-            position: relative; /* 設定基準位置 */
+        }
+        .title {
+            padding: 20px;
+            font-size: 16px;
+            font-weight: 300;
+            margin-bottom: 10px;
+        }
+        .right {
+            width: 65%; /* 右側佔65% */
+            margin-left: 5%; /* 左右之間的間隔 */
         }
         .menu {
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
+            margin-bottom: 60px;
         }
         .menu a {
             text-decoration: none;
-            color: #ffffff;
-            font-size: 20px;
-            margin-bottom: -4px;
+            color: #dd0000;
+            font-size: 16px;
             font-weight: 300;
-            letter-spacing: -1px;
+            display: block; /* 每個選項占一行 */
+            margin-bottom: 0px;
+            transition: font-weight 0.1s; /* 懸停效果過渡 */
         }
         .menu a:hover {
-            font-weight: bold;
+            font-weight: bold; /* 懸停時加粗 */
         }
-        .logo {
-            position: absolute; /* 絕對定位 */
-            bottom: 0; /* 將元素對齊容器底部 */
-            left: 0;
-            width: 100%; /* 讓圖片寬度填滿頁面 */
+        .year {
+            font-size: 16px;
+            font-weight: 300;
+            margin-top: 20px;
         }
-        .logo img {
-            width: 100%; /* 圖片寬度填滿容器 */
-            height: auto; /* 保持圖片比例 */
+        .image-section {
+            margin-bottom: 50px; /* 每個圖片段落之間的間距 */
+            text-align: right; /* 右側對齊 */
         }
-        @media only screen and (max-width: 768px) {
-            .logo {
-                position: static; /* 手機版恢復正常流 */
-                margin-top: 60px;
-            }
-            .logo img {
-                content: url('logoforphone.png');
-                width: 100%;
-                height: auto;
-            }
+        .image-title {
+            font-size: 16px; /* 圖片標題字體大小 */
+            font-style: italic; /* 字體斜體 */
+            font-weight: 300; /* 字重為300 */
+            color: #dd0000; /* 標題為紅色 */
+            margin-bottom: 0px;
+        }
+        .image-description {
+            font-size: 16px; /* 描述字體大小略小 */
+            font-weight: 300; /* 字重為300 */
+            color: #dd0000; /* 描述為紅色 */
+            margin-bottom: 15px; /* 描述與圖片之間的間距 */
+        }
+        .image-section img {
+            width: 100%; /* 填滿右側區域 */
+            height: auto; /* 高度自適應，保持比例 */
+        }
+        .extra-links {
+            margin-top: 20px; /* 與菜單內容間距 */
+        }
+        #back-to-top {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            font-size: 16px;
+            font-weight: 300;
+            color: #dd0000;
+            text-decoration: none;
+            transition: font-weight 0.1s;
+        }
+        #back-to-top:hover {
+            font-weight: bold; /* 懸停時加粗 */
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="menu">
-            <a href="performing_art.html">01 PERFORMING ARTS</a>
-            <a href="visual_art.html">02 VISUAL ARTS</a>
-            <a href="cv.html">03 CV</a>
-            <a href="mailto:jayden@newschool.edu">04 CONTACT</a>
+        <!-- 左側標題 -->
+        <div class="left">
+            <div class="title">JAYDEN LIU</div>
         </div>
-        <div class="logo">
-            <img src="logo.png" alt="Jayden Liu Logo">
+
+        <!-- 右側內容 -->
+        <div class="right">
+            <!-- 菜單 -->
+            <div class="menu">
+                <div class="year">2024</div>
+                <a href="#title-2024-1">+ 12 UNDERGARMENTS</a>
+                <a href="#title-2024-2">+ 6 UNDERGARMENTS</a>
+                <a href="#title-2024-3">+ ANDRE'S HOUSE</a>
+
+                <div class="year">2023</div>
+                <a href="#title-2023-1">+ LONG LIVE THE MANGO TREE</a>
+                <a href="#title-2023-2">+ THINGS TO DO AT A TRIAL WHEN YOU'RE INNOCENT</a>
+
+                <div class="year">2022</div>
+                <a href="#title-2022-1">+ UNSCHULD</a>
+                <a href="#title-2022-2">+ THE ARABIAN NIGHTS</a>
+
+                <!-- 新增 CV 和 CONTACT -->
+                <div class="extra-links">
+                    <a href="cv.html">CV</a>
+                    <a href="contact.html">CONTACT</a>
+                </div>
+            </div>
+
+            <!-- 圖片及內容 -->
+            <div id="title-2024-1" class="image-section">
+                <div class="image-title">12 UNDERGARMENTS</div>
+                <div class="image-description">2024<br>Cotton, wire, and aqua resin<br>120 x 30 x 30 in</div>
+                <img src="12undergarments.png" alt="12 Undergarments">
+            </div>
+
+            <div id="title-2024-2" class="image-section">
+                <div class="image-title">6 UNDERGARMENTS</div>
+                <div class="image-description">2024<br>Cotton, wire, and aqua resin<br>56 x 32 x 32 in</div>
+                <img src="6undergarments.png" alt="6 Undergarments">
+            </div>
+
+            <div id="title-2024-3" class="image-section">
+                <div class="image-title">ANDRE'S HOUSE</div>
+                <div class="image-description">A homage to architectural memories and stories.</div>
+                <img src="andres-house.jpg" alt="Andre's House">
+            </div>
+
+            <div id="title-2023-1" class="image-section">
+                <div class="image-title">LONG LIVE THE MANGO TREE</div>
+                <div class="image-description">A celebration of life and tradition through nature.</div>
+                <img src="long-live-mango-tree.jpg" alt="Long Live The Mango Tree">
+            </div>
+
+            <div id="title-2023-2" class="image-section">
+                <div class="image-title">THINGS TO DO AT A TRIAL WHEN YOU'RE INNOCENT</div>
+                <div class="image-description">A satirical yet profound look at justice and humanity.</div>
+                <img src="trial-innocent.jpg" alt="Things To Do At A Trial When You're Innocent">
+            </div>
+
+            <div id="title-2022-1" class="image-section">
+                <div class="image-title">UNSCHULD</div>
+                <div class="image-description">An abstract exploration of purity and guilt.</div>
+                <img src="unschuld.jpg" alt="Unschuld">
+            </div>
+
+            <div id="title-2022-2" class="image-section">
+                <div class="image-title">THE ARABIAN NIGHTS</div>
+                <div class="image-description">A visual reinterpretation of timeless tales.</div>
+                <img src="arabian-nights.jpg" alt="The Arabian Nights">
+            </div>
         </div>
+    </div>
+
+    <!-- Back to Top -->
+    <a href="#top" id="back-to-top">▲▲</a>
+
+    <script>
+        // 滑動到頂部功能（如果需要平滑滾動）
+        document.getElementById('back-to-top').addEventListener('click', function (e) {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
