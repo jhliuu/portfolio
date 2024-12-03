@@ -16,7 +16,7 @@
             font-weight: 300; /* 全局字重為300 */
         }
         .container {
-            padding: 0px; /* 移除頁面整體內邊距 */
+            padding: 20px; /* 移除頁面整體內邊距 */
             display: flex;
             box-sizing: border-box;
         }
@@ -26,12 +26,22 @@
             flex-direction: column;
             justify-content: flex-start;
             align-items: flex-start;
-            padding: 20px; /* 保持左側內邊距 */
+            padding: 0px; /* 保持左側內邊距 */
         }
-        .title {
+        .title a {
             font-size: 12px;
             font-weight: 300;
-            margin-bottom: 10px;
+            color: #dd0000;
+            text-decoration: none;
+            cursor: pointer;
+            transition: font-weight 0.1s;
+            margin-top: 0; /* 重置上邊距 */
+            margin-left: 0; /* 重置左邊距 */
+            margin-bottom: 20px; /* 增加下邊距，增加「JAYDEN LIU」和「CV」之間的間距 */
+        }
+        .title a:hover {
+            font-weight: bold; /* 懸停時加粗 */
+            text-decoration: none; /* 移除下劃線 */
         }
         .right {
             width: 65%; /* 右側佔65% */
@@ -40,7 +50,7 @@
             margin-top: 20px;
         }
         .menu {
-            margin-bottom: 60px;
+            margin-bottom: 80px; /* 調整後的下邊距 */
         }
         .menu a {
             text-decoration: none;
@@ -50,17 +60,25 @@
             display: block; /* 每個選項占一行 */
             margin-bottom: 0px;
             transition: font-weight 0.1s; /* 懸停效果過渡 */
+            cursor: pointer;
         }
         .menu a:hover {
             font-weight: bold; /* 懸停時加粗 */
+            text-decoration: none; /* 移除下劃線 */
         }
         .year {
             font-size: 12px;
             font-weight: 300;
             margin-top: 20px;
         }
+        .image-section,
+        .cv-content,
+	    margin-top: 60px;
+        .contact-content {
+            margin-top: 120px; /* 統一上邊距 */
+        }
         .image-section {
-            margin-bottom: 50px; /* 每個圖片段落之間的間距 */
+            margin-bottom: 20px; /* 調整後的下邊距 */
             text-align: right; /* 右側對齊 */
             padding-right: 10px; /* 與右邊距離10px */
         }
@@ -69,7 +87,8 @@
             font-style: italic; /* 字體斜體 */
             font-weight: 300; /* 字重為300 */
             color: #dd0000; /* 標題為紅色 */
-            margin-bottom: 0px;
+            margin-top: 0; /* 移除額外的上邊距 */
+            margin-bottom: 10px; /* 統一下邊距 */
             text-align: right; /* 圖片標題靠右對齊 */
         }
         .image-description {
@@ -86,6 +105,7 @@
         }
         .extra-links {
             margin-bottom: 20px; /* 與菜單間距 */
+            margin-top: 20px; /* 增加上邊距，增加「CV」上方的間距 */
         }
         .extra-links a {
             text-decoration: none;
@@ -95,9 +115,11 @@
             display: block; /* 每個選項占一行 */
             margin-bottom: 0px;
             transition: font-weight 0.1s; /* 懸停效果過渡 */
+            cursor: pointer;
         }
         .extra-links a:hover {
             font-weight: bold; /* 懸停時加粗 */
+            text-decoration: none; /* 移除下劃線 */
         }
         #back-to-top {
             position: fixed;
@@ -109,9 +131,11 @@
             text-decoration: none;
             transition: font-weight 0.1s;
             cursor: pointer;
+            line-height: 1; /* 減少行距 */
         }
         #back-to-top:hover {
             font-weight: bold; /* 懸停時加粗 */
+            text-decoration: none; /* 移除下劃線 */
         }
 
         /* 手機版樣式 */
@@ -127,17 +151,26 @@
                 text-align: left; /* 左側對齊 */
                 margin-top: 0; /* 移除右側的頂部間距 */
             }
-	    .title {
-            font-size: 12px;
-            font-weight: 300;
-            margin-bottom: 0px;
-	    margin-left: -20px;
-	    margin-top: -20px;
+            .left {
+                padding-top: 10px; /* 減少上方內邊距 */
+                padding-bottom: 10px; /* 可選：減少下方內邊距 */
+            }
+            .title a {
+                font-size: 12px;
+                font-weight: 300;
+                margin-left: 0px; /* 重置左邊距 */
+                margin-top: 0px; /* 移除負邊距 */
+                margin-bottom: 20px; /* 增加下邊距，保持與桌面版一致 */
+                text-decoration: none;
+            }
+            .title a:hover {
+                font-weight: bold; /* 懸停時加粗 */
+                text-decoration: none; /* 移除下劃線 */
             }
             .extra-links a {
                 display: block;
                 margin-bottom: 0px;
-                white-space: nowrap; /* 保持 CONTACT 在兩行 */
+                white-space: nowrap; /* 保持 CONTACT 在一行 */
             }
             .extra-links a:nth-child(2) {
                 white-space: pre-wrap; /* 讓 CONTACT 換行 */
@@ -146,6 +179,8 @@
                 text-align: right; /* 圖片標題和描述靠右對齊 */
                 padding-right: 0; /* 移除右側內邊距 */
                 margin-right: 0; /* 移除右側邊距 */
+                margin-top: 60px; /* 統一上邊距 */
+                margin-bottom: 0px; /* 統一下邊距 */
             }
             .image-title, .image-description {
                 text-align: right; /* 圖片標題和描述靠右對齊 */
@@ -154,93 +189,272 @@
                 width: 100%; /* 撐滿左右 */
                 margin-right: 0; /* 移除右側邊距 */
             }
+            .cv-content,
+            .contact-content,
+            .cv-content *,
+            .contact-content * {
+                text-align: left; /* CV 和 Contact 內容左對齊 */
+            }
+            /* 調整 Back to Top 在手機版的位置 */
+            #back-to-top {
+                top: 30px;
+                right: 20px;
+                bottom: auto;
+                left: auto;
+                line-height: 1; /* 減少行距 */
+            }
         }
+
+        /* 新增 CV 和 Contact 區域的樣式 */
+        .cv-content,
+        .contact-content {
+            display: none; /* 初始隱藏 */
+            margin-top: 20px;
+            padding-right: 10px;
+            margin-bottom: 20px; /* 增加下邊距，讓內容離頁面底部有距離 */
+        }
+        .cv-content.active,
+        .contact-content.active {
+            display: block; /* 顯示時使用 */
+        }
+        .back-button {
+            display: none; /* 隱藏返回按鈕 */
+        }
+
+        /* 調整 CV 和 Contact 內容的字體大小和行距 */
+        .cv-content h2,
+        .cv-content p,
+        .contact-content p {
+            font-size: 12px;
+            line-height: 12px; /* 行高設為12px，消除行距 */
+            margin: 0; /* 移除段落間距 */
+            font-weight: 300;
+            color: #dd0000;
+        }
+
+        .cv-content h2,
+        .contact-content h2 {
+            margin-top: 40px; /* 添加上邊距以區分不同部分 */
+            margin-bottom: -24px; /* 添加下邊距以區分標題與內容 */
+        }
+
+        .cv-content p,
+        .contact-content p {
+            margin-bottom: -24px; /* 添加下邊距以區分內容 */
+        }
+
+        /* 圖片懸停效果（已移除） */
+        /*
+        .image-section img:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s;
+        }
+        */
     </style>
 </head>
 <body id="top">
     <div class="container">
         <!-- 左側標題 -->
         <div class="left">
-            <div class="title">JAYDEN LIU</div>
+            <div class="title"><a href="#" id="back-home" aria-label="返回首頁">JAYDEN LIU</a></div>
         </div>
 
         <!-- 右側內容 -->
         <div class="right">
-            <!-- 新增 CV 和 CONTACT -->
+            <!-- CV 和 CONTACT -->
             <div class="extra-links">
-                <a href="cv.html">CV</a>
-                <a href="contact.html">CONTACT</a>
+                <a href="#" id="show-cv" aria-label="顯示 CV">CV</a>
+                <a href="#" id="show-contact" aria-label="顯示聯繫信息">CONTACT</a>
             </div>
 
             <!-- 菜單 -->
             <div class="menu">
                 <div class="year">2024</div>
-                <a href="#title-2024-1">+ 12 UNDERGARMENTS</a>
-                <a href="#title-2024-2">+ 6 UNDERGARMENTS</a>
-                <a href="#title-2024-3">+ ANDRE'S HOUSE</a>
+                <a href="#title-2024-1" class="menu-link" aria-label="顯示 12 UNDERGARMENTS">+ 12 UNDERGARMENTS</a>
+                <a href="#title-2024-2" class="menu-link" aria-label="顯示 6 UNDERGARMENTS">+ 6 UNDERGARMENTS</a>
+                <a href="#title-2024-3" class="menu-link" aria-label="顯示 ANDRE'S HOUSE">+ ANDRE'S HOUSE</a>
 
                 <div class="year">2023</div>
-                <a href="#title-2023-1">+ LONG LIVE THE MANGO TREE</a>
-                <a href="#title-2023-2">+ THINGS TO DO AT A TRIAL WHEN YOU'RE INNOCENT</a>
+                <a href="#title-2023-2" class="menu-link" aria-label="顯示 THINGS TO DO AT A TRIAL WHEN YOU'RE INNOCENT">+ THINGS TO DO AT A TRIAL WHEN YOU'RE INNOCENT</a>
 
                 <div class="year">2022</div>
-                <a href="#title-2022-1">+ UNSCHULD</a>
-                <a href="#title-2022-2">+ THE ARABIAN NIGHTS</a>
+                <a href="#title-2022-1" class="menu-link" aria-label="顯示 UNSCHULD">+ UNSCHULD</a>
+                <a href="#title-2022-2" class="menu-link" aria-label="顯示 THE ARABIAN NIGHTS">+ THE ARABIAN NIGHTS</a>
             </div>
 
             <!-- 圖片及內容 -->
-            <div id="title-2024-1" class="image-section">
-                <div class="image-title">12 UNDERGARMENTS</div>
-                <div class="image-description">2024<br>Cotton, wire, and aqua resin<br>120 x 30 x 30 in</div>
-                <img src="12undergarments.png" alt="12 Undergarments">
+            <div id="image-content">
+                <div id="title-2024-1" class="image-section">
+                    <div class="image-title">12 UNDERGARMENTS</div>
+                    <div class="image-description">2024<br>Cotton, wire, and aqua resin<br>120 x 30 x 30 in</div>
+                    <img src="12undergarments.png" alt="12 Undergarments">
+                </div>
+
+                <div id="title-2024-2" class="image-section">
+                    <div class="image-title">6 UNDERGARMENTS</div>
+                    <div class="image-description">2024<br>Cotton, wire, and aqua resin<br>56 x 32 x 32 in</div>
+                    <img src="6undergarments.png" alt="6 Undergarments">
+                </div>
+
+                <div id="title-2024-3" class="image-section">
+                    <div class="image-title">ANDRE'S HOUSE</div>
+                    <div class="image-description">2024<br>Tainaner Ensemble<br>Experimental Theater<br>Taipei, Taiwan</div>
+                    <img src="andres-house.JPEG" alt="Andre's House">
+		    <img src="image20.JPEG" alt="Andre's House">
+		    <img src="image17.JPEG" alt="Andre's House">
+                </div>
+
+                <div id="title-2023-2" class="image-section">
+                    <div class="image-title">THINGS TO DO AT A TRIAL WHEN YOU'RE INNOCENT</div>
+                    <div class="image-description">2023<br>Goaty Ensemble<br>Mononi Art Venue<br>Taipei, Taiwan</div>
+                    <img src="image12.JPG" alt="Things To Do At A Trial When You're Innocent">
+                </div>
+
+                <div id="title-2022-1" class="image-section">
+                    <div class="image-title">UNSCHULD</div>
+                    <div class="image-description">2022<br>Dept. of Drama and Theatre at NTU<br>National Taiwan Arts Education Center<br>Taipei, Taiwan</div>
+                    <img src="image8.JPG" alt="Unschuld">
+		    <img src="image9.JPG" alt="Unschuld">
+		    <img src="image10.JPG" alt="Unschuld">
+                </div>
+
+                <div id="title-2022-2" class="image-section">
+                    <div class="image-title">THE ARABIAN NIGHTS</div>
+                    <div class="image-description">2022<br>Dept. of Drama and Theatre at NTU<br>National Taiwan Arts Education Center<br>Taipei, Taiwan</div>
+                    <img src="image2.JPEG" alt="The Arabian Nights">
+		    <img src="image4.JPG" alt="The Arabian Nights">
+		    <img src="image3.JPG" alt="The Arabian Nights">
+		    <img src="image5.JPG" alt="The Arabian Nights">
+                </div>
             </div>
 
-            <div id="title-2024-2" class="image-section">
-                <div class="image-title">6 UNDERGARMENTS</div>
-                <div class="image-description">2024<br>Cotton, wire, and aqua resin<br>56 x 32 x 32 in</div>
-                <img src="6undergarments.png" alt="6 Undergarments">
+            <!-- CV 內容區域 -->
+            <div id="cv-content" class="cv-content">
+                <div id="cv-text" style="width: 100%; white-space: pre-wrap;">
+                    <h2><strong>EDUCATION</strong></h2>
+                    <p><i>MFA Fine Arts</i></p>
+                    <p>Parsons School of Design</p>
+                    <p>New York, NY  |  2024 - 2026</p>
+
+                    <p><i>BA Drama and Theatre</i></p>
+                    <p>National Taiwan University</p>
+                    <p>Taipei, Taiwan  |  2019 - 2023</p>
+
+                    <h2><strong>GROUP EXHIBITIONS</strong></h2>
+                    <p><i>To Continue Being Alive</i></p>
+                    <p>25 East Gallery</p>
+                    <p>New York, NY  |  Dec 6, 2024</p>
+
+                    <h2><strong>PERFORMANCE ARTS</strong></h2>
+                    <p><i>Actor</i></p>
+                    <p>Andre's House</p>
+                    <p>Tainaner Ensemble</p>
+                    <p>Experimental Theater</p>
+                    <p>Taipei, Taiwan  |  Aug 23 - 25, 2024</p>
+
+                    <p><i>Assistant Projection Designer</i></p>
+                    <p>Reality No-Show</p>
+                    <p>Tainaner Ensemble</p>
+                    <p>Taipei Performing Arts Center</p>
+                    <p>Taipei, Taiwan  |  Sep 30 - Oct 8, 2023</p>
+                    <p>National Kaohsiung Center for the Arts</p>
+                    <p>Kaohsiung, Taiwan  |  Nov 10 - 12, 2023</p>
+
+                    <p><i>Actor</i></p>
+                    <p>Long Live the Mango Tree</p>
+                    <p>Goaty Ensemble</p>
+                    <p>University Café</p>
+                    <p>Taipei, Taiwan  |  Nov 4, 2023</p>
+
+                    <p><i>Actor</i></p>
+                    <p>Things to Do at a Trial When You're Innocent</p>
+                    <p>Goaty Ensemble</p>
+                    <p>Mononi Art Venue</p>
+                    <p>Taipei, Taiwan  |  Aug 30 - Sep 3, 2023</p>
+
+                    <p><i>Actor</i></p>
+                    <p>Unschuld</p>
+                    <p>Dept. of Drama and Theatre at NTU</p>
+                    <p>National Taiwan Arts Education Center</p>
+                    <p>Taipei, Taiwan  |  Dec 9 -11, 2022</p>
+
+                    <p><i>Actor</i></p>
+                    <p>The Arabian Nights</p>
+                    <p>Dept. of Drama and Theatre at NTU</p>
+                    <p>National Taiwan Arts Education Center</p>
+                    <p>Taipei, Taiwan  |  May 13 - May 15, 2022</p>
+
+                    <!-- 增加下方的 margin -->
+                    <div style="margin-bottom: 20px;"></div>
+                </div>
             </div>
 
-            <div id="title-2024-3" class="image-section">
-                <div class="image-title">ANDRE'S HOUSE</div>
-                <div class="image-description">A homage to architectural memories and stories.</div>
-                <img src="andres-house.jpg" alt="Andre's House">
-            </div>
-
-            <div id="title-2023-1" class="image-section">
-                <div class="image-title">LONG LIVE THE MANGO TREE</div>
-                <div class="image-description">A celebration of life and tradition through nature.</div>
-                <img src="long-live-mango-tree.jpg" alt="Long Live The Mango Tree">
-            </div>
-
-            <div id="title-2023-2" class="image-section">
-                <div class="image-title">THINGS TO DO AT A TRIAL WHEN YOU'RE INNOCENT</div>
-                <div class="image-description">A satirical yet profound look at justice and humanity.</div>
-                <img src="trial-innocent.jpg" alt="Things To Do At A Trial When You're Innocent">
-            </div>
-
-            <div id="title-2022-1" class="image-section">
-                <div class="image-title">UNSCHULD</div>
-                <div class="image-description">An abstract exploration of purity and guilt.</div>
-                <img src="unschuld.jpg" alt="Unschuld">
-            </div>
-
-            <div id="title-2022-2" class="image-section">
-                <div class="image-title">THE ARABIAN NIGHTS</div>
-                <div class="image-description">A visual reinterpretation of timeless tales.</div>
-                <img src="arabian-nights.jpg" alt="The Arabian Nights">
+            <!-- Contact 內容區域 -->
+            <div id="contact-content" class="contact-content">
+                <div id="contact-text" style="width: 100%; white-space: pre-wrap;">
+                    <p>EMAIL/ jayden@newschool.edu</p>
+                    <p>INSTAGRAM/ @jhliuu</p>
+                </div>
             </div>
         </div>
     </div>
 
     <!-- Back to Top -->
-    <a href="#top" id="back-to-top">▲▲</a>
+    <a href="#top" id="back-to-top" aria-label="返回頂部">▲<br>▲</a>
 
     <script>
         // 滑動到頂部功能（平滑滾動）
         document.getElementById('back-to-top').addEventListener('click', function (e) {
             e.preventDefault();
             window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // 顯示 CV 內容
+        document.getElementById('show-cv').addEventListener('click', function (e) {
+            e.preventDefault();
+            document.getElementById('image-content').style.display = 'none';
+            document.getElementById('contact-content').style.display = 'none';
+            document.getElementById('cv-content').classList.add('active');
+            document.getElementById('cv-content').style.display = 'block';
+        });
+
+        // 顯示 Contact 內容
+        document.getElementById('show-contact').addEventListener('click', function (e) {
+            e.preventDefault();
+            document.getElementById('image-content').style.display = 'none';
+            document.getElementById('cv-content').style.display = 'none';
+            document.getElementById('contact-content').classList.add('active');
+            document.getElementById('contact-content').style.display = 'block';
+        });
+
+        // 返回首頁（顯示圖片內容，隱藏 CV 和 Contact 內容）
+        document.getElementById('back-home').addEventListener('click', function (e) {
+            e.preventDefault();
+            document.getElementById('cv-content').classList.remove('active');
+            document.getElementById('contact-content').classList.remove('active');
+            document.getElementById('cv-content').style.display = 'none';
+            document.getElementById('contact-content').style.display = 'none';
+            document.getElementById('image-content').style.display = 'block';
+        });
+
+        // 菜單連結點擊後顯示對應區域並隱藏 CV 和 Contact，頁面自動滑動
+        const menuLinks = document.querySelectorAll('.menu-link');
+        menuLinks.forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                // 隱藏 CV 和 Contact
+                document.getElementById('cv-content').classList.remove('active');
+                document.getElementById('contact-content').classList.remove('active');
+                document.getElementById('cv-content').style.display = 'none';
+                document.getElementById('contact-content').style.display = 'none';
+                // 顯示圖片內容
+                document.getElementById('image-content').style.display = 'block';
+                // 取得目標 ID
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
         });
     </script>
 </body>
