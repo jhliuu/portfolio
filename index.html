@@ -12,11 +12,11 @@
             padding: 0;
             background-color: #ffffff; /* 背景顏色為白色 */
             color: #dd0000; /* 所有文字顏色為紅色 */
-            font-size: 12px; /* 全局字體大小設為16px */
+            font-size: 12px; /* 全局字體大小設為12px */
             font-weight: 300; /* 全局字重為300 */
         }
         .container {
-            padding: 0px; /* 增加頁面整體內邊距 */
+            padding: 0px; /* 移除頁面整體內邊距 */
             display: flex;
             box-sizing: border-box;
         }
@@ -26,9 +26,9 @@
             flex-direction: column;
             justify-content: flex-start;
             align-items: flex-start;
+            padding: 20px; /* 保持左側內邊距 */
         }
         .title {
-            padding: 20px;
             font-size: 12px;
             font-weight: 300;
             margin-bottom: 10px;
@@ -36,6 +36,8 @@
         .right {
             width: 65%; /* 右側佔65% */
             margin-left: 5%; /* 左右之間的間隔 */
+            padding-right: 10px; /* 右側內邊距10px */
+            margin-top: 20px;
         }
         .menu {
             margin-bottom: 60px;
@@ -60,6 +62,7 @@
         .image-section {
             margin-bottom: 50px; /* 每個圖片段落之間的間距 */
             text-align: right; /* 右側對齊 */
+            padding-right: 10px; /* 與右邊距離10px */
         }
         .image-title {
             font-size: 12px; /* 圖片標題字體大小 */
@@ -67,19 +70,34 @@
             font-weight: 300; /* 字重為300 */
             color: #dd0000; /* 標題為紅色 */
             margin-bottom: 0px;
+            text-align: right; /* 圖片標題靠右對齊 */
         }
         .image-description {
-            font-size: 12px; /* 描述字體大小略小 */
+            font-size: 12px; /* 描述字體大小 */
             font-weight: 300; /* 字重為300 */
             color: #dd0000; /* 描述為紅色 */
             margin-bottom: 15px; /* 描述與圖片之間的間距 */
+            text-align: right; /* 圖片描述靠右對齊 */
         }
         .image-section img {
             width: 100%; /* 填滿右側區域 */
             height: auto; /* 高度自適應，保持比例 */
+            margin-right: 0px; /* 與右邊距離0px */
         }
         .extra-links {
-            margin-top: 20px; /* 與菜單內容間距 */
+            margin-bottom: 20px; /* 與菜單間距 */
+        }
+        .extra-links a {
+            text-decoration: none;
+            color: #dd0000;
+            font-size: 12px;
+            font-weight: 300;
+            display: block; /* 每個選項占一行 */
+            margin-bottom: 0px;
+            transition: font-weight 0.1s; /* 懸停效果過渡 */
+        }
+        .extra-links a:hover {
+            font-weight: bold; /* 懸停時加粗 */
         }
         #back-to-top {
             position: fixed;
@@ -90,13 +108,56 @@
             color: #dd0000;
             text-decoration: none;
             transition: font-weight 0.1s;
+            cursor: pointer;
         }
         #back-to-top:hover {
             font-weight: bold; /* 懸停時加粗 */
         }
+
+        /* 手機版樣式 */
+        @media only screen and (max-width: 768px) {
+            .container {
+                flex-direction: column; /* 手機版垂直排列 */
+                padding: 20px;
+            }
+            .left, .right {
+                width: 100%; /* 寬度填滿 */
+                margin-left: 0; /* 移除間隙 */
+                padding-right: 0; /* 移除右側內邊距 */
+                text-align: left; /* 左側對齊 */
+                margin-top: 0; /* 移除右側的頂部間距 */
+            }
+	    .title {
+            font-size: 12px;
+            font-weight: 300;
+            margin-bottom: 0px;
+	    margin-left: -20px;
+	    margin-top: -20px;
+            }
+            .extra-links a {
+                display: block;
+                margin-bottom: 0px;
+                white-space: nowrap; /* 保持 CONTACT 在兩行 */
+            }
+            .extra-links a:nth-child(2) {
+                white-space: pre-wrap; /* 讓 CONTACT 換行 */
+            }
+            .image-section {
+                text-align: right; /* 圖片標題和描述靠右對齊 */
+                padding-right: 0; /* 移除右側內邊距 */
+                margin-right: 0; /* 移除右側邊距 */
+            }
+            .image-title, .image-description {
+                text-align: right; /* 圖片標題和描述靠右對齊 */
+            }
+            .image-section img {
+                width: 100%; /* 撐滿左右 */
+                margin-right: 0; /* 移除右側邊距 */
+            }
+        }
     </style>
 </head>
-<body>
+<body id="top">
     <div class="container">
         <!-- 左側標題 -->
         <div class="left">
@@ -105,6 +166,12 @@
 
         <!-- 右側內容 -->
         <div class="right">
+            <!-- 新增 CV 和 CONTACT -->
+            <div class="extra-links">
+                <a href="cv.html">CV</a>
+                <a href="contact.html">CONTACT</a>
+            </div>
+
             <!-- 菜單 -->
             <div class="menu">
                 <div class="year">2024</div>
@@ -119,12 +186,6 @@
                 <div class="year">2022</div>
                 <a href="#title-2022-1">+ UNSCHULD</a>
                 <a href="#title-2022-2">+ THE ARABIAN NIGHTS</a>
-
-                <!-- 新增 CV 和 CONTACT -->
-                <div class="extra-links">
-                    <a href="cv.html">CV</a>
-                    <a href="contact.html">CONTACT</a>
-                </div>
             </div>
 
             <!-- 圖片及內容 -->
@@ -176,7 +237,7 @@
     <a href="#top" id="back-to-top">▲▲</a>
 
     <script>
-        // 滑動到頂部功能（如果需要平滑滾動）
+        // 滑動到頂部功能（平滑滾動）
         document.getElementById('back-to-top').addEventListener('click', function (e) {
             e.preventDefault();
             window.scrollTo({ top: 0, behavior: 'smooth' });
