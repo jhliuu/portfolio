@@ -225,6 +225,7 @@
 
         /* 調整 CV 和 Contact 內容的字體大小和行距 */
         .cv-content h2,
+        .contact-content h2,
         .cv-content p,
         .contact-content p {
             font-size: 12px;
@@ -243,6 +244,12 @@
         .cv-content p,
         .contact-content p {
             margin-bottom: -24px; /* 添加下邊距以區分內容 */
+        }
+
+        /* 確保 Contact 區域的連結具有底線並保持紅色 */
+        .contact-content a {
+            text-decoration: underline;
+            color: #dd0000;
         }
 
         /* 圖片懸停效果（已移除） */
@@ -334,11 +341,11 @@
             <div id="cv-content" class="cv-content">
                 <div id="cv-text" style="width: 100%; white-space: pre-wrap;">
                     <h2><strong>EDUCATION</strong></h2>
-                    <p><i>MFA Fine Arts</i></p>
+                    <p>MFA Fine Arts</p>
                     <p>Parsons School of Design</p>
                     <p>New York, NY  |  2024 - 2026</p>
 
-                    <p><i>BA Drama and Theatre</i></p>
+                    <p>BA Drama and Theatre</p>
                     <p>National Taiwan University</p>
                     <p>Taipei, Taiwan  |  2019 - 2023</p>
 
@@ -348,40 +355,40 @@
                     <p>New York, NY  |  Dec 6, 2024</p>
 
                     <h2><strong>PERFORMANCE ARTS</strong></h2>
-                    <p><i>Actor</i></p>
-                    <p>Andre's House</p>
+                    <p>Actor</p>
+                    <p><i>Andre's House</i></p>
                     <p>Tainaner Ensemble</p>
                     <p>Experimental Theater</p>
                     <p>Taipei, Taiwan  |  Aug 23 - 25, 2024</p>
 
-                    <p><i>Assistant Projection Designer</i></p>
-                    <p>Reality No-Show</p>
+                    <p>Assistant Projection Designer</p>
+                    <p><i>Reality No-Show</i></p>
                     <p>Tainaner Ensemble</p>
                     <p>Taipei Performing Arts Center</p>
                     <p>Taipei, Taiwan  |  Sep 30 - Oct 8, 2023</p>
                     <p>National Kaohsiung Center for the Arts</p>
                     <p>Kaohsiung, Taiwan  |  Nov 10 - 12, 2023</p>
 
-                    <p><i>Actor</i></p>
-                    <p>Long Live the Mango Tree</p>
+                    <p>Actor</p>
+                    <p><i>Long Live the Mango Tree</i></p>
                     <p>Goaty Ensemble</p>
                     <p>University Café</p>
                     <p>Taipei, Taiwan  |  Nov 4, 2023</p>
 
-                    <p><i>Actor</i></p>
-                    <p>Things to Do at a Trial When You're Innocent</p>
+                    <p>Actor</p>
+                    <p><i>Things to Do at a Trial When You're Innocent</i></p>
                     <p>Goaty Ensemble</p>
                     <p>Mononi Art Venue</p>
                     <p>Taipei, Taiwan  |  Aug 30 - Sep 3, 2023</p>
 
-                    <p><i>Actor</i></p>
-                    <p>Unschuld</p>
+                    <p>Actor</p>
+                    <p><i>Unschuld</i></p>
                     <p>Dept. of Drama and Theatre at NTU</p>
                     <p>National Taiwan Arts Education Center</p>
                     <p>Taipei, Taiwan  |  Dec 9 -11, 2022</p>
 
-                    <p><i>Actor</i></p>
-                    <p>The Arabian Nights</p>
+                    <p>Actor</p>
+                    <p><i>The Arabian Nights</i></p>
                     <p>Dept. of Drama and Theatre at NTU</p>
                     <p>National Taiwan Arts Education Center</p>
                     <p>Taipei, Taiwan  |  May 13 - May 15, 2022</p>
@@ -394,8 +401,10 @@
             <!-- Contact 內容區域 -->
             <div id="contact-content" class="contact-content">
                 <div id="contact-text" style="width: 100%; white-space: pre-wrap;">
-                    <p>EMAIL/ jayden@newschool.edu</p>
-                    <p>INSTAGRAM/ @jhliuu</p>
+                    <h2>EMAIL</h2>
+                    <p><a href="mailto:jayden@newschool.edu">jayden@newschool.edu</a></p>
+                    <h2>INSTAGRAM</h2>
+                    <p><a href="https://instagram.com/jhliuu">@jhliuu</a></p>
                 </div>
             </div>
         </div>
