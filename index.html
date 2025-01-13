@@ -71,7 +71,6 @@
             font-weight: 300;
             margin-top: 20px;
         }
-        /* 修正 margin-top 語法錯誤 */
         .image-section,
         .cv-content {
             margin-top: 60px; /* 統一上邊距 */
@@ -207,27 +206,23 @@
             }
         }
 
-        /* 新增 CV 和 Contact 區域的樣式 */
-        .cv-content,
-        .contact-content {
+        /* 新增 CV 區域的樣式 (contact 相關保留原樣, 但現已無作用) */
+        .cv-content {
             display: none; /* 初始隱藏 */
             margin-top: 20px;
             padding-right: 10px;
             margin-bottom: 20px; /* 增加下邊距，讓內容離頁面底部有距離 */
         }
-        .cv-content.active,
-        .contact-content.active {
+        .cv-content.active {
             display: block; /* 顯示時使用 */
         }
         .back-button {
             display: none; /* 隱藏返回按鈕 */
         }
 
-        /* 調整 CV 和 Contact 內容的字體大小和行距 */
+        /* 調整 CV 內容的字體大小和行距 */
         .cv-content h2,
-        .contact-content h2,
-        .cv-content p,
-        .contact-content p {
+        .cv-content p {
             font-size: 12px;
             line-height: 12px; /* 行高設為12px，消除行距 */
             margin: 0; /* 移除段落間距 */
@@ -235,30 +230,38 @@
             color: #dd0000;
         }
 
-        .cv-content h2,
-        .contact-content h2 {
+        .cv-content h2 {
             margin-top: 40px; /* 添加上邊距以區分不同部分 */
             margin-bottom: -24px; /* 添加下邊距以區分標題與內容 */
         }
 
-        .cv-content p,
-        .contact-content p {
+        .cv-content p {
             margin-bottom: -24px; /* 添加下邊距以區分內容 */
         }
 
-        /* 確保 Contact 區域的連結具有底線並保持紅色 */
+        /* contact-content 原樣保留，但前端已不會顯示與呼叫
+           這裡可自行刪除，或視需求保留，以免破壞原始佈局 */
+        .contact-content {
+            display: none; /* 初始隱藏 */
+            margin-top: 20px;
+            padding-right: 10px;
+            margin-bottom: 20px;
+        }
+        .contact-content.active {
+            display: block;
+        }
+        .contact-content h2,
+        .contact-content p {
+            font-size: 12px;
+            line-height: 12px;
+            margin: 0;
+            font-weight: 300;
+            color: #dd0000;
+        }
         .contact-content a {
             text-decoration: underline;
             color: #dd0000;
         }
-
-        /* 圖片懸停效果（已移除） */
-        /*
-        .image-section img:hover {
-            transform: scale(1.05);
-            transition: transform 0.3s;
-        }
-        */
     </style>
 </head>
 <body id="top">
@@ -270,10 +273,11 @@
 
         <!-- 右側內容 -->
         <div class="right">
-            <!-- CV 和 CONTACT -->
+            <!-- 將 CONTACT 改為 EMAIL、INSTAGRAM -->
             <div class="extra-links">
                 <a href="#" id="show-cv" aria-label="顯示 CV">CV</a>
-                <a href="#" id="show-contact" aria-label="顯示聯繫信息">CONTACT</a>
+                <a href="mailto:jayden@newschool.edu" aria-label="寄信給 jayden@newschool.edu">EMAIL</a>
+                <a href="https://instagram.com/jhliuu" target="_blank" aria-label="前往 Instagram">INSTAGRAM</a>
             </div>
 
             <!-- 菜單 -->
@@ -316,7 +320,7 @@
                 <div id="title-2023-2" class="image-section">
                     <div class="image-title">THINGS TO DO AT A TRIAL WHEN YOU'RE INNOCENT</div>
                     <div class="image-description">2023<br>Goaty Ensemble<br>Mononi Art Venue<br>Taipei, Taiwan</div>
-                    <img src="image12.JPG" alt="Things To Do At A Trial When You're Innocent">
+                    <img src="image12.JPG" alt="Things To Do At a Trial When You're Innocent">
                 </div>
 
                 <div id="title-2022-1" class="image-section">
@@ -398,7 +402,7 @@
                 </div>
             </div>
 
-            <!-- Contact 內容區域 -->
+            <!-- contact-content 保留，但實際已無對應連結呼叫 -->
             <div id="contact-content" class="contact-content">
                 <div id="contact-text" style="width: 100%; white-space: pre-wrap;">
                     <h2><strong>EMAIL</strong></h2>
@@ -424,21 +428,13 @@
         document.getElementById('show-cv').addEventListener('click', function (e) {
             e.preventDefault();
             document.getElementById('image-content').style.display = 'none';
+            // CONTACT 區隱藏
             document.getElementById('contact-content').style.display = 'none';
             document.getElementById('cv-content').classList.add('active');
             document.getElementById('cv-content').style.display = 'block';
         });
 
-        // 顯示 Contact 內容
-        document.getElementById('show-contact').addEventListener('click', function (e) {
-            e.preventDefault();
-            document.getElementById('image-content').style.display = 'none';
-            document.getElementById('cv-content').style.display = 'none';
-            document.getElementById('contact-content').classList.add('active');
-            document.getElementById('contact-content').style.display = 'block';
-        });
-
-        // 返回首頁（顯示圖片內容，隱藏 CV 和 Contact 內容）
+        // 返回首頁（顯示圖片內容，隱藏 CV 和 contact-content）
         document.getElementById('back-home').addEventListener('click', function (e) {
             e.preventDefault();
             document.getElementById('cv-content').classList.remove('active');
@@ -448,7 +444,7 @@
             document.getElementById('image-content').style.display = 'block';
         });
 
-        // 菜單連結點擊後顯示對應區域並隱藏 CV 和 Contact，頁面自動滑動
+        // 菜單連結點擊後顯示對應區域並隱藏 CV（和 contact ）
         const menuLinks = document.querySelectorAll('.menu-link');
         menuLinks.forEach(function(link) {
             link.addEventListener('click', function(e) {
