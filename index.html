@@ -6,39 +6,41 @@
   <title>Jayden Liu</title>
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
   <style>
-    /* 1. 移除網頁整體的可能橫向滾動 */
+    /* 防止頁面左右滑動 */
     html, body {
       margin: 0;
       padding: 0;
-      overflow-x: hidden; /* 禁止左右滑動 */
+      overflow-x: hidden; 
       background-color: #ffffff;
       font-family: "Helvetica", Arial, sans-serif;
       color: black;
       font-size: 12px;
       font-weight: 300;
-      line-height: 14px; 
+      line-height: 14px;
     }
-
     .container {
       display: block;
       box-sizing: border-box;
     }
 
-    /* 左側欄 */
+    /* 左欄（固定 30%） */
     .left {
-      width: 100%; /* 手機版佔滿 100% */
+      width: 100%; /* 手機版先 100% */
       padding: 20px;
       box-sizing: border-box;
+      background-color: #ffffff; 
+      z-index: 1;
     }
-
-    /* 右側欄（內容） */
+    /* 右欄（70% + 固定 20px 內邊距） */
     .right {
-      width: 100%; /* 手機版佔滿 100% */
-      padding: 20px;
+      width: 100%; /* 手機版先 100% */
+      padding: 20px; /* 預留 20px 內邊距（四邊） */
       box-sizing: border-box;
+      position: relative;
+      z-index: 2;
     }
 
-    /* 桌面版（寬度 >= 769px）時，固定左側欄位 */
+    /* 桌面版：左欄固定，右欄往右移 30%，寬度 70% */
     @media (min-width: 769px) {
       .left {
         position: fixed;
@@ -46,16 +48,17 @@
         left: 0;
         width: 30%;
         height: 100vh;
-        overflow-y: auto;
+        overflow-y: auto; 
       }
       .right {
+        width: 70%;
         margin-left: 30%;
       }
     }
 
-    /* 標題 */
+    /* 標題與選單 */
     .title {
-      margin-bottom: 40px; /* 與後方選單拉開距離 */
+      margin-bottom: 40px;
     }
     .title a {
       font-size: 12px;
@@ -70,9 +73,8 @@
       text-decoration: none;
     }
 
-    /* Extra Links (CV / EMAIL / IG) */
     .extra-links {
-      margin-bottom: 40px; /* 與後方年份選單多留一點距離 */
+      margin-bottom: 40px;
     }
     .extra-links a {
       text-decoration: none;
@@ -89,7 +91,6 @@
       text-decoration: none;
     }
 
-    /* 年份選單 */
     .menu {
       margin-bottom: 20px;
     }
@@ -114,7 +115,7 @@
       margin-bottom: 10px;
     }
 
-    /* Back to Top 按鈕 */
+    /* (back) 按鈕 */
     #back-to-top {
       font-size: 12px;
       font-weight: 300;
@@ -128,6 +129,7 @@
       font-weight: bold;
       text-decoration: none;
     }
+    /* 手機版 (max-width: 768px) 時，固定在左下角 */
     @media (max-width: 768px) {
       #back-to-top {
         position: fixed;
@@ -135,15 +137,16 @@
         left: 20px;
       }
     }
+    /* 桌面版 (min-width: 769px) 放在左欄底 */
     @media (min-width: 769px) {
       #back-to-top {
         position: static;
         display: block;
-        margin-top: 50px; 
+        margin-top: 50px;
       }
     }
 
-    /* 圖片區塊（圖片填滿欄位 + 無水平滾動） */
+    /* 圖片區塊：width=100%, height=auto，不裁切 */
     .image-section {
       margin-top: 60px;
       margin-bottom: 20px;
@@ -164,15 +167,15 @@
       color: black;
       margin-bottom: 15px;
       text-align: right;
+      white-space: pre-wrap; /* 讓換行能正常顯示 */
     }
     .image-section img {
       display: block;
-      width: 100%;       /* 圖片寬度自動撐滿父容器 */
-      max-width: 100%;   /* 保證不超過容器寬度 */
-      height: auto;      /* 高度自動，避免變形 */
+      width: 100%;  
+      height: auto; 
     }
 
-    /* CV 區域 */
+    /* CV 區塊 */
     .cv-content {
       display: none;
       margin-top: 20px;
@@ -197,7 +200,7 @@
       margin-bottom: -24px;
     }
 
-    /* contact-content 保留（無實際連結） */
+    /* contact-content 保留 */
     .contact-content {
       display: none;
       margin-top: 20px;
@@ -222,7 +225,7 @@
 </head>
 <body id="top">
   <div class="container">
-    <!-- 左側欄：標題 + 選單 + Back to Top -->
+    <!-- 左側欄 (30%) -->
     <div class="left">
       <!-- 標題 -->
       <div class="title">
@@ -232,84 +235,126 @@
       <!-- Extra links: CV / EMAIL / IG -->
       <div class="extra-links">
         <a href="#" id="show-cv" aria-label="顯示 CV">CV</a>
-        <a href="mailto:jayden@newschool.edu" aria-label="寄信給 jayden@newschool.edu">EMAIL</a>
+        <a href="mailto:jaydenliu.studio@gmail.com" aria-label="寄信給 jaydenliu.studio@gmail.com">EMAIL</a>
         <a href="https://instagram.com/jhliuu" target="_blank" aria-label="前往 Instagram">INSTAGRAM</a>
       </div>
 
       <!-- 年份選單 -->
       <div class="menu">
+	<div class="year">2025</div>
+        <a href="#title-2025-1" class="menu-link" aria-label="MONODY">+ MONODY</a>
+
         <div class="year">2024</div>
-        <a href="#title-2024-1" class="menu-link" aria-label="顯示 12 UNDERGARMENTS">+ 12 UNDERGARMENTS</a>
-        <a href="#title-2024-2" class="menu-link" aria-label="顯示 6 UNDERGARMENTS">+ 6 UNDERGARMENTS</a>
-        <a href="#title-2024-3" class="menu-link" aria-label="顯示 ANDRE'S HOUSE">+ ANDRE'S HOUSE</a>
+        <a href="#title-2024-1" class="menu-link" aria-label="12 UNDERGARMENTS">+ 12 UNDERGARMENTS</a>
+        <a href="#title-2024-2" class="menu-link" aria-label="6 UNDERGARMENTS">+ 6 UNDERGARMENTS</a>
+        <a href="#title-2024-3" class="menu-link" aria-label="ANDRE'S HOUSE">+ ANDRE'S HOUSE</a>
 
         <div class="year">2023</div>
-        <a href="#title-2023-2" class="menu-link" aria-label="顯示 THINGS TO DO AT A TRIAL WHEN YOU'RE INNOCENT">
+        <a href="#title-2023-2" class="menu-link" aria-label="THINGS TO DO AT A TRIAL WHEN YOU'RE INNOCENT">
           + THINGS TO DO AT A TRIAL WHEN YOU'RE INNOCENT
         </a>
 
         <div class="year">2022</div>
-        <a href="#title-2022-1" class="menu-link" aria-label="顯示 UNSCHULD">+ UNSCHULD</a>
-        <a href="#title-2022-2" class="menu-link" aria-label="顯示 THE ARABIAN NIGHTS">+ THE ARABIAN NIGHTS</a>
+        <a href="#title-2022-1" class="menu-link" aria-label="UNSCHULD">+ UNSCHULD</a>
+        <a href="#title-2022-2" class="menu-link" aria-label="THE ARABIAN NIGHTS">+ THE ARABIAN NIGHTS</a>
       </div>
 
-      <!-- Back to Top：桌面版時為靜態，手機版時為固定 -->
+      <!-- (back) 按鈕 -->
       <a href="#top" id="back-to-top" aria-label="返回頂部">(back)</a>
     </div>
 
-    <!-- 右側內容：圖片 + CV + (contact) -->
+    <!-- 右側欄 (70% + 20px 內邊距) -->
     <div class="right">
       <!-- 圖片及內容 -->
       <div id="image-content">
+	<!-- 2025 - 1 -->
+        <div id="title-2025-1" class="image-section">
+          <div class="image-title">MONODY</div>
+          <div class="image-description">
+2025
+Cement, graphite powder, and pigment
+64 x 4.65 x 4.65 in
+          </div>
+          <img src="monody1.JPG" alt="Monody"/>
+	  <img src="monody2.JPG" alt="Monody"/>
+	  <img src="monody3.JPG" alt="Monody"/>
+        </div>
+
+        <!-- 2024 - 1 -->
         <div id="title-2024-1" class="image-section">
           <div class="image-title">12 UNDERGARMENTS</div>
-          <div class="image-description">2024<br>Cotton, wire, and aqua resin<br>120 x 30 x 30 in</div>
+          <div class="image-description">
+2024
+Cotton, wire, and aqua resin
+120 x 30 x 30 in
+          </div>
           <img src="12undergarments.png" alt="12 Undergarments"/>
         </div>
 
+        <!-- 2024 - 2 -->
         <div id="title-2024-2" class="image-section">
           <div class="image-title">6 UNDERGARMENTS</div>
-          <div class="image-description">2024<br>Cotton, wire, and aqua resin<br>56 x 32 x 32 in</div>
+          <div class="image-description">
+2024
+Cotton, wire, and aqua resin
+56 x 32 x 32 in
+          </div>
           <img src="6undergarments.png" alt="6 Undergarments"/>
         </div>
 
+        <!-- 2024 - 3 -->
         <div id="title-2024-3" class="image-section">
           <div class="image-title">ANDRE'S HOUSE</div>
           <div class="image-description">
-            2024<br>Tainaner Ensemble<br>Experimental Theater<br>Taipei, Taiwan
+2024
+Tainaner Ensemble
+Experimental Theater
+Taipei, Taiwan
           </div>
-          <img src="andres-house.JPEG" alt="Andre's House" />
-          <img src="image20.JPEG" alt="Andre's House" />
-          <img src="image17.JPEG" alt="Andre's House" />
+          <img src="andres-house.JPEG" alt="Andre's House"/>
+          <img src="image20.JPEG" alt="Andre's House"/>
+          <img src="image17.JPEG" alt="Andre's House"/>
         </div>
 
+        <!-- 2023 -->
         <div id="title-2023-2" class="image-section">
           <div class="image-title">THINGS TO DO AT A TRIAL WHEN YOU'RE INNOCENT</div>
           <div class="image-description">
-            2023<br>Goaty Ensemble<br>Mononi Art Venue<br>Taipei, Taiwan
+2023
+Goaty Ensemble
+Mononi Art Venue
+Taipei, Taiwan
           </div>
-          <img src="image12.JPG" alt="Things To Do At a Trial When You're Innocent" />
+          <img src="image12.JPG" alt="Things To Do At a Trial When You're Innocent"/>
         </div>
 
+        <!-- 2022 - 1 -->
         <div id="title-2022-1" class="image-section">
           <div class="image-title">UNSCHULD</div>
           <div class="image-description">
-            2022<br>Dept. of Drama and Theatre at NTU<br>National Taiwan Arts Education Center<br>Taipei, Taiwan
+2022
+Dept. of Drama and Theatre at NTU
+National Taiwan Arts Education Center
+Taipei, Taiwan
           </div>
-          <img src="image8.JPG" alt="Unschuld" />
-          <img src="image9.JPG" alt="Unschuld" />
-          <img src="image10.JPG" alt="Unschuld" />
+          <img src="image8.JPG" alt="Unschuld"/>
+          <img src="image9.JPG" alt="Unschuld"/>
+          <img src="image10.JPG" alt="Unschuld"/>
         </div>
 
+        <!-- 2022 - 2 -->
         <div id="title-2022-2" class="image-section">
           <div class="image-title">THE ARABIAN NIGHTS</div>
           <div class="image-description">
-            2022<br>Dept. of Drama and Theatre at NTU<br>National Taiwan Arts Education Center<br>Taipei, Taiwan
+2022
+Dept. of Drama and Theatre at NTU
+National Taiwan Arts Education Center
+Taipei, Taiwan
           </div>
-          <img src="image2.JPEG" alt="The Arabian Nights" />
-          <img src="image4.JPG" alt="The Arabian Nights" />
-          <img src="image3.JPG" alt="The Arabian Nights" />
-          <img src="image5.JPG" alt="The Arabian Nights" />
+          <img src="image2.JPEG" alt="The Arabian Nights"/>
+          <img src="image4.JPG" alt="The Arabian Nights"/>
+          <img src="image3.JPG" alt="The Arabian Nights"/>
+          <img src="image5.JPG" alt="The Arabian Nights"/>
         </div>
       </div>
 
@@ -326,6 +371,10 @@
           <p>Taipei, Taiwan  |  2019 - 2023</p>
 
           <h2><strong>GROUP EXHIBITIONS</strong></h2>
+	  <p><i>Common Ground</i></p>
+          <p>25 East Gallery</p>
+          <p>New York, NY  |  Feb 10 - 28, 2025</p>
+
           <p><i>To Continue Being Alive</i></p>
           <p>25 East Gallery</p>
           <p>New York, NY  |  Dec 6, 2024</p>
@@ -369,15 +418,16 @@
           <p>National Taiwan Arts Education Center</p>
           <p>Taipei, Taiwan  |  May 13 - May 15, 2022</p>
 
+          <!-- 預留空白 -->
           <div style="margin-bottom: 20px;"></div>
         </div>
       </div>
 
-      <!-- contact-content 保留，但無實際連結呼叫 -->
+      <!-- contact-content 保留 -->
       <div id="contact-content" class="contact-content">
         <div id="contact-text" style="width: 100%; white-space: pre-wrap;">
           <h2><strong>EMAIL</strong></h2>
-          <p><a href="mailto:jayden@newschool.edu">jayden@newschool.edu</a></p>
+          <p><a href="mailto:jaydenliu.studio@gmail.com">jaydenliu.studio@gmail.com</a></p>
           <h2><strong>INSTAGRAM</strong></h2>
           <p><a href="https://instagram.com/jhliuu">@jhliuu</a></p>
         </div>
@@ -386,23 +436,22 @@
   </div>
 
   <script>
-    // Back to Top (平滑滾動)
+    // (back) 按鈕：回頂部
     document.getElementById("back-to-top").addEventListener("click", function (e) {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
 
-    // 點擊「CV」顯示 CV 區塊，隱藏圖片內容/Contact
+    // 顯示 CV
     document.getElementById("show-cv").addEventListener("click", function (e) {
       e.preventDefault();
       document.getElementById("image-content").style.display = "none";
       document.getElementById("contact-content").style.display = "none";
-
       document.getElementById("cv-content").classList.add("active");
       document.getElementById("cv-content").style.display = "block";
     });
 
-    // 點擊「JAYDEN LIU」回到首頁（顯示圖片內容，隱藏 CV / contact）
+    // 點擊「JAYDEN LIU」回首頁
     document.getElementById("back-home").addEventListener("click", function (e) {
       e.preventDefault();
       document.getElementById("cv-content").classList.remove("active");
@@ -412,7 +461,7 @@
       document.getElementById("image-content").style.display = "block";
     });
 
-    // 點擊年份選單連結，滾動到對應圖片區，並隱藏 CV / Contact
+    // 年份選單：切換到對應圖片區
     const menuLinks = document.querySelectorAll(".menu-link");
     menuLinks.forEach(function (link) {
       link.addEventListener("click", function (e) {
@@ -421,10 +470,8 @@
         document.getElementById("contact-content").classList.remove("active");
         document.getElementById("cv-content").style.display = "none";
         document.getElementById("contact-content").style.display = "none";
-        // 顯示圖片內容
         document.getElementById("image-content").style.display = "block";
 
-        // 取得目標 ID 並平滑滾動
         const targetId = this.getAttribute("href").substring(1);
         const targetElement = document.getElementById(targetId);
         if (targetElement) {
