@@ -7,64 +7,65 @@
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
     <style>
         body {
-            font-family: "Helvetica", Arial, sans-serif; /* 字體為 Helvetica */
+            font-family: "Helvetica", Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #ffffff; /* 背景顏色為白色 */
-            color: #dd0000; /* 所有文字顏色為紅色 */
-            font-size: 12px; /* 全局字體大小設為12px */
-            font-weight: 300; /* 全局字重為300 */
+            background-color: #ffffff;
+            color: black; /* 改為黑色 */
+            font-size: 12px; 
+            font-weight: 300;
+            line-height: 14px; /* 全局行距改為14px */
         }
         .container {
-            padding: 20px; /* 增加頁面整體內邊距 */
+            padding: 20px;
             display: flex;
             box-sizing: border-box;
         }
         .left {
-            width: 30%; /* 左側佔30% */
+            width: 30%;
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
             align-items: flex-start;
-            padding: 0px; /* 保持左側內邊距 */
+            padding: 0px;
         }
         .title a {
             font-size: 12px;
             font-weight: 300;
-            color: #dd0000;
+            color: black; /* 改為黑色 */
             text-decoration: none;
             cursor: pointer;
             transition: font-weight 0.1s;
-            margin-top: 0; /* 重置上邊距 */
-            margin-left: 0; /* 重置左邊距 */
-            margin-bottom: 20px; /* 增加下邊距，增加「JAYDEN LIU」和「CV」之間的間距 */
+            margin-top: 0;
+            margin-left: 0;
+            margin-bottom: 20px;
         }
         .title a:hover {
-            font-weight: bold; /* 懸停時加粗 */
-            text-decoration: none; /* 移除下劃線 */
+            font-weight: bold;
+            text-decoration: none;
         }
         .right {
-            width: 65%; /* 右側佔65% */
-            margin-left: 5%; /* 左右之間的間隔 */
-            padding-right: 10px; /* 右側內邊距10px */
+            width: 65%;
+            margin-left: 5%;
+            padding-right: 10px;
             margin-top: 20px;
         }
         .menu {
-            margin-bottom: 80px; /* 調整後的下邊距 */
+            margin-bottom: 80px;
         }
         .menu a {
             text-decoration: none;
-            color: #dd0000;
+            color: black; /* 改為黑色 */
             font-size: 12px;
             font-weight: 300;
-            display: block; /* 每個選項占一行 */
+            display: block;
             margin-bottom: 0px;
-            transition: font-weight 0.1s; /* 懸停效果過渡 */
+            transition: font-weight 0.1s;
             cursor: pointer;
         }
         .menu a:hover {
-            font-weight: bold; /* 懸停時加粗 */
-            text-decoration: none; /* 移除下劃線 */
+            font-weight: bold;
+            text-decoration: none;
         }
         .year {
             font-size: 12px;
@@ -73,54 +74,54 @@
         }
         .image-section,
         .cv-content {
-            margin-top: 60px; /* 統一上邊距 */
+            margin-top: 60px;
         }
         .contact-content {
-            margin-top: 120px; /* 增加 CONTACT 內容的上邊距 */
+            margin-top: 120px;
         }
         .image-section {
-            margin-bottom: 20px; /* 調整後的下邊距 */
-            text-align: right; /* 右側對齊 */
-            padding-right: 10px; /* 與右邊距離10px */
+            margin-bottom: 20px;
+            text-align: right;
+            padding-right: 10px;
         }
         .image-title {
-            font-size: 12px; /* 圖片標題字體大小 */
-            font-style: italic; /* 字體斜體 */
-            font-weight: 300; /* 字重為300 */
-            color: #dd0000; /* 標題為紅色 */
-            margin-top: 0; /* 移除額外的上邊距 */
-            margin-bottom: 10px; /* 統一下邊距 */
-            text-align: right; /* 圖片標題靠右對齊 */
+            font-size: 12px;
+            font-style: italic;
+            font-weight: 300;
+            color: black; /* 改為黑色 */
+            margin-top: 0;
+            margin-bottom: 10px;
+            text-align: right;
         }
         .image-description {
-            font-size: 12px; /* 描述字體大小 */
-            font-weight: 300; /* 字重為300 */
-            color: #dd0000; /* 描述為紅色 */
-            margin-bottom: 15px; /* 描述與圖片之間的間距 */
-            text-align: right; /* 圖片描述靠右對齊 */
+            font-size: 12px;
+            font-weight: 300;
+            color: black; /* 改為黑色 */
+            margin-bottom: 15px;
+            text-align: right;
         }
         .image-section img {
-            width: 100%; /* 填滿右側區域 */
-            height: auto; /* 高度自適應，保持比例 */
-            margin-right: 0px; /* 與右邊距離0px */
+            width: 100%;
+            height: auto;
+            margin-right: 0px;
         }
         .extra-links {
-            margin-bottom: 20px; /* 與菜單間距 */
-            margin-top: 20px; /* 增加上邊距，增加「CV」上方的間距 */
+            margin-bottom: 20px;
+            margin-top: 20px;
         }
         .extra-links a {
             text-decoration: none;
-            color: #dd0000;
+            color: black; /* 改為黑色 */
             font-size: 12px;
             font-weight: 300;
-            display: block; /* 每個選項占一行 */
+            display: block;
             margin-bottom: 0px;
-            transition: font-weight 0.1s; /* 懸停效果過渡 */
+            transition: font-weight 0.1s;
             cursor: pointer;
         }
         .extra-links a:hover {
-            font-weight: bold; /* 懸停時加粗 */
-            text-decoration: none; /* 移除下劃線 */
+            font-weight: bold;
+            text-decoration: none;
         }
         #back-to-top {
             position: fixed;
@@ -128,121 +129,118 @@
             left: 20px;
             font-size: 12px;
             font-weight: 300;
-            color: #dd0000;
+            color: black; /* 改為黑色 */
             text-decoration: none;
             transition: font-weight 0.1s;
             cursor: pointer;
-            line-height: 1; /* 減少行距 */
+            line-height: 1;
         }
         #back-to-top:hover {
-            font-weight: bold; /* 懸停時加粗 */
-            text-decoration: none; /* 移除下劃線 */
+            font-weight: bold;
+            text-decoration: none;
         }
 
         /* 手機版樣式 */
         @media only screen and (max-width: 768px) {
             .container {
-                flex-direction: column; /* 手機版垂直排列 */
+                flex-direction: column;
                 padding: 20px;
             }
             .left, .right {
-                width: 100%; /* 寬度填滿 */
-                margin-left: 0; /* 移除間隙 */
-                padding-right: 0; /* 移除右側內邊距 */
-                text-align: left; /* 左側對齊 */
-                margin-top: 0; /* 移除右側的頂部間距 */
+                width: 100%;
+                margin-left: 0;
+                padding-right: 0;
+                text-align: left;
+                margin-top: 0;
             }
             .left {
-                padding-top: 10px; /* 減少上方內邊距 */
-                padding-bottom: 10px; /* 可選：減少下方內邊距 */
+                padding-top: 10px;
+                padding-bottom: 10px;
             }
             .title a {
                 font-size: 12px;
                 font-weight: 300;
-                margin-left: 0px; /* 重置左邊距 */
-                margin-top: 0px; /* 移除負邊距 */
-                margin-bottom: 20px; /* 增加下邊距，保持與桌面版一致 */
+                margin-left: 0px;
+                margin-top: 0px;
+                margin-bottom: 20px;
                 text-decoration: none;
             }
             .title a:hover {
-                font-weight: bold; /* 懸停時加粗 */
-                text-decoration: none; /* 移除下劃線 */
+                font-weight: bold;
+                text-decoration: none;
             }
             .extra-links a {
                 display: block;
                 margin-bottom: 0px;
-                white-space: nowrap; /* 保持 CONTACT 在一行 */
+                white-space: nowrap;
             }
             .extra-links a:nth-child(2) {
-                white-space: pre-wrap; /* 讓 CONTACT 換行 */
+                white-space: pre-wrap;
             }
             .image-section {
-                text-align: right; /* 圖片標題和描述靠右對齊 */
-                padding-right: 0; /* 移除右側內邊距 */
-                margin-right: 0; /* 移除右側邊距 */
-                margin-top: 60px; /* 統一上邊距 */
-                margin-bottom: 0px; /* 統一下邊距 */
+                text-align: right;
+                padding-right: 0;
+                margin-right: 0;
+                margin-top: 60px;
+                margin-bottom: 0px;
             }
             .image-title, .image-description {
-                text-align: right; /* 圖片標題和描述靠右對齊 */
+                text-align: right;
             }
             .image-section img {
-                width: 100%; /* 撐滿左右 */
-                margin-right: 0; /* 移除右側邊距 */
+                width: 100%;
+                margin-right: 0;
             }
             .cv-content,
             .contact-content,
             .cv-content *,
             .contact-content * {
-                text-align: left; /* CV 和 Contact 內容左對齊 */
+                text-align: left;
             }
-            /* 調整 Back to Top 在手機版的位置 */
             #back-to-top {
                 top: 30px;
                 right: 20px;
                 bottom: auto;
                 left: auto;
-                line-height: 1; /* 減少行距 */
+                line-height: 1;
             }
         }
 
-        /* 新增 CV 區域的樣式 (contact 相關保留原樣, 但現已無作用) */
         .cv-content {
-            display: none; /* 初始隱藏 */
+            display: none;
             margin-top: 20px;
             padding-right: 10px;
-            margin-bottom: 20px; /* 增加下邊距，讓內容離頁面底部有距離 */
+            margin-bottom: 20px;
         }
         .cv-content.active {
-            display: block; /* 顯示時使用 */
+            display: block;
         }
         .back-button {
-            display: none; /* 隱藏返回按鈕 */
+            display: none;
         }
 
-        /* 調整 CV 內容的字體大小和行距 */
+        /* 將 CV 區塊行距改為14px，文字改為黑色 */
         .cv-content h2,
         .cv-content p {
             font-size: 12px;
-            line-height: 12px; /* 行高設為12px，消除行距 */
-            margin: 0; /* 移除段落間距 */
+            line-height: 14px; /* 改為14px */
+            margin: 0;
             font-weight: 300;
-            color: #dd0000;
+            color: black; /* 改為黑色 */
         }
 
         .cv-content h2 {
-            margin-top: 40px; /* 添加上邊距以區分不同部分 */
-            margin-bottom: -24px; /* 添加下邊距以區分標題與內容 */
+            margin-top: 40px;
+            margin-bottom: -24px;
         }
 
         .cv-content p {
-            margin-bottom: -24px; /* 添加下邊距以區分內容 */
+            margin-bottom: -24px;
         }
 
-        /* contact-content 原樣保留，但前端已不會顯示與呼叫
-           這裡可自行刪除，或視需求保留，以免破壞原始佈局 */
+        /* contact-content 亦改為黑色、行距14px（雖前端不顯示，但維持一致） */
         .contact-content {
-            display: none; /* 初始隱藏 */
+            display: none;
             margin-top: 20px;
             padding-right: 10px;
             margin-bottom: 20px;
@@ -253,14 +251,14 @@
         .contact-content h2,
         .contact-content p {
             font-size: 12px;
-            line-height: 12px;
+            line-height: 14px; /* 改為14px */
             margin: 0;
             font-weight: 300;
-            color: #dd0000;
+            color: black; /* 改為黑色 */
         }
         .contact-content a {
             text-decoration: underline;
-            color: #dd0000;
+            color: black; /* 改為黑色 */
         }
     </style>
 </head>
@@ -397,12 +395,11 @@
                     <p>National Taiwan Arts Education Center</p>
                     <p>Taipei, Taiwan  |  May 13 - May 15, 2022</p>
 
-                    <!-- 增加下方的 margin -->
                     <div style="margin-bottom: 20px;"></div>
                 </div>
             </div>
 
-            <!-- contact-content 保留，但實際已無對應連結呼叫 -->
+            <!-- contact-content 保留（實際無對應連結呼叫） -->
             <div id="contact-content" class="contact-content">
                 <div id="contact-text" style="width: 100%; white-space: pre-wrap;">
                     <h2><strong>EMAIL</strong></h2>
