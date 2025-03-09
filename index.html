@@ -129,12 +129,10 @@
       font-weight: bold;
       text-decoration: none;
     }
-    /* 手機版 (max-width: 768px) 時，固定在左下角 */
+    /* 手機版 (max-width: 768px) 時，隱藏 back-to-top */
     @media (max-width: 768px) {
       #back-to-top {
-        position: fixed;
-        bottom: 20px;
-        left: 20px;
+        display: none;
       }
     }
     /* 桌面版 (min-width: 769px) 放在左欄底 */
@@ -241,7 +239,7 @@
 
       <!-- 年份選單 -->
       <div class="menu">
-	<div class="year">2025</div>
+        <div class="year">2025</div>
         <a href="#title-2025-1" class="menu-link" aria-label="MONODY">+ MONODY</a>
 
         <div class="year">2024</div>
@@ -259,7 +257,7 @@
         <a href="#title-2022-2" class="menu-link" aria-label="THE ARABIAN NIGHTS">+ THE ARABIAN NIGHTS</a>
       </div>
 
-      <!-- (back) 按鈕 -->
+      <!-- (back) 按鈕 - 桌面版才顯示，手機版隱藏 -->
       <a href="#top" id="back-to-top" aria-label="返回頂部">(back)</a>
     </div>
 
@@ -267,7 +265,7 @@
     <div class="right">
       <!-- 圖片及內容 -->
       <div id="image-content">
-	<!-- 2025 - 1 -->
+        <!-- 2025 - 1 -->
         <div id="title-2025-1" class="image-section">
           <div class="image-title">MONODY</div>
           <div class="image-description">
@@ -276,8 +274,8 @@ Cement, graphite powder, and pigment
 64 x 4.65 x 4.65 in
           </div>
           <img src="monody1.JPG" alt="Monody"/>
-	  <img src="monody2.JPG" alt="Monody"/>
-	  <img src="monody3.JPG" alt="Monody"/>
+          <img src="monody2.JPG" alt="Monody"/>
+          <img src="monody3.JPG" alt="Monody"/>
         </div>
 
         <!-- 2024 - 1 -->
@@ -371,7 +369,7 @@ Taipei, Taiwan
           <p>Taipei, Taiwan  |  2019 - 2023</p>
 
           <h2><strong>GROUP EXHIBITIONS</strong></h2>
-	  <p><i>Common Ground</i></p>
+          <p><i>Common Ground</i></p>
           <p>25 East Gallery</p>
           <p>New York, NY  |  Feb 10 - 28, 2025</p>
 
@@ -436,7 +434,7 @@ Taipei, Taiwan
   </div>
 
   <script>
-    // (back) 按鈕：回頂部
+    // (back) 按鈕：回頂部（桌面版才會出現）
     document.getElementById("back-to-top").addEventListener("click", function (e) {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: "smooth" });
