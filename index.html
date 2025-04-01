@@ -6,9 +6,9 @@
   <title>Jayden Liu</title>
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
   <style>
-    /* 防止頁面左右滑動 */
+    /* Updated global margin: now 20px on all sides */
     html, body {
-      margin: 0;
+      margin: 20px;
       padding: 0;
       overflow-x: hidden; 
       background-color: #ffffff;
@@ -22,41 +22,34 @@
       display: block;
       box-sizing: border-box;
     }
-
-    /* 左欄（固定 30%） */
     .left {
-      width: 100%; /* 手機版先 100% */
+      width: 100%;
       padding: 20px;
       box-sizing: border-box;
       background-color: #ffffff; 
       z-index: 1;
     }
-    /* 右欄（70% + 固定 20px 內邊距） */
     .right {
-      width: 100%; /* 手機版先 100% */
-      padding: 20px; /* 預留 20px 內邊距（四邊） */
+      width: 100%;
+      padding: 20px;
       box-sizing: border-box;
       position: relative;
       z-index: 2;
     }
-
-    /* 桌面版：左欄固定，右欄往右移 30%，寬度 70% */
     @media (min-width: 769px) {
       .left {
         position: fixed;
-        top: 0;
-        left: 0;
-        width: 30%;
-        height: 100vh;
+        top: 20px; /* Adjusted to account for global margin */
+        left: 20px; /* Adjusted to account for global margin */
+        width: calc(30% - 20px);
+        height: calc(100vh - 20px);
         overflow-y: auto; 
       }
       .right {
-        width: 70%;
-        margin-left: 30%;
+        width: calc(70% - 20px);
+        margin-left: calc(30% + 20px);
       }
     }
-
-    /* 標題與選單 */
     .title {
       margin-bottom: 40px;
     }
@@ -72,7 +65,6 @@
       font-weight: bold;
       text-decoration: none;
     }
-
     .extra-links {
       margin-bottom: 40px;
     }
@@ -90,7 +82,6 @@
       font-weight: bold;
       text-decoration: none;
     }
-
     .menu {
       margin-bottom: 20px;
     }
@@ -114,8 +105,6 @@
       margin-top: 20px;
       margin-bottom: 10px;
     }
-
-    /* (back) 按鈕 */
     #back-to-top {
       font-size: 12px;
       font-weight: 300;
@@ -129,13 +118,11 @@
       font-weight: bold;
       text-decoration: none;
     }
-    /* 手機版 (max-width: 768px) 時，隱藏 back-to-top */
     @media (max-width: 768px) {
       #back-to-top {
         display: none;
       }
     }
-    /* 桌面版 (min-width: 769px) 放在左欄底 */
     @media (min-width: 769px) {
       #back-to-top {
         position: static;
@@ -143,8 +130,6 @@
         margin-top: 50px;
       }
     }
-
-    /* 圖片區塊：width=100%, height=auto，不裁切 */
     .image-section {
       margin-top: 60px;
       margin-bottom: 20px;
@@ -165,15 +150,13 @@
       color: black;
       margin-bottom: 15px;
       text-align: right;
-      white-space: pre-wrap; /* 讓換行能正常顯示 */
+      white-space: pre-wrap;
     }
     .image-section img {
       display: block;
       width: 100%;  
       height: auto; 
     }
-
-    /* CV 區塊 */
     .cv-content {
       display: none;
       margin-top: 20px;
@@ -197,8 +180,6 @@
     .cv-content p {
       margin-bottom: -24px;
     }
-
-    /* contact-content 保留 */
     .contact-content {
       display: none;
       margin-top: 20px;
@@ -219,25 +200,50 @@
       text-decoration: underline;
       color: black;
     }
+    /* New styling for ABOUT content similar to CV content */
+    .about-content {
+      display: none;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+    .about-content.active {
+      display: block;
+    }
+    .about-content h2,
+    .about-content p {
+      font-size: 12px;
+      line-height: 14px;
+      margin: 0;
+      font-weight: 300;
+      color: black;
+    }
+    .about-content h2 {
+      margin-top: 40px;
+      margin-bottom: -24px;
+    }
+    .about-content p {
+      margin-bottom: -24px;
+    }
   </style>
 </head>
 <body id="top">
   <div class="container">
-    <!-- 左側欄 (30%) -->
+    <!-- Left column (30%) -->
     <div class="left">
-      <!-- 標題 -->
+      <!-- Title -->
       <div class="title">
         <a href="#" id="back-home" aria-label="返回首頁">JAYDEN LIU</a>
       </div>
 
-      <!-- Extra links: CV / EMAIL / IG -->
+      <!-- Extra links: ABOUT, CV, EMAIL, IG -->
       <div class="extra-links">
+        <a href="#" id="show-about" aria-label="顯示 ABOUT">ABOUT</a>
         <a href="#" id="show-cv" aria-label="顯示 CV">CV</a>
         <a href="mailto:jaydenliu.studio@gmail.com" aria-label="寄信給 jaydenliu.studio@gmail.com">EMAIL</a>
         <a href="https://instagram.com/jhliuu" target="_blank" aria-label="前往 Instagram">INSTAGRAM</a>
       </div>
 
-      <!-- 年份選單 -->
+      <!-- Menu -->
       <div class="menu">
         <div class="year">2025</div>
         <a href="#title-2025-1" class="menu-link" aria-label="MONODY">+ MONODY</a>
@@ -257,13 +263,13 @@
         <a href="#title-2022-2" class="menu-link" aria-label="THE ARABIAN NIGHTS">+ THE ARABIAN NIGHTS</a>
       </div>
 
-      <!-- (back) 按鈕 - 桌面版才顯示，手機版隱藏 -->
+      <!-- (back) Button -->
       <a href="#top" id="back-to-top" aria-label="返回頂部">(back)</a>
     </div>
 
-    <!-- 右側欄 (70% + 20px 內邊距) -->
+    <!-- Right column (70% + 20px padding) -->
     <div class="right">
-      <!-- 圖片及內容 -->
+      <!-- Image content -->
       <div id="image-content">
         <!-- 2025 - 1 -->
         <div id="title-2025-1" class="image-section">
@@ -356,19 +362,31 @@ Taipei, Taiwan
         </div>
       </div>
 
-      <!-- CV 內容區域 -->
+      <!-- ABOUT content -->
+      <div id="about-content" class="about-content">
+        <div id="about-text" style="width: 100%; white-space: pre-wrap;">
+          <h2><strong>BIO</strong></h2>
+          <p>
+<strong>Jayden Liu</strong> is a Taiwanese artist based in Brooklyn, New York. Liu's work is shaped by contemporary society and personal experiences, exploring how contradictions define human behavior, values, and relationships. As a third-generation postwar individual, Liu grew up in Taiwan, where the remnants of freedom and authoritarianism coexisted. This paradox became central to his artistic practice.<br><br>Contradiction is a recurring theme in his work. He deconstructs the established metaphors of objects through reassembling, casting, and collaging materials, mirroring society's conflicting narratives and values. Liu's work moves between order and irregularity, tension and harmony, using visual and tactile contrasts to respond to contemporary life while pushing the boundaries of material and concept.
+          </p>
+        </div>
+      </div>
+
+      <!-- CV content -->
       <div id="cv-content" class="cv-content">
         <div id="cv-text" style="width: 100%; white-space: pre-wrap;">
           <h2><strong>EDUCATION</strong></h2>
+
           <p>MFA Fine Arts</p>
           <p>Parsons School of Design</p>
           <p>New York, NY  |  2024 - 2026</p>
-
+ 
           <p>BA Drama and Theatre</p>
           <p>National Taiwan University</p>
           <p>Taipei, Taiwan  |  2019 - 2023</p>
 
           <h2><strong>GROUP EXHIBITIONS</strong></h2>
+
           <p><i>Common Ground</i></p>
           <p>25 East Gallery</p>
           <p>New York, NY  |  Feb 10 - 28, 2025</p>
@@ -378,6 +396,7 @@ Taipei, Taiwan
           <p>New York, NY  |  Dec 6, 2024</p>
 
           <h2><strong>PERFORMANCE ARTS</strong></h2>
+
           <p>Actor</p>
           <p><i>Andre's House</i></p>
           <p>Tainaner Ensemble</p>
@@ -415,13 +434,11 @@ Taipei, Taiwan
           <p>Dept. of Drama and Theatre at NTU</p>
           <p>National Taiwan Arts Education Center</p>
           <p>Taipei, Taiwan  |  May 13 - May 15, 2022</p>
-
-          <!-- 預留空白 -->
           <div style="margin-bottom: 20px;"></div>
         </div>
       </div>
 
-      <!-- contact-content 保留 -->
+      <!-- Contact content -->
       <div id="contact-content" class="contact-content">
         <div id="contact-text" style="width: 100%; white-space: pre-wrap;">
           <h2><strong>EMAIL</strong></h2>
@@ -432,44 +449,57 @@ Taipei, Taiwan
       </div>
     </div>
   </div>
-
   <script>
-    // (back) 按鈕：回頂部（桌面版才會出現）
+    // (back) Button: Scroll to top (desktop only)
     document.getElementById("back-to-top").addEventListener("click", function (e) {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
-
-    // 顯示 CV
+    // Show ABOUT content
+    document.getElementById("show-about").addEventListener("click", function (e) {
+      e.preventDefault();
+      document.getElementById("image-content").style.display = "none";
+      document.getElementById("cv-content").classList.remove("active");
+      document.getElementById("cv-content").style.display = "none";
+      document.getElementById("contact-content").classList.remove("active");
+      document.getElementById("contact-content").style.display = "none";
+      document.getElementById("about-content").classList.add("active");
+      document.getElementById("about-content").style.display = "block";
+    });
+    // Show CV content
     document.getElementById("show-cv").addEventListener("click", function (e) {
       e.preventDefault();
       document.getElementById("image-content").style.display = "none";
+      document.getElementById("contact-content").classList.remove("active");
       document.getElementById("contact-content").style.display = "none";
+      document.getElementById("about-content").classList.remove("active");
+      document.getElementById("about-content").style.display = "none";
       document.getElementById("cv-content").classList.add("active");
       document.getElementById("cv-content").style.display = "block";
     });
-
-    // 點擊「JAYDEN LIU」回首頁
+    // Click "JAYDEN LIU" to return home
     document.getElementById("back-home").addEventListener("click", function (e) {
       e.preventDefault();
       document.getElementById("cv-content").classList.remove("active");
       document.getElementById("contact-content").classList.remove("active");
+      document.getElementById("about-content").classList.remove("active");
       document.getElementById("cv-content").style.display = "none";
       document.getElementById("contact-content").style.display = "none";
+      document.getElementById("about-content").style.display = "none";
       document.getElementById("image-content").style.display = "block";
     });
-
-    // 年份選單：切換到對應圖片區
+    // Menu links: Switch to corresponding image section
     const menuLinks = document.querySelectorAll(".menu-link");
     menuLinks.forEach(function (link) {
       link.addEventListener("click", function (e) {
         e.preventDefault();
         document.getElementById("cv-content").classList.remove("active");
         document.getElementById("contact-content").classList.remove("active");
+        document.getElementById("about-content").classList.remove("active");
         document.getElementById("cv-content").style.display = "none";
         document.getElementById("contact-content").style.display = "none";
+        document.getElementById("about-content").style.display = "none";
         document.getElementById("image-content").style.display = "block";
-
         const targetId = this.getAttribute("href").substring(1);
         const targetElement = document.getElementById(targetId);
         if (targetElement) {
