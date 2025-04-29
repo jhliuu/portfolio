@@ -23,9 +23,9 @@
       html, body {
         margin: 10px;
       }
-      /* 手機版：將 logo 置中 */
+      /* 手機版：將 logo 置左 */
       .title {
-        text-align: center;
+        text-align: left;
       }
     }
     
@@ -62,10 +62,10 @@
       }
     }
     .title {
-      margin-bottom: 40px;
+      margin-bottom: 60px;  /* ↑ increased gap between logo and menu */
     }
     .title a {
-      font-size: 12px;
+      font-size: 20px;
       font-weight: 300;
       color: black;
       text-decoration: none;
@@ -244,7 +244,7 @@
       <!-- Title -->
       <div class="title">
         <a href="#" id="back-home" aria-label="返回首頁">
-          <img src="logo.png" alt="Logo" width="120" height="120" />
+          jayden
         </a>
       </div>
       <!-- Extra links: ABOUT, CV, EMAIL, IG -->
@@ -479,7 +479,7 @@ Through these gestures, Liu’s work traces a way of being with instability, not
       document.getElementById("cv-content").classList.add("active");
       document.getElementById("cv-content").style.display = "block";
     });
-    // Click "JAYDEN LIU" to return home
+    // Click "jayden" to return home
     document.getElementById("back-home").addEventListener("click", function (e) {
       e.preventDefault();
       document.getElementById("cv-content").classList.remove("active");
