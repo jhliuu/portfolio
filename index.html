@@ -13,7 +13,7 @@
       overflow-x: hidden; 
       background-color: #ffffff;
       font-family: "Helvetica", Arial, sans-serif;
-      color: black;
+      color: #404040;
       font-size: 12px;
       font-weight: 300;
       line-height: 14px;
@@ -73,7 +73,7 @@
       line-height: 1;
       font-size: 20px;
       font-weight: 300;
-      color: black;
+      color: #404040;
       text-decoration: none;
       cursor: pointer;
       transition: font-weight 0.1s;
@@ -82,15 +82,14 @@
       display: block;
     }
     .title a:hover {
-      font-weight: bold;
-      text-decoration: none;
+      text-decoration: underline;
     }
     .extra-links {
       margin-bottom: 40px;
     }
     .extra-links a {
       text-decoration: none;
-      color: black;
+      color: #404040;
       font-size: 12px;
       font-weight: 300;
       display: block;
@@ -99,15 +98,14 @@
       cursor: pointer;
     }
     .extra-links a:hover {
-      font-weight: bold;
-      text-decoration: none;
+      text-decoration: underline;
     }
     .menu {
       margin-bottom: 20px;
     }
     .menu a {
       text-decoration: none;
-      color: black;
+      color: #404040;
       font-size: 12px;
       font-weight: 300;
       display: block;
@@ -116,8 +114,7 @@
       cursor: pointer;
     }
     .menu a:hover {
-      font-weight: bold;
-      text-decoration: none;
+      text-decoration: underline;
     }
     .year {
       font-size: 12px;
@@ -128,15 +125,14 @@
     #back-to-top {
       font-size: 12px;
       font-weight: 300;
-      color: black;
+      color: #404040;
       text-decoration: none;
       transition: font-weight 0.1s;
       cursor: pointer;
       line-height: 1;
     }
     #back-to-top:hover {
-      font-weight: bold;
-      text-decoration: none;
+      text-decoration: underline;
     }
     @media (max-width: 768px) {
       #back-to-top {
@@ -159,7 +155,7 @@
       font-size: 12px;
       font-style: italic;
       font-weight: 300;
-      color: black;
+      color: #404040;
       margin-top: 0;
       margin-bottom: 10px;
       text-align: right;
@@ -167,7 +163,7 @@
     .image-description {
       font-size: 12px;
       font-weight: 300;
-      color: black;
+      color: #404040;
       margin-bottom: 15px;
       text-align: right;
       white-space: pre-wrap;
@@ -192,7 +188,7 @@
       line-height: 14px;
       margin: 0;
       font-weight: 300;
-      color: black;
+      color: #404040;
     }
     .cv-content h2 {
       margin-top: 40px;
@@ -215,11 +211,11 @@
       line-height: 14px;
       margin: 0;
       font-weight: 300;
-      color: black;
+      color: #404040;
     }
     .contact-content a {
       text-decoration: underline;
-      color: black;
+      color: #404040;
     }
     .about-content {
       display: none;
@@ -235,7 +231,7 @@
       line-height: 14px;
       margin: 0;
       font-weight: 300;
-      color: black;
+      color: #404040;
     }
     .about-content h2 {
       margin-top: 40px;
@@ -460,10 +456,19 @@ Through these gestures, Liu’s work traces a way of being with instability, not
     </div>
   </div>
   <script>
-    // (back) Button: Scroll to top (desktop only)
+    // (back) Button: Return to homepage top
     document.getElementById("back-to-top").addEventListener("click", function (e) {
       e.preventDefault();
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      // Show image content, hide ABOUT, CV, CONTACT
+      document.getElementById("image-content").style.display = "block";
+      document.getElementById("cv-content").classList.remove("active");
+      document.getElementById("cv-content").style.display = "none";
+      document.getElementById("about-content").classList.remove("active");
+      document.getElementById("about-content").style.display = "none";
+      document.getElementById("contact-content").classList.remove("active");
+      document.getElementById("contact-content").style.display = "none";
+      // Scroll to very top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
     // Show ABOUT content
     document.getElementById("show-about").addEventListener("click", function (e) {
