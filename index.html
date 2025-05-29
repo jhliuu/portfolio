@@ -57,6 +57,7 @@
         overflow-y: auto; 
       }
       .right {
+        padding-top: 8px;
         width: calc(70% - 20px);
         margin-left: calc(30% + 20px);
       }
@@ -65,12 +66,20 @@
       margin-bottom: 60px;  /* ↑ increased gap between logo and menu */
     }
     .title a {
+      display: grid;
+      grid-template-columns: max-content max-content;
+      grid-column-gap: 0.5ch;
+      grid-row-gap: 0;
+      line-height: 1;
       font-size: 20px;
       font-weight: 300;
       color: black;
       text-decoration: none;
       cursor: pointer;
       transition: font-weight 0.1s;
+    }
+    .title a span {
+      display: block;
     }
     .title a:hover {
       font-weight: bold;
@@ -167,6 +176,7 @@
       display: block;
       width: 100%;  
       height: auto; 
+      margin-bottom: 2px;  
     }
     .cv-content {
       display: none;
@@ -211,7 +221,6 @@
       text-decoration: underline;
       color: black;
     }
-    /* New styling for ABOUT content similar to CV content */
     .about-content {
       display: none;
       margin-top: 20px;
@@ -244,7 +253,8 @@
       <!-- Title -->
       <div class="title">
         <a href="#" id="back-home" aria-label="返回首頁">
-          jayden
+          <span>jayden</span><span>liu</span>
+          <span>劉</span><span>峻豪</span>
         </a>
       </div>
       <!-- Extra links: ABOUT, CV, EMAIL, IG -->
@@ -264,9 +274,7 @@
         <a href="#title-2024-2" class="menu-link" aria-label="6 UNDERGARMENTS">+ 6 UNDERGARMENTS</a>
         <a href="#title-2024-3" class="menu-link" aria-label="ANDRE'S HOUSE">+ ANDRE'S HOUSE</a>
         <div class="year">2023</div>
-        <a href="#title-2023-2" class="menu-link" aria-label="THINGS TO DO AT A TRIAL WHEN YOU'RE INNOCENT">
-          + THINGS TO DO AT A TRIAL WHEN YOU'RE INNOCENT
-        </a>
+        <a href="#title-2023-2" class="menu-link" aria-label="THINGS TO DO AT A TRIAL WHEN YOU'RE INNOCENT">+ THINGS TO DO AT A TRIAL WHEN YOU'RE INNOCENT</a>
         <div class="year">2022</div>
         <a href="#title-2022-1" class="menu-link" aria-label="UNSCHULD">+ UNSCHULD</a>
         <a href="#title-2022-2" class="menu-link" aria-label="THE ARABIAN NIGHTS">+ THE ARABIAN NIGHTS</a>
@@ -280,48 +288,51 @@
       <div id="image-content">
         <!-- 2025 - 1 -->
         <div id="title-2025-1" class="image-section">
+          <img src="monodyfull.jpg" alt="Monody"/>
           <div class="image-title">MONODY</div>
           <div class="image-description">
 2025
 Cement, graphite powder, pigment, paper towels, tapes, and MDF
 88.5 x 36 x 36 in
           </div>
-          <img src="monodyfull.jpg" alt="Monody"/>
         </div>
         <!-- 2025 - 2 -->
         <div id="title-2025-2" class="image-section">
+          <img src="monody1.JPG" alt="Monody"/>
+          <img src="monody2.JPG" alt="Monody"/>
+          <img src="monody3.JPG" alt="Monody"/>
           <div class="image-title">MONODY (SINGULAR)</div>
           <div class="image-description">
 2025
 Cement, graphite powder, and pigment
 64 x 4.65 x 4.65 in
           </div>
-          <img src="monody1.JPG" alt="Monody"/>
-          <img src="monody2.JPG" alt="Monody"/>
-          <img src="monody3.JPG" alt="Monody"/>
         </div>
         <!-- 2024 - 1 -->
         <div id="title-2024-1" class="image-section">
+          <img src="12undergarments.png" alt="12 Undergarments"/>
           <div class="image-title">12 UNDERGARMENTS</div>
           <div class="image-description">
 2024
 Cotton, wire, and aqua resin
 120 x 30 x 30 in
           </div>
-          <img src="12undergarments.png" alt="12 Undergarments"/>
         </div>
         <!-- 2024 - 2 -->
         <div id="title-2024-2" class="image-section">
+          <img src="6undergarments.png" alt="6 Undergarments"/>
           <div class="image-title">6 UNDERGARMENTS</div>
           <div class="image-description">
 2024
 Cotton, wire, and aqua resin
 56 x 32 x 32 in
           </div>
-          <img src="6undergarments.png" alt="6 Undergarments"/>
         </div>
         <!-- 2024 - 3 -->
         <div id="title-2024-3" class="image-section">
+          <img src="andres-house.JPEG" alt="Andre's House"/>
+          <img src="image20.JPEG" alt="Andre's House"/>
+          <img src="image17.JPEG" alt="Andre's House"/>
           <div class="image-title">ANDRE'S HOUSE</div>
           <div class="image-description">
 2024
@@ -329,12 +340,10 @@ Tainaner Ensemble
 Experimental Theater
 Taipei, Taiwan
           </div>
-          <img src="andres-house.JPEG" alt="Andre's House"/>
-          <img src="image20.JPEG" alt="Andre's House"/>
-          <img src="image17.JPEG" alt="Andre's House"/>
         </div>
         <!-- 2023 -->
         <div id="title-2023-2" class="image-section">
+          <img src="image12.JPG" alt="Things To Do At a Trial When You're Innocent"/>
           <div class="image-title">THINGS TO DO AT A TRIAL WHEN YOU'RE INNOCENT</div>
           <div class="image-description">
 2023
@@ -342,10 +351,12 @@ Goaty Ensemble
 Mononi Art Venue
 Taipei, Taiwan
           </div>
-          <img src="image12.JPG" alt="Things To Do At a Trial When You're Innocent"/>
         </div>
         <!-- 2022 - 1 -->
         <div id="title-2022-1" class="image-section">
+          <img src="image8.JPG" alt="Unschuld"/>
+          <img src="image9.JPG" alt="Unschuld"/>
+          <img src="image10.JPG" alt="Unschuld"/>
           <div class="image-title">UNSCHULD</div>
           <div class="image-description">
 2022
@@ -353,12 +364,13 @@ Dept. of Drama and Theatre at NTU
 National Taiwan Arts Education Center
 Taipei, Taiwan
           </div>
-          <img src="image8.JPG" alt="Unschuld"/>
-          <img src="image9.JPG" alt="Unschuld"/>
-          <img src="image10.JPG" alt="Unschuld"/>
         </div>
         <!-- 2022 - 2 -->
         <div id="title-2022-2" class="image-section">
+          <img src="image2.JPEG" alt="The Arabian Nights"/>
+          <img src="image4.JPG" alt="The Arabian Nights"/>
+          <img src="image3.JPG" alt="The Arabian Nights"/>
+          <img src="image5.JPG" alt="The Arabian Nights"/>
           <div class="image-title">THE ARABIAN NIGHTS</div>
           <div class="image-description">
 2022
@@ -366,10 +378,6 @@ Dept. of Drama and Theatre at NTU
 National Taiwan Arts Education Center
 Taipei, Taiwan
           </div>
-          <img src="image2.JPEG" alt="The Arabian Nights"/>
-          <img src="image4.JPG" alt="The Arabian Nights"/>
-          <img src="image3.JPG" alt="The Arabian Nights"/>
-          <img src="image5.JPG" alt="The Arabian Nights"/>
         </div>
       </div>
       <!-- ABOUT content -->
