@@ -492,17 +492,21 @@ Through these gestures, Liu’s work traces a way of being with instability, not
       document.getElementById("cv-content").classList.add("active");
       document.getElementById("cv-content").style.display = "block";
     });
-    // Click "jayden" to return home
-    document.getElementById("back-home").addEventListener("click", function (e) {
-      e.preventDefault();
-      document.getElementById("cv-content").classList.remove("active");
-      document.getElementById("contact-content").classList.remove("active");
-      document.getElementById("about-content").classList.remove("active");
-      document.getElementById("cv-content").style.display = "none";
-      document.getElementById("contact-content").style.display = "none";
-      document.getElementById("about-content").style.display = "none";
-      document.getElementById("image-content").style.display = "block";
-    });
+   // Click "jayden" to return home
+   document.getElementById("back-home").addEventListener("click", function (e) {
+  	e.preventDefault();
+  	// 隱藏所有面板
+ 	document.getElementById("cv-content").classList.remove("active");
+  	document.getElementById("contact-content").classList.remove("active");
+  	document.getElementById("about-content").classList.remove("active");
+  	document.getElementById("cv-content").style.display = "none";
+  	document.getElementById("contact-content").style.display = "none";
+  	document.getElementById("about-content").style.display = "none";
+  	// 顯示影像區
+  	document.getElementById("image-content").style.display = "block";
+  	// 平滑捲回頁面頂端
+  	window.scrollTo({ top: 0, behavior: 'smooth' });
+     });
     // Menu links: Switch to corresponding image section
     const menuLinks = document.querySelectorAll(".menu-link");
     menuLinks.forEach(function (link) {
