@@ -459,6 +459,10 @@ Taipei, Taiwan
     </div>
   </div>
   <script>
+    // Disable automatic scroll restoration so refresh/back always start at top
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
     // (back) Button: Return to homepage top
     document.getElementById("back-to-top").addEventListener("click", function (e) {
       e.preventDefault();
@@ -494,6 +498,8 @@ Taipei, Taiwan
       document.getElementById("about-content").style.display = "none";
       document.getElementById("cv-content").classList.add("active");
       document.getElementById("cv-content").style.display = "block";
+      // Scroll to the very top of the page, including any margins
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
    // Click "jayden" to return home
    document.getElementById("back-home").addEventListener("click", function (e) {
@@ -539,6 +545,16 @@ Taipei, Taiwan
         // Highlight the clicked one
         this.classList.add('active-link');
       });
+    });
+    // Always reset scroll to top on page load or refresh
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        window.scrollTo(0, 0);
+      }, 0);
+    });
+    // Ensure scroll is reset before page unload
+    window.addEventListener('beforeunload', function() {
+      window.scrollTo(0, 0);
     });
   </script>
 </body>
