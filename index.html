@@ -241,6 +241,14 @@
     .about-content p {
       margin-bottom: -24px;
     }
+    /* Default link color */
+    a {
+      color: #000000;
+    }
+    /* Highlight active link */
+    .active-link {
+      color: #0000FF !important;
+    }
   </style>
 </head>
 <body id="top">
@@ -519,6 +527,17 @@ Taipei, Taiwan
         if (targetElement) {
           targetElement.scrollIntoView({ behavior: "smooth" });
         }
+      });
+    });
+    // Highlight only the clicked link
+    document.querySelectorAll('a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        // Reset all links to default
+        document.querySelectorAll('a').forEach(function(l) {
+          l.classList.remove('active-link');
+        });
+        // Highlight the clicked one
+        this.classList.add('active-link');
       });
     });
   </script>
