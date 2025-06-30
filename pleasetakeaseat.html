@@ -26,9 +26,6 @@
       width: 15%;
       font-size: 50px;
       line-height: 0.8;
-      letter-spacing: -1px;
-      font-weight: bold;
-      text-transform: uppercase;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
@@ -114,18 +111,13 @@
     }
   </style>
   <style>
-  .fade-up {
+  .fade-in {
     opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+    transition: opacity 0.4s ease-out;
   }
-  .fade-up.show {
+  .fade-in.show {
     opacity: 1;
-    transform: translateY(0);
   }
-  .delay-1 { transition-delay: 0.15s; }
-  .delay-2 { transition-delay: 0.3s; }
-  .delay-3 { transition-delay: 0.45s; }
 </style>
 <style>
 @media (max-width: 1150px) {
@@ -215,7 +207,7 @@
       });
     }, { threshold: 0.1 });
 
-    const fadeEls = document.querySelectorAll('.fade-up');
+    const fadeEls = document.querySelectorAll('.fade-in');
     fadeEls.forEach(el => {
       el.classList.remove('show');
       observer.observe(el);
@@ -233,24 +225,24 @@
 </head>
 <body>
   <div class="container">
-    <div class="left-title fade-up delay-1">
+    <div class="left-title fade-in delay-1">
       <a href="index.html" class="mobile-quit">Quit</a>
       <a href="index.html" class="desktop-quit">Quit</a>
       <div>
         PLEASE<br>TAKE<br>A<br>SEAT
       </div>
     </div>
-    <div class="center-image fade-up delay-2">
-      <img src="seat1.JPG" alt="seat1" class="fade-up" style="margin-bottom: 4px;" />
-      <img src="seat2.JPG" alt="seat2" class="fade-up" style="margin-bottom: 4px;" />
-      <img src="seat3.JPG" alt="seat3" class="fade-up" style="margin-bottom: 4px;" />
-      <img src="seat4.jpg" alt="seat4" class="fade-up" style="margin-bottom: 4px;" />
-      <img src="seat5.jpg" alt="seat5" class="fade-up" style="margin-bottom: 4px;" />
-      <img src="seat6.jpg" alt="seat6" class="fade-up" style="margin-bottom: 4px;" />
-      <img src="seat7.jpg" alt="seat7" class="fade-up" />
+    <div class="center-image fade-in delay-2">
+      <img src="seat1.JPG" alt="seat1" class="fade-in" style="margin-bottom: 4px;" />
+      <img src="seat2.JPG" alt="seat2" class="fade-in" style="margin-bottom: 4px;" />
+      <img src="seat3.JPG" alt="seat3" class="fade-in" style="margin-bottom: 4px;" />
+      <img src="seat4.jpg" alt="seat4" class="fade-in" style="margin-bottom: 4px;" />
+      <img src="seat5.jpg" alt="seat5" class="fade-in" style="margin-bottom: 4px;" />
+      <img src="seat6.jpg" alt="seat6" class="fade-in" style="margin-bottom: 4px;" />
+      <img src="seat7.jpg" alt="seat7" class="fade-in" />
       <div class="caption">(2025)<br>Performance, duration: 40’00”</div>
     </div>
-    <div class="right-content fade-up delay-3">
+    <div class="right-content fade-in delay-3">
       <div class="description">
         The performance begins with piles of wood hanging on the walls, almost as if slicing the space in half. The performer then takes some of the wood and assembles it with their body, becoming a chair, a tool, an object or an apparatus.
       </div>
