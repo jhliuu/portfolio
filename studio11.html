@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Please Take a Seat</title>
+  <style>
+    body {
+      margin: 20px;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      background-color: #F4F8F8;
+      color: #061732;
+      box-sizing: border-box;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      height: calc(100vh - 40px); /* Full viewport height minus margins */
+      overflow: hidden;
+      gap: 20px;
+    }
+
+    .left-title {
+      width: 15%;
+      font-size: 50px;
+      line-height: 0.8;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-between;
+      overflow: hidden;
+      position: relative;
+    }
+    .desktop-quit {
+      display: none;
+    }
+    @media (min-width: 1151px) {
+      .desktop-quit {
+        display: inline-block;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        font-size: 14px;
+        text-decoration: none;
+        color: #061732;
+        font-weight: normal;
+        letter-spacing: normal;
+        text-transform: none;
+      }
+    }
+
+    .center-image {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      overflow-y: scroll;
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none; /* Internet Explorer 10+ */
+    }
+    .center-image::-webkit-scrollbar {
+      display: none; /* Safari and Chrome */
+    }
+
+    .center-image img {
+      width: 100%;
+      height: auto;
+    }
+
+    .caption {
+      font-size: 14px;
+      line-height: 1;
+      margin-top: 20px;
+    }
+
+    .right-content {
+      width: 35%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+      overflow: hidden;
+    }
+
+    .description {
+      font-size: 14px;
+      line-height: 1;
+    }
+
+    .navigation {
+      font-size: 14px;
+      line-height: 1;
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .navigation a {
+      color: #061732;
+      text-decoration: none;
+    }
+
+
+    a[href="index.html"]:hover,
+    .navigation a:hover {
+      font-family: 'Times New Roman', serif;
+      font-style: italic;
+    }
+  </style>
+  <style>
+  .fade-in {
+    opacity: 0;
+    transition: opacity 0.4s ease-out;
+  }
+  .fade-in.show {
+    opacity: 1;
+  }
+</style>
+<style>
+@media (max-width: 1150px) {
+  body {
+    margin: 10px;
+    padding-bottom: 40px;
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    gap: 20px;
+  }
+
+  .left-title {
+    width: 100%;
+    order: 1;
+    position: relative;
+  }
+
+  .mobile-quit {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 14px;
+    text-decoration: none;
+    color: #061732;
+    font-weight: normal;
+    letter-spacing: normal;
+    text-transform: none;
+  }
+
+  .center-image {
+    width: 100%;
+    order: 2;
+    overflow: visible;
+  }
+
+  .center-image img {
+    width: 100%;
+    height: auto;
+  }
+
+  .caption {
+    order: 4;
+    margin-top: 10px;
+  }
+
+  .right-content {
+    width: 100%;
+    order: 3;
+  }
+
+  .right-content .description {
+    margin-top: 20px;
+  }
+
+  .right-content .navigation {
+    order: 5;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  .navigation a {
+    font-size: inherit;
+    line-height: inherit;
+    letter-spacing: inherit;
+    color: #061732;
+  }
+}
+@media (min-width: 1151px) {
+  .mobile-quit {
+    display: none;
+  }
+}
+</style>
+<style>
+  .video-wrapper {
+    position: relative;
+    width: 100%;
+    padding-top: 71.43%; /* 7:5 aspect ratio */
+  }
+
+  .video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+</style>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    const fadeEls = document.querySelectorAll('.fade-in');
+    fadeEls.forEach(el => {
+      el.classList.remove('show');
+      observer.observe(el);
+    });
+  });
+</script>
+  <script>
+    // Always scroll to top on page load (mobile compatible)
+    window.addEventListener('load', function () {
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+      }, 0);
+    });
+  </script>
+</head>
+<body>
+  <div class="container">
+    <div class="left-title fade-in delay-1">
+      <a href="index.html" class="mobile-quit">Quit</a>
+      <a href="index.html" class="desktop-quit">Quit</a>
+      <div>
+        STUDIO<br>11
+      </div>
+    </div>
+    <div class="center-image fade-in delay-2">
+      <div class="video-wrapper">
+        <iframe width="100%" height="auto" src="https://www.youtube.com/embed/9I9KUAFAH_k?si=FdoPbEknjmBxN_h-" 
+          title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          allowfullscreen></iframe>
+      </div>
+    </div>
+    <div class="right-content fade-in delay-3">
+      <div class="description">
+        The video incorporates the space of Studio 11 on the fifth floor of Parsons East, the site where the performance <i>Please Take a Seat</i> took place. It explores the potential of chairs, bodies, forms, tools, objects, and apparatuses as modular units that occupy or erase space.
+      </div>
+      <div class="navigation">
+        <a href="pleasetakeaseat.html">Previous<br>PLEASE TAKE A SEAT</a>
+        <a href="spread&kneel.html">Next<br>SPREAD&KNEEL</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
