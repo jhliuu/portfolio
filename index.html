@@ -3,559 +3,230 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Jayden Liu</title>
-  <link rel="shortcut icon" type="image/x-icon" href="logo.png" />
+  <title>Menu</title>
   <style>
-    /* Global settings: 20px margin on desktop */
-    html, body {
-      margin: 0px;
-      padding: 10px;
-      overflow-x: hidden; 
-      background-color: #ffffff;
-      font-family: "Helvetica", Arial, sans-serif;
-      color: #000000;
-      font-size: 16px;
-      font-weight: 300;
-      line-height: 16px;
-    }
-    /* Override margin for mobile devices */
-    @media (max-width: 768px) {
-      html, body {
-        margin: 0px;
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
       }
-      /* 手機版：將 logo 置左 */
-      .title {
-        text-align: left;
+      to {
+        opacity: 1;
+        transform: translateY(0);
       }
     }
-    
-    .container {
-      display: block;
+
+    .fade-in-up {
+      opacity: 0;
+      animation: fadeUp 1s ease forwards;
+    }
+    .fade-in-up.delay-0 { animation-delay: 0s; }
+    .fade-in-up.delay-1 { animation-delay: 0.2s; }
+    .fade-in-up.delay-2 { animation-delay: 0.4s; }
+    .fade-in-up.delay-3 { animation-delay: 0.6s; }
+    .fade-in-up.delay-4 { animation-delay: 0.8s; }
+    .fade-in-up.delay-5 { animation-delay: 1s; }
+    .fade-in-up.delay-6 { animation-delay: 1.2s; }
+    .fade-in-up.delay-7 { animation-delay: 1.4s; }
+    .fade-in-up.delay-8 { animation-delay: 1.6s; }
+    .fade-in-up.delay-9 { animation-delay: 1.8s; }
+    .fade-in-up.delay-10 { animation-delay: 2s; }
+    .fade-in-up.delay-11 { animation-delay: 2.2s; }
+    html {
+      max-width: 100vw;
+      overflow-x: hidden;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      padding-top: 40px;
+      background-color: #ECECEC;
+      color: #1C1C1C;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-weight: normal;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
       box-sizing: border-box;
-    }
-    .left {
       width: 100%;
-      padding: 0px;
-      box-sizing: border-box;
-      background-color: #ffffff; 
-      z-index: 1;
+      text-transform: none;
     }
-    .right {
-      width: 100%;
-      padding: 0px;
-      box-sizing: border-box;
-      position: relative;
-      z-index: 2;
+
+    nav {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      font-size: 80px;
+      line-height: 0.5;
+      text-align: right;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      color: #1C1C1C;
+      letter-spacing: -4px;
+      align-items: flex-end;
+      font-weight: bold;
+      text-transform: uppercase;
+      margin-left: 100px;
+      padding-right: 100px;
     }
-    @media (min-width: 769px) {
-      .left {
-        position: fixed;
-        top: 20px; /* Desktop margin */
-        left: 20px; /* Desktop margin */
-        width: calc(30% - 20px);
-        height: calc(100vh - 20px);
-        overflow-y: auto; 
-      }
-      .right {
-        padding-top: 8px;
-        width: calc(70% - 20px);
-        margin-left: calc(30% + 20px);
-      }
-    }
-    .title {
-      margin-bottom: 60px;  /* ↑ increased gap between logo and menu */
-    }
-    .title a {
-      display: grid;
-      grid-template-columns: max-content max-content;
-      grid-column-gap: 0.5ch;
-      grid-row-gap: 0;
-      line-height: 1;
-      font-size: 20px;
-      font-weight: 300;
-      color: #000000;
+
+    nav a {
       text-decoration: none;
-      cursor: pointer;
-      transition: font-weight 0.1s;
+      color: #1C1C1C;
+      transition: opacity 0.2s;
     }
-    .title a span {
-      display: block;
+
+    nav a:hover {
+      opacity: 0.5;
     }
-    .title a:hover {
-      text-decoration: underline;
-    }
-    .extra-links {
-      margin-bottom: 40px;
-    }
-    .extra-links a {
-      text-decoration: none;
-      color: #000000;
-      font-size: 16px;
-      font-weight: 300;
-      display: block;
-      margin-bottom: 0;
-      transition: font-weight 0.1s;
-      cursor: pointer;
-    }
-    .extra-links a:hover {
-      text-decoration: underline;
-    }
-    .menu {
-      margin-bottom: 20px;
-    }
-    .menu a {
-      text-decoration: none;
-      color: #000000;
-      font-size: 16px;
-      font-weight: 300;
-      display: block;
-      margin-bottom: 0;
-      transition: font-weight 0.1s;
-      cursor: pointer;
-    }
-    .menu a:hover {
-      text-decoration: underline;
-    }
-    .year {
-      font-size: 12px;
-      font-weight: 300;
+
+    .secondary-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      font-size: 80px;
+      line-height: 0.5;
+      text-align: left;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      color: #1C1C1C;
+      letter-spacing: -4px;
+      align-items: flex-start;
+      font-weight: bold;
       margin-top: 20px;
-      margin-bottom: 10px;
+      margin-left: 100px;
+      text-transform: uppercase;
     }
-    #back-to-top {
-      font-size: 12px;
-      font-weight: 300;
-      color: #000000;
+
+    .secondary-nav a {
       text-decoration: none;
-      transition: font-weight 0.1s;
-      cursor: pointer;
-      line-height: 1;
+      color: #1C1C1C;
+      transition: opacity 0.2s;
     }
-    #back-to-top:hover {
-      text-decoration: underline;
+
+    .secondary-nav a:hover {
+      opacity: 0.5;
     }
-    @media (max-width: 768px) {
-      #back-to-top {
+
+    .tertiary-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      font-size: 80px;
+      line-height: 0.5;
+      text-align: right;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      color: #1C1C1C;
+      letter-spacing: -4px;
+      align-items: flex-end;
+      font-weight: bold;
+      margin-top: 20px;
+      padding-right: 100px;
+      text-transform: uppercase;
+    }
+
+    .tertiary-nav a {
+      text-decoration: none;
+      color: #1C1C1C;
+      transition: opacity 0.2s;
+    }
+
+    .tertiary-nav a:hover {
+      opacity: 0.5;
+    }
+    @media (max-width: 1150px) {
+      nav,
+      .secondary-nav,
+      .tertiary-nav {
+        font-size: 50px;
+        line-height: 0.4;
+        letter-spacing: -1px;
+        gap: 20px;
+      }
+
+      nav,
+      .tertiary-nav {
+        padding-right: 10px;
+      }
+
+      .secondary-nav {
+        margin-left: 10px;
+      }
+
+    }
+    .desktop-only {
+      display: inline;
+    }
+
+    .mobile-only {
+      display: none;
+    }
+
+    @media (max-width: 1150px) {
+      .desktop-only {
         display: none;
       }
-    }
-    @media (min-width: 769px) {
-      #back-to-top {
-        position: static;
-        display: block;
-        margin-top: 50px;
+
+      .mobile-only {
+        display: inline;
       }
     }
-    .image-section {
-      margin-top: 60px;
-      margin-bottom: 20px;
-      text-align: right;
-    }
-    .image-title {
-      font-size: 16px;
+  </style>
+  <style>
+    a:hover {
+      font-family: 'Times New Roman', Times, serif;
       font-style: italic;
-      font-weight: 300;
-      color: #000000;
-      margin-top: 0;
-      margin-bottom: 10px;
-      text-align: right;
-    }
-    .image-description {
-      font-size: 12px;
-      line-height: 14px;
-      font-weight: 300;
-      color: #000000;
-      margin-bottom: 15px;
-      text-align: right;
-      white-space: pre-wrap;
-    }
-    .image-section img {
-      display: block;
-      width: 100%;  
-      height: auto; 
-      margin-bottom: 2px;  
-    }
-    .cv-content {
-      display: none;
-      margin-top: 20px;
-      margin-bottom: 20px;
-    }
-    .cv-content.active {
-      display: block;
-    }
-    .cv-content h2,
-    .cv-content p {
-      font-size: 16px;
-      line-height: 12px;
-      margin: 0;
-      font-weight: 300;
-      color: #000000;
-    }
-    .cv-content h2 {
-      margin-top: 40px;
-      margin-bottom: -24px;
-    }
-    .cv-content p {
-      margin-bottom: -24px;
-    }
-    .contact-content {
-      display: none;
-      margin-top: 20px;
-      margin-bottom: 20px;
-    }
-    .contact-content.active {
-      display: block;
-    }
-    .contact-content h2,
-    .contact-content p {
-      font-size: 16px;
-      line-height: 16px;
-      margin: 0;
-      font-weight: 300;
-      color: #000000;
-    }
-    .contact-content a {
-      text-decoration: underline;
-      color: #000000;
-    }
-    .about-content {
-      display: none;
-      margin-top: 20px;
-      margin-bottom: 20px;
-    }
-    .about-content.active {
-      display: block;
-    }
-    .about-content h2,
-    .about-content p {
-      font-size: 16px;
-      line-height: 12px;
-      margin: 0;
-      font-weight: 300;
-      color: #000000;
-    }
-    .about-content h2 {
-      margin-top: 40px;
-      margin-bottom: -24px;
-    }
-    .about-content p {
-      margin-bottom: -24px;
-    }
-    /* Default link color */
-    a {
-      color: #000000;
-    }
-    /* Highlight active link */
-    .active-link {
-      color: #0000FF !important;
     }
   </style>
 </head>
-<body id="top">
-  <div class="container">
-    <!-- Left column (30%) -->
-    <div class="left">
-      <!-- Title -->
-      <div class="title">
-        <a href="#" id="back-home" aria-label="返回首頁">
-          <span>jayden</span><span>liu</span>
-          <span>劉</span><span>峻豪</span>
-        </a>
-      </div>
-      <!-- Extra links: ABOUT, CV, EMAIL, IG -->
-      <div class="extra-links">
-        <a href="#" id="show-about" aria-label="顯示 ABOUT">about</a>
-        <a href="#" id="show-cv" aria-label="顯示 CV">cv</a>
-        <a href="mailto:jaydenliu.studio@gmail.com" aria-label="寄信給 jaydenliu.studio@gmail.com">email</a>
-        <a href="https://instagram.com/jhliuu" target="_blank" aria-label="前往 Instagram">insta</a>
-      </div>
-      <!-- Menu -->
-      <div class="menu">
-        <div class="year">2025</div>
-        <a href="#title-2025-1" class="menu-link" aria-label="MONODY">Monody</a>
-        <a href="#title-2025-2" class="menu-link" aria-label="MONODY (SINGULAR)">Monody (singular)</a>
-        <div class="year">2024</div>
-        <a href="#title-2024-1" class="menu-link" aria-label="12 UNDERGARMENTS">12 Undergarments</a>
-        <a href="#title-2024-2" class="menu-link" aria-label="6 UNDERGARMENTS">6 Undergarments</a>
-        <a href="#title-2024-3" class="menu-link" aria-label="ANDRE'S HOUSE">Andre's House</a>
-        <div class="year">2023</div>
-        <a href="#title-2023-2" class="menu-link" aria-label="THINGS TO DO AT A TRIAL WHEN YOU'RE INNOCENT">Things to do at a Trial When You're Innocent</a>
-        <div class="year">2022</div>
-        <a href="#title-2022-1" class="menu-link" aria-label="UNSCHULD">Unschuld</a>
-        <a href="#title-2022-2" class="menu-link" aria-label="THE ARABIAN NIGHTS">The Arabian Nights</a>
-      </div>
-      <!-- (back) Button -->
-      <a href="#top" id="back-to-top" aria-label="返回頂部">(back)</a>
-    </div>
-    <!-- Right column (70% + 20px padding) -->
-    <div class="right">
-      <!-- Image content -->
-      <div id="image-content">
-        <!-- 2025 - 1 -->
-        <div id="title-2025-1" class="image-section">
-          <img src="monodyfull.jpg" alt="Monody"/>
-          <div class="image-title">Monody</div>
-          <div class="image-description">
-2025
-Cement, graphite powder, pigment, paper towels, tapes, and MDF
-88.5 x 36 x 36 in
-          </div>
-        </div>
-        <!-- 2025 - 2 -->
-        <div id="title-2025-2" class="image-section">
-          <img src="monody1.JPG" alt="Monody"/>
-          <img src="monody2.JPG" alt="Monody"/>
-          <img src="monody3.JPG" alt="Monody"/>
-          <div class="image-title">Monody (singular)</div>
-          <div class="image-description">
-2025
-Cement, graphite powder, and pigment
-64 x 4.65 x 4.65 in
-          </div>
-        </div>
-        <!-- 2024 - 1 -->
-        <div id="title-2024-1" class="image-section">
-          <img src="12undergarments.png" alt="12 Undergarments"/>
-          <div class="image-title">12 Undergarments</div>
-          <div class="image-description">
-2024
-Cotton, wire, and aqua resin
-120 x 30 x 30 in
-          </div>
-        </div>
-        <!-- 2024 - 2 -->
-        <div id="title-2024-2" class="image-section">
-          <img src="6undergarments.png" alt="6 Undergarments"/>
-          <div class="image-title">6 Undergarments</div>
-          <div class="image-description">
-2024
-Cotton, wire, and aqua resin
-56 x 32 x 32 in
-          </div>
-        </div>
-        <!-- 2024 - 3 -->
-        <div id="title-2024-3" class="image-section">
-          <img src="andres-house.JPEG" alt="Andre's House"/>
-          <img src="image20.JPEG" alt="Andre's House"/>
-          <img src="image17.JPEG" alt="Andre's House"/>
-          <div class="image-title">Andre's House</div>
-          <div class="image-description">
-2024
-Tainaner Ensemble
-Experimental Theater
-Taipei, Taiwan
-          </div>
-        </div>
-        <!-- 2023 -->
-        <div id="title-2023-2" class="image-section">
-          <img src="image12.JPG" alt="Things To Do At a Trial When You're Innocent"/>
-          <div class="image-title">Things to do at a Trial When You're Innocent</div>
-          <div class="image-description">
-2023
-Goaty Ensemble
-Mononi Art Venue
-Taipei, Taiwan
-          </div>
-        </div>
-        <!-- 2022 - 1 -->
-        <div id="title-2022-1" class="image-section">
-          <img src="image8.JPG" alt="Unschuld"/>
-          <img src="image9.JPG" alt="Unschuld"/>
-          <img src="image10.JPG" alt="Unschuld"/>
-          <div class="image-title">Unschuld</div>
-          <div class="image-description">
-2022
-Dept. of Drama and Theatre at NTU
-National Taiwan Arts Education Center
-Taipei, Taiwan
-          </div>
-        </div>
-        <!-- 2022 - 2 -->
-        <div id="title-2022-2" class="image-section">
-          <img src="image2.JPEG" alt="The Arabian Nights"/>
-          <img src="image4.JPG" alt="The Arabian Nights"/>
-          <img src="image3.JPG" alt="The Arabian Nights"/>
-          <img src="image5.JPG" alt="The Arabian Nights"/>
-          <div class="image-title">The Arabian Nights</div>
-          <div class="image-description">
-2022
-Dept. of Drama and Theatre at NTU
-National Taiwan Arts Education Center
-Taipei, Taiwan
-          </div>
-        </div>
-      </div>
-      <!-- ABOUT content -->
-      <div id="about-content" class="about-content">
-        <div id="about-text" style="width: 100%; white-space: pre-wrap;">
-          <h2><strong>Bio</strong></h2>
-          <p>
-<strong>Jayden Liu</strong> (b. Taiwan) is just a dude figuring out life. 
-          </p>
-        </div>
-      </div>
-      <!-- CV content -->
-      <div id="cv-content" class="cv-content">
-        <div id="cv-text" style="width: 100%; white-space: pre-wrap;">
-          <h2><strong>Education</strong></h2><br>
-          <p>MFA Fine Arts</p>
-          <p>Parsons School of Design</p>
-          <p>New York, NY  |  2024 - 2026</p><br>
-          <p>BA Drama and Theatre</p>
-          <p>National Taiwan University</p>
-          <p>Taipei, Taiwan  |  2019 - 2023</p>
-          <h2><strong>Group Exhibitions</strong></h2><br>
-          <p><i>Common Ground</i></p>
-          <p>25 East Gallery</p>
-          <p>New York, NY  |  Feb 10 - 28, 2025</p><br>
-          <p><i>To Continue Being Alive</i></p>
-          <p>25 East Gallery</p>
-          <p>New York, NY  |  Dec 6, 2024</p>
-          <h2><strong>Performance Arts</strong></h2><br>
-          <p>Actor</p>
-          <p><i>Andre's House</i></p>
-          <p>Tainaner Ensemble</p>
-          <p>Experimental Theater</p>
-          <p>Taipei, Taiwan  |  Aug 23 - 25, 2024</p><br>
-          <p>Assistant Projection Designer</p>
-          <p><i>Reality No-Show</i></p>
-          <p>Tainaner Ensemble</p>
-          <p>Taipei Performing Arts Center</p>
-          <p>Taipei, Taiwan  |  Sep 30 - Oct 8, 2023</p>
-          <p>National Kaohsiung Center for the Arts</p>
-          <p>Kaohsiung, Taiwan  |  Nov 10 - 12, 2023</p><br>
-          <p>Actor</p>
-          <p><i>Long Live the Mango Tree</i></p>
-          <p>Goaty Ensemble</p>
-          <p>University Café</p>
-          <p>Taipei, Taiwan  |  Nov 4, 2023</p><br>
-          <p>Actor</p>
-          <p><i>Things to Do at a Trial When You're Innocent</i></p>
-          <p>Goaty Ensemble</p>
-          <p>Mononi Art Venue</p>
-          <p>Taipei, Taiwan  |  Aug 30 - Sep 3, 2023</p><br>
-          <p>Actor</p>
-          <p><i>Unschuld</i></p>
-          <p>Dept. of Drama and Theatre at NTU</p>
-          <p>National Taiwan Arts Education Center</p>
-          <p>Taipei, Taiwan  |  Dec 9 -11, 2022</p><br>
-          <p>Actor</p>
-          <p><i>The Arabian Nights</i></p>
-          <p>Dept. of Drama and Theatre at NTU</p>
-          <p>National Taiwan Arts Education Center</p>
-          <p>Taipei, Taiwan  |  May 13 - May 15, 2022</p>
-          <div style="margin-bottom: 20px;"></div>
-        </div>
-      </div>
-      <!-- Contact content -->
-      <div id="contact-content" class="contact-content">
-        <div id="contact-text" style="width: 100%; white-space: pre-wrap;">
-          <h2><strong>EMAIL</strong></h2>
-          <p><a href="mailto:jaydenliu.studio@gmail.com">jaydenliu.studio@gmail.com</a></p>
-          <h2><strong>INSTAGRAM</strong></h2>
-          <p><a href="https://instagram.com/jhliuu">@jhliuu</a></p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <script>
-    // Disable automatic scroll restoration so refresh/back always start at top
-    if ('scrollRestoration' in history) {
-      history.scrollRestoration = 'manual';
-    }
-    // (back) Button: Return to homepage top
-    document.getElementById("back-to-top").addEventListener("click", function (e) {
-      e.preventDefault();
-      // Show image content, hide ABOUT, CV, CONTACT
-      document.getElementById("image-content").style.display = "block";
-      document.getElementById("cv-content").classList.remove("active");
-      document.getElementById("cv-content").style.display = "none";
-      document.getElementById("about-content").classList.remove("active");
-      document.getElementById("about-content").style.display = "none";
-      document.getElementById("contact-content").classList.remove("active");
-      document.getElementById("contact-content").style.display = "none";
-      // Scroll to very top
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-    // Show ABOUT content
-    document.getElementById("show-about").addEventListener("click", function (e) {
-      e.preventDefault();
-      document.getElementById("image-content").style.display = "none";
-      document.getElementById("cv-content").classList.remove("active");
-      document.getElementById("cv-content").style.display = "none";
-      document.getElementById("contact-content").classList.remove("active");
-      document.getElementById("contact-content").style.display = "none";
-      document.getElementById("about-content").classList.add("active");
-      document.getElementById("about-content").style.display = "block";
-    });
-    // Show CV content
-    document.getElementById("show-cv").addEventListener("click", function (e) {
-      e.preventDefault();
-      document.getElementById("image-content").style.display = "none";
-      document.getElementById("contact-content").classList.remove("active");
-      document.getElementById("contact-content").style.display = "none";
-      document.getElementById("about-content").classList.remove("active");
-      document.getElementById("about-content").style.display = "none";
-      document.getElementById("cv-content").classList.add("active");
-      document.getElementById("cv-content").style.display = "block";
-      // Scroll to the very top of the page, including any margins
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-   // Click "jayden" to return home
-   document.getElementById("back-home").addEventListener("click", function (e) {
-  	e.preventDefault();
-  	// 隱藏所有面板
- 	document.getElementById("cv-content").classList.remove("active");
-  	document.getElementById("contact-content").classList.remove("active");
-  	document.getElementById("about-content").classList.remove("active");
-  	document.getElementById("cv-content").style.display = "none";
-  	document.getElementById("contact-content").style.display = "none";
-  	document.getElementById("about-content").style.display = "none";
-  	// 顯示影像區
-  	document.getElementById("image-content").style.display = "block";
-  	// 平滑捲回頁面頂端
-  	window.scrollTo({ top: 0, behavior: 'smooth' });
-     });
-    // Menu links: Switch to corresponding image section
-    const menuLinks = document.querySelectorAll(".menu-link");
-    menuLinks.forEach(function (link) {
-      link.addEventListener("click", function (e) {
-        e.preventDefault();
-        document.getElementById("cv-content").classList.remove("active");
-        document.getElementById("contact-content").classList.remove("active");
-        document.getElementById("about-content").classList.remove("active");
-        document.getElementById("cv-content").style.display = "none";
-        document.getElementById("contact-content").style.display = "none";
-        document.getElementById("about-content").style.display = "none";
-        document.getElementById("image-content").style.display = "block";
-        const targetId = this.getAttribute("href").substring(1);
-        const targetElement = document.getElementById(targetId);
-        if (targetElement) {
-          targetElement.scrollIntoView({ behavior: "smooth" });
-        }
-      });
-    });
-    // Highlight only the clicked link
-    document.querySelectorAll('a').forEach(function(link) {
-      link.addEventListener('click', function() {
-        // Reset all links to default
-        document.querySelectorAll('a').forEach(function(l) {
-          l.classList.remove('active-link');
-        });
-        // Highlight the clicked one
-        this.classList.add('active-link');
-      });
-    });
-    // Always reset scroll to top on page load or refresh
-    window.addEventListener('load', function() {
-      setTimeout(function() {
-        window.scrollTo(0, 0);
-      }, 0);
-    });
-    // Ensure scroll is reset before page unload
-    window.addEventListener('beforeunload', function() {
-      window.scrollTo(0, 0);
-    });
-  </script>
+<body>
+  <nav>
+    <a href="about.html" class="fade-in-up delay-0">About</a>
+    <a href="contact.html" class="fade-in-up delay-1">Contact</a>
+  </nav>
+  <nav class="secondary-nav">
+    <a href="pleasetakeaseat.html" class="fade-in-up delay-2">
+      <span class="desktop-only">Please Take a Seat</span>
+      <span class="mobile-only">Please Take<br><span class="custom-break">a Seat</span></span>
+    </a>
+    <a href="studio11.html" class="fade-in-up delay-3">Studio11</a>
+    <a href="spreadandkneel.html" class="fade-in-up delay-4">Spread&Kneel</a>
+    <a href="monody.html" class="fade-in-up delay-5">Monody</a>
+    <a href="6undergarments.html" class="fade-in-up delay-6">6Undergarments</a>
+  </nav>
+  <nav class="tertiary-nav">
+    <a href="andreshouse.html" class="fade-in-up delay-7">Andre's House</a>
+    <a href="longlivethemangotree.html" class="fade-in-up delay-8">
+      <span class="desktop-only">Long Live<br><span class="custom-break">the Mango Tree</span></span>
+      <span class="mobile-only">Long Live<br><span class="custom-break">the Mango<br><span class="custom-break">Tree</span></span></span>
+    </a>
+    <a href="thingstodoatatrialwhenyoureinno.html" class="fade-in-up delay-9">
+      <span class="desktop-only">Things to do at a Trial<br>
+        <span class="custom-break">when you're Innocent</span>
+      </span>
+      <span class="mobile-only">Things to do<br>
+        <span class="custom-break">at a Trial<br>
+          <span class="custom-break">when you're<br>
+            <span class="custom-break">Innocent</span>
+          </span>
+        </span>
+      </span>
+    </a>
+    <a href="unschuld.html" class="fade-in-up delay-10">Unschuld</a>
+    <a href="thearabiannights.html" class="fade-in-up delay-11">
+      <span class="desktop-only">The Arabian Nights</span>
+      <span class="mobile-only">The Arabian<br><span class="custom-break">Nights</span></span>
+    </a>
+  </nav>
 </body>
 </html>
+  <style>
+    .custom-break {
+      margin-top: 0.25em;
+      display: inline-block;
+    }
+
+    @media (max-width: 1150px) {
+      .custom-break {
+        margin-top: 0.4em;
+      }
+    }
+  </style>
