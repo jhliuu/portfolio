@@ -94,6 +94,7 @@
 
     .navigation {
       font-size: 14px;
+      line-height: 1;
       margin-top: 20px;
       display: flex;
       justify-content: space-between;
@@ -116,15 +117,15 @@
   .fade-up {
     opacity: 0;
     transform: translateY(40px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
   }
   .fade-up.show {
     opacity: 1;
     transform: translateY(0);
   }
-  .delay-1 { transition-delay: 0.3s; }
-  .delay-2 { transition-delay: 0.6s; }
-  .delay-3 { transition-delay: 0.9s; }
+  .delay-1 { transition-delay: 0.15s; }
+  .delay-2 { transition-delay: 0.3s; }
+  .delay-3 { transition-delay: 0.45s; }
 </style>
 <style>
 @media (max-width: 1150px) {
