@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Unschuld</title>
+  <style>
+    body {
+      margin: 20px;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      background-color: #F4F8F8;
+      color: #061732;
+      box-sizing: border-box;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      height: calc(100vh - 40px); /* Full viewport height minus margins */
+      overflow: hidden;
+      gap: 20px;
+    }
+
+    .left-title {
+      width: 15%;
+      font-size: 50px;
+      line-height: 0.8;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-between;
+      overflow: hidden;
+      position: relative;
+    }
+    .desktop-quit {
+      display: none;
+    }
+    @media (min-width: 1151px) {
+      .desktop-quit {
+        display: inline-block;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        font-size: 14px;
+        text-decoration: none;
+        color: #061732;
+        font-weight: normal;
+        letter-spacing: normal;
+        text-transform: none;
+      }
+    }
+
+    .center-image {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      overflow-y: scroll;
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none; /* Internet Explorer 10+ */
+    }
+    .center-image::-webkit-scrollbar {
+      display: none; /* Safari and Chrome */
+    }
+
+    .center-image img {
+      width: 100%;
+      height: auto;
+    }
+
+    .caption {
+      font-size: 14px;
+      line-height: 1;
+      margin-top: 20px;
+    }
+
+    .right-content {
+      width: 35%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+      overflow: hidden;
+    }
+
+    .description {
+      font-size: 14px;
+      line-height: 1;
+    }
+
+    .navigation {
+      font-size: 14px;
+      line-height: 1;
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .navigation a {
+      color: #061732;
+      text-decoration: none;
+    }
+
+
+    a[href="index.html"]:hover,
+    .navigation a:hover {
+      font-family: 'Times New Roman', serif;
+      font-style: italic;
+    }
+  </style>
+  <style>
+  .fade-in {
+    opacity: 0;
+    transition: opacity 0.4s ease-out;
+  }
+  .fade-in.show {
+    opacity: 1;
+  }
+</style>
+<style>
+@media (max-width: 1150px) {
+  body {
+    margin: 10px;
+    padding-bottom: 40px;
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    gap: 20px;
+  }
+
+  .left-title {
+    width: 100%;
+    order: 1;
+    position: relative;
+  }
+
+  .mobile-quit {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 14px;
+    text-decoration: none;
+    color: #061732;
+    font-weight: normal;
+    letter-spacing: normal;
+    text-transform: none;
+  }
+
+  .center-image {
+    width: 100%;
+    order: 2;
+    overflow: visible;
+  }
+
+  .center-image img {
+    width: 100%;
+    height: auto;
+  }
+
+  .caption {
+    order: 4;
+    margin-top: 10px;
+  }
+
+  .right-content {
+    width: 100%;
+    order: 3;
+  }
+
+  .right-content .description {
+    margin-top: 20px;
+  }
+
+  .right-content .navigation {
+    order: 5;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  .navigation a {
+    font-size: inherit;
+    line-height: inherit;
+    letter-spacing: inherit;
+    color: #061732;
+  }
+}
+@media (min-width: 1151px) {
+  .mobile-quit {
+    display: none;
+  }
+}
+</style>
+<style>
+  .video-wrapper {
+    position: relative;
+    width: 100%;
+    padding-top: 71.43%; /* 7:5 aspect ratio */
+  }
+
+  .video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+</style>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    const fadeEls = document.querySelectorAll('.fade-in');
+    fadeEls.forEach(el => {
+      el.classList.remove('show');
+      observer.observe(el);
+    });
+  });
+</script>
+  <script>
+    // Always scroll to top on page load (mobile compatible)
+    window.addEventListener('load', function () {
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+      }, 0);
+    });
+  </script>
+</head>
+<body>
+  <div class="container">
+    <div class="left-title fade-in delay-1">
+      <a href="index.html" class="mobile-quit">Quit</a>
+      <a href="index.html" class="desktop-quit">Quit</a>
+      <div>
+        <span style="font-family: 'Times New Roman', serif; font-style: italic;">
+          Unschuld
+        </span>
+      </div>
+    </div>
+    <div class="center-image fade-in delay-2">
+      <img src="image8.JPG" alt="U1" class="fade-in" style="margin-bottom: 4px;" />
+      <img src="image9.JPG" alt="U2" class="fade-in" style="margin-bottom: 4px;" />
+      <img src="image10.JPG" alt="U3" class="fade-in" style="margin-bottom: 4px;" />
+      <img src="unschuld.JPG" alt="U4" class="fade-in" style="margin-bottom: 4px;" />
+      <div class="caption">(2022)<br>Dept. of Drama and Theatre at NTU. National Taiwan Arts Education Center. Taipei, Taiwan.</div>
+    </div>
+    <div class="right-content fade-in delay-3">
+      <div class="description">
+        Playwright — Dea Loher<br>
+Translator — Yi-chun Chen<br>
+Producer — Hsiao-mei Hsieh<br>
+Executive Producer — Cheng-yuan Wang<br>
+Director — Pin-wei Chang<br>
+Stage Manager — Hung-yi Su<br>
+Dramaturg — Wei-chun Hsiao
+<br><br>
+Cast —
+Yue-hsin Chou, Chen-yu Lin, Fu-chun Chang, Chieh-wei Kuo, Po-chun Hsu, Hsiao-hsi Huang, Chia-ying Chiang, Shih-ying Wang, Chih-ling Wu, Tzu-hui Chen, Chun-hao Liu
+<br><br>
+Set Design — Jung-huan Pan<br>
+Technical Design — Hsin-ping Hung<br>
+Lighting Design — Wan-tung Lee<br>
+Lighting Technicians — Wei-chen Chen, Le-mei Hsu<br>
+Costume Design — Hui-tzu Wang<br>
+Hair & Makeup / Costume Technician — Tzu-chun Kao<br>
+Wardrobe Supervisor & Technician — Tzu-hsuan Hu<br>
+Sound Design & Engineering — Hui-chueh Hsu<br>
+Sound Technician — Tzu-yu Chu<br>
+Video Design & Engineering — Ming-shan Sung<br>
+Graphic Design — Hsing-wen Lu
+<br><br>
+Line Producers —
+Yun-chih Lee, Chao-chun Yang, Yu-cheng Tu, Yuan-jun Chung, Chi-huan Huang, I-lin Chiang, Hsiang-wen Chang, Tzu-yu Wu
+<br><br>
+Assistant Director — Chen-kai Huang, Yuan-yuan Chiu<br>
+Assistant Stage Managers — Ying-keng Chen, Wang-yao Chiu<br>
+Assistant Technical Designers — Ting-jung Chang, Tien-heng Cheng, Jung-ching Hung<br>
+Assistant Lighting Designers & Technicians — Hsien-wen Yang, Yu-chuan Hsu, Wen-ling Huang<br>
+Assistant Costumers — Chi-sheng Lan, Hsin-yu Hsu, Wan-yu Hung, Tzu-tsen Liu<br>
+Assistant Sound Designers — Yu-chun Kao, Shih-chia Chen, Wei-hung Yen<br>
+Assistant Video Designers & Technicians — Chia-yun Yang, Chien-yu Chiang, Hao-chen Hu
+      </div>
+      <div class="navigation">
+        <a href="innocent.html">Previous<br>THINGS TO DO AT A TRIAL WHEN YOU'RE INNOCENT</a>
+        <a href="thearabiannights.html">Next<br>THE ARABIAN NIGHTS</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
