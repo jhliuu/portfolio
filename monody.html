@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Monody</title>
+  <style>
+    body {
+      margin: 20px;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      background-color: #F4F8F8;
+      color: #061732;
+      box-sizing: border-box;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      height: calc(100vh - 40px); /* Full viewport height minus margins */
+      overflow: hidden;
+      gap: 20px;
+    }
+
+    .left-title {
+      width: 15%;
+      font-size: 50px;
+      line-height: 0.8;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-between;
+      overflow: hidden;
+      position: relative;
+    }
+    .desktop-quit {
+      display: none;
+    }
+    @media (min-width: 1151px) {
+      .desktop-quit {
+        display: inline-block;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        font-size: 14px;
+        text-decoration: none;
+        color: #061732;
+        font-weight: normal;
+        letter-spacing: normal;
+        text-transform: none;
+      }
+    }
+
+    .center-image {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      overflow-y: scroll;
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none; /* Internet Explorer 10+ */
+    }
+    .center-image::-webkit-scrollbar {
+      display: none; /* Safari and Chrome */
+    }
+
+    .center-image img {
+      width: 100%;
+      height: auto;
+    }
+
+    .caption {
+      font-size: 14px;
+      line-height: 1;
+      margin-top: 20px;
+    }
+
+    .right-content {
+      width: 35%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+      overflow: hidden;
+    }
+
+    .description {
+      font-size: 14px;
+      line-height: 1;
+    }
+
+    .navigation {
+      font-size: 14px;
+      line-height: 1;
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .navigation a {
+      color: #061732;
+      text-decoration: none;
+    }
+
+
+    a[href="index.html"]:hover,
+    .navigation a:hover {
+      font-family: 'Times New Roman', serif;
+      font-style: italic;
+    }
+  </style>
+  <style>
+  .fade-in {
+    opacity: 0;
+    transition: opacity 0.4s ease-out;
+  }
+  .fade-in.show {
+    opacity: 1;
+  }
+</style>
+<style>
+@media (max-width: 1150px) {
+  body {
+    margin: 10px;
+    padding-bottom: 40px;
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    gap: 20px;
+  }
+
+  .left-title {
+    width: 100%;
+    order: 1;
+    position: relative;
+  }
+
+  .mobile-quit {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 14px;
+    text-decoration: none;
+    color: #061732;
+    font-weight: normal;
+    letter-spacing: normal;
+    text-transform: none;
+  }
+
+  .center-image {
+    width: 100%;
+    order: 2;
+    overflow: visible;
+  }
+
+  .center-image img {
+    width: 100%;
+    height: auto;
+  }
+
+  .caption {
+    order: 4;
+    margin-top: 10px;
+  }
+
+  .right-content {
+    width: 100%;
+    order: 3;
+  }
+
+  .right-content .description {
+    margin-top: 20px;
+  }
+
+  .right-content .navigation {
+    order: 5;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  .navigation a {
+    font-size: inherit;
+    line-height: inherit;
+    letter-spacing: inherit;
+    color: #061732;
+  }
+}
+@media (min-width: 1151px) {
+  .mobile-quit {
+    display: none;
+  }
+}
+</style>
+<style>
+  .video-wrapper {
+    position: relative;
+    width: 100%;
+    padding-top: 71.43%; /* 7:5 aspect ratio */
+  }
+
+  .video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+</style>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    const fadeEls = document.querySelectorAll('.fade-in');
+    fadeEls.forEach(el => {
+      el.classList.remove('show');
+      observer.observe(el);
+    });
+  });
+</script>
+  <script>
+    // Always scroll to top on page load (mobile compatible)
+    window.addEventListener('load', function () {
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+      }, 0);
+    });
+  </script>
+</head>
+<body>
+  <div class="container">
+    <div class="left-title fade-in delay-1">
+      <a href="index.html" class="mobile-quit">Quit</a>
+      <a href="index.html" class="desktop-quit">Quit</a>
+      <div>
+        <span style="font-family: 'Times New Roman', serif; font-style: italic;">
+          Monody<br>(μονῳδία)
+        </span>
+      </div>
+    </div>
+    <div class="center-image fade-in delay-2">
+      <img src="monody.jpg" alt="Monody Image" class="fade-in" />
+      <div class="caption">(2025)<br>Cement, graphite powder, pigment, paper towels, tapes, and MDF<br>88.5 x 36 x 36 in</div>
+    </div>
+    <div class="right-content fade-in delay-3">
+      <div class="description">
+        Sound moves as structure allows. It stretches and contracts, pushing forward, folding back. An opening invites passage, but not all exits lead out. Some paths release sound into space, others return it to itself. A voice may leave, but that does not mean it arrives.<br><br>Concrete steadies what it surrounds. It holds, it divides. It carries weight—not just of material, but of direction, of control. A passage does not simply allow movement; it dictates its shape. Sound does not pass through untouched. It bends where it is told to bend, stops where it is meant to stop. A form like this does not simply contain—it decides.<br><br>Two openings. One structure. A space that suggests freedom but measures every movement. A voice can grow louder, yet thinner. A message can travel, yet unravel. Not everything that moves through space remains intact. Not everything that is amplified is understood.<br><br>To carry sound is to shape it. A channel is not neutral; it does not simply transmit, it filters. What is permitted to pass, and what is lost? A voice may echo, but is it still whole? Words may remain, but do they still hold weight? The farther a sound moves, the more it is reshaped by what carries it.<br><br>This is a space where voices are heard—but how far do they go.
+Words are spoken—but what is left of them.<br><br>You can speak—<br><br>—but is it your voice that remains?
+      </div>
+      <div class="navigation">
+        <a href="spread&kneel.html">Previous<br>SPREAD&KNEEL</a>
+        <a href="6undergarments.html">Next<br>6UNDERGARMENTS</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
