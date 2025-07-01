@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Arabian Nights</title>
+  <style>
+    body {
+      margin: 20px;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      background-color: #F4F8F8;
+      color: #061732;
+      box-sizing: border-box;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      height: calc(100vh - 40px); /* Full viewport height minus margins */
+      overflow: hidden;
+      gap: 20px;
+    }
+
+    .left-title {
+      width: 15%;
+      font-size: 50px;
+      line-height: 0.8;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-between;
+      overflow: hidden;
+      position: relative;
+    }
+    .desktop-quit {
+      display: none;
+    }
+    @media (min-width: 1151px) {
+      .desktop-quit {
+        display: inline-block;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        font-size: 14px;
+        text-decoration: none;
+        color: #061732;
+        font-weight: normal;
+        letter-spacing: normal;
+        text-transform: none;
+      }
+    }
+
+    .center-image {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      overflow-y: scroll;
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none; /* Internet Explorer 10+ */
+    }
+    .center-image::-webkit-scrollbar {
+      display: none; /* Safari and Chrome */
+    }
+
+    .center-image img {
+      width: 100%;
+      height: auto;
+    }
+
+    .caption {
+      font-size: 14px;
+      line-height: 1;
+      margin-top: 20px;
+    }
+
+    .right-content {
+      width: 35%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+      overflow: hidden;
+    }
+
+    .description {
+      font-size: 14px;
+      line-height: 1;
+    }
+
+    .navigation {
+      font-size: 14px;
+      line-height: 1;
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .navigation a {
+      color: #061732;
+      text-decoration: none;
+    }
+
+
+    a[href="index.html"]:hover,
+    .navigation a:hover {
+      font-family: 'Times New Roman', serif;
+      font-style: italic;
+    }
+  </style>
+  <style>
+  .fade-in {
+    opacity: 0;
+    transition: opacity 0.4s ease-out;
+  }
+  .fade-in.show {
+    opacity: 1;
+  }
+</style>
+<style>
+@media (max-width: 1150px) {
+  body {
+    margin: 10px;
+    padding-bottom: 40px;
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    gap: 20px;
+  }
+
+  .left-title {
+    width: 100%;
+    order: 1;
+    position: relative;
+  }
+
+  .mobile-quit {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 14px;
+    text-decoration: none;
+    color: #061732;
+    font-weight: normal;
+    letter-spacing: normal;
+    text-transform: none;
+  }
+
+  .center-image {
+    width: 100%;
+    order: 2;
+    overflow: visible;
+  }
+
+  .center-image img {
+    width: 100%;
+    height: auto;
+  }
+
+  .caption {
+    order: 4;
+    margin-top: 10px;
+  }
+
+  .right-content {
+    width: 100%;
+    order: 3;
+  }
+
+  .right-content .description {
+    margin-top: 20px;
+  }
+
+  .right-content .navigation {
+    order: 5;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  .navigation a {
+    font-size: inherit;
+    line-height: inherit;
+    letter-spacing: inherit;
+    color: #061732;
+  }
+}
+@media (min-width: 1151px) {
+  .mobile-quit {
+    display: none;
+  }
+}
+</style>
+<style>
+  .video-wrapper {
+    position: relative;
+    width: 100%;
+    padding-top: 71.43%; /* 7:5 aspect ratio */
+  }
+
+  .video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+</style>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    const fadeEls = document.querySelectorAll('.fade-in');
+    fadeEls.forEach(el => {
+      el.classList.remove('show');
+      observer.observe(el);
+    });
+  });
+</script>
+  <script>
+    // Always scroll to top on page load (mobile compatible)
+    window.addEventListener('load', function () {
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+      }, 0);
+    });
+  </script>
+</head>
+<body>
+  <div class="container">
+    <div class="left-title fade-in delay-1">
+      <a href="index.html" class="mobile-quit">Quit</a>
+      <a href="index.html" class="desktop-quit">Quit</a>
+      <div>
+        <span style="font-family: 'Times New Roman', serif; font-style: italic;">
+          The<br>Arabian<br>Nights
+        </span>
+      </div>
+    </div>
+    <div class="center-image fade-in delay-2">
+      <img src="image1.JPG" alt="Arab1" class="fade-in" style="margin-bottom: 4px;" />
+      <img src="image3.JPG" alt="Arab2" class="fade-in" style="margin-bottom: 4px;" />
+      <img src="image4.JPG" alt="Arab3" class="fade-in" style="margin-bottom: 4px;" />
+      <img src="image5.JPG" alt="Arab4" class="fade-in" style="margin-bottom: 4px;" />
+      <div class="caption">(2022)<br>Dept. of Drama and Theatre at NTU. National Taiwan Arts Education Center. Taipei, Taiwan.</div>
+    </div>
+    <div class="right-content fade-in delay-3">
+      <div class="description">
+        Producer — Hsiao-mei Hsieh<br>
+Executive Producer — Po-lin Lee<br>
+Playwright — Mary Zimmerman<br>
+Translator — Man-ning Chu<br>
+Director — Po-shen Lu
+<br><br>
+Set Design — Po-lin Lee<br>
+Technical Director — Chih-feng Chen<br>
+Costume Design — I-mei Wang<br>
+Hair & Makeup Design — Shu-ting Ou<br>
+Lighting Design — Chen-wei Teng<br>
+Music Design — Chi-yang Hsu<br>
+Sound Design — I-chun Hung<br>
+Video Design — Cheng-yuan Wang<br>
+Choreographer — Chen-yu Shao<br>
+Line Producer — Yu-hsiang Lin<br>
+Graphic Design — Fang-chi Tsai
+<br><br>
+Cast —
+Shih-ying Wang, Chia-ying Chiang, Yu-cheng Tu, Yue-hsin Chou, Chen-yu Lin, Hao-chen Hu, I-wen Ni, Tzu-chun Kao, Shuo-chen Kao, Fu-chun Chang, Chieh-wei Kuo, Li-an Chen, Hou-chi Chen, Tzu-hui Chen, Chi-huan Huang, Chun-hao Liu
+<br><br>
+Stage Manager — Chieh-yu Yang<br>
+Assistant Directors — Lu-han Weng, Wei-chun Hsiao<br>
+Assistant Stage Managers — Hsin-yu Hsu, Chen-hsin Kung<br>
+
+Assistant Set Designer — Jung-huan Pan<br>
+Assistant Technical Directors — Yao-ting Wang, Yu Kang<br>
+
+Assistant Costume & Hair/Makeup Technicians — I-chen Lin, Yu-ting Chiu, Tzu-hsuan Hu, Shih-han Peng, Chi-sheng Lan<br>
+
+Assistant Lighting Designers — Wan-tung Lee, Chia-kang Lin<br>
+Assistant Lighting Technicians — Le-mei Hsu, Kai-chi Feng, Chien-cheng Huang<br>
+
+Assistant Music Designers — Hsiang-wen Chang, Hui-chueh Hsu, Chieh-hsin Chen<br>
+
+Assistant Sound Designers — Chih-ling Wu, I-ying Chiu<br>
+
+Assistant Video Designers — Chen-te Chiang, Chia-tien Hsu, Hsiao-hsi Huang, Tsai-lung Han<br>
+
+Assistant Line Producers — I-en Ho, Yun-chih Lee, Hsing-wen Lu, Yuan-jun Chung
+      </div>
+      <div class="navigation">
+        <a href="unschuld.html">Previous<br>UNSCHULD</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
