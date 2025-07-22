@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,62 +19,48 @@
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-      height: calc(100vh - 40px); /* Full viewport height minus margins */
+      height: calc(100vh - 40px);
       overflow: hidden;
       gap: 20px;
     }
 
-    .left-title {
-      width: 15%;
-      font-size: 50px;
-      line-height: 0.8;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: space-between;
-      overflow: visible;
-      position: relative;
-    }
-    .desktop-quit {
-      display: none;
-    }
+    /* Desktop ≥1151px */
     @media (min-width: 1151px) {
-      .desktop-quit {
-        display: inline-block;
+      .navigation {
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+        position: relative;
+        align-items: center;
+      }
+      .navigation .previous {
         position: absolute;
-        bottom: 0;
         left: 0;
-        font-size: 14px;
-        text-decoration: none;
-        color: #061732;
-        font-weight: normal;
-        letter-spacing: normal;
-        text-transform: none;
+      }
+      .navigation .home {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .navigation .next {
+        margin-left: auto;
       }
     }
 
     .center-image {
-      width: 50%;
+      width: 65%;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
       overflow-y: scroll;
-      scrollbar-width: none; /* Firefox */
-      -ms-overflow-style: none; /* Internet Explorer 10+ */
+      scrollbar-width: none;
+      -ms-overflow-style: none;
     }
-    .center-image::-webkit-scrollbar {
-      display: none; /* Safari and Chrome */
-    }
+    .center-image::-webkit-scrollbar { display: none; }
 
     .center-image img {
       width: 100%;
       height: auto;
-    }
-
-    .caption {
-      font-size: 14px;
-      line-height: 1;
-      margin-top: 20px;
     }
 
     .right-content {
@@ -86,7 +74,7 @@
 
     .description {
       font-size: 14px;
-      line-height: 1;
+      line-height: 1.2;
     }
 
     .navigation {
@@ -94,7 +82,7 @@
       line-height: 1;
       margin-top: 20px;
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-end;
       width: 100%;
     }
 
@@ -103,171 +91,91 @@
       text-decoration: none;
     }
 
-
     a[href="index.html"]:hover,
     .navigation a:hover {
       font-family: 'Times New Roman', serif;
       font-style: italic;
     }
+
+    /* fade-in */
+    .fade-in { opacity: 0; transition: opacity 0.4s ease-out; }
+    .fade-in.show { opacity: 1; }
+
+    /* Mobile ≤1150px */
+    @media (max-width: 1150px) {
+      body { margin: 10px; padding-bottom: 40px; }
+      .container { flex-direction: column; height: auto; gap: 20px; }
+
+      .center-image { width: 100%; order: 2; overflow: visible; }
+
+      .right-content { width: 100%; order: 3; }
+      .right-content .description { margin-top: 20px; }
+
+      .right-content .navigation {
+        order: 5;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        margin-top: 40px;
+        position: relative;
+      }
+      .navigation .previous { margin-right: auto; }
+      .navigation .home {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .navigation .next { margin-left: auto; }
+
+      .navigation a {
+        font-size: inherit;
+        line-height: inherit;
+        letter-spacing: inherit;
+        color: #061732;
+      }
+    }
   </style>
-  <style>
-  .fade-in {
-    opacity: 0;
-    transition: opacity 0.4s ease-out;
-  }
-  .fade-in.show {
-    opacity: 1;
-  }
-</style>
-<style>
-@media (max-width: 1150px) {
-  body {
-    margin: 10px;
-    padding-bottom: 40px;
-  }
-  .container {
-    display: flex;
-    flex-direction: column;
-    height: auto;
-    gap: 20px;
-  }
 
-  .left-title {
-    width: 100%;
-    order: 1;
-    position: relative;
-    overflow: visible;
-  }
-
-  .mobile-quit {
-    position: absolute;
-    top: 0;
-    right: 0;
-    font-size: 14px;
-    text-decoration: none;
-    color: #061732;
-    font-weight: normal;
-    letter-spacing: normal;
-    text-transform: none;
-  }
-
-  .center-image {
-    width: 100%;
-    order: 2;
-    overflow: visible;
-  }
-
-  .center-image img {
-    width: 100%;
-    height: auto;
-  }
-
-  .caption {
-    order: 4;
-    margin-top: 10px;
-  }
-
-  .right-content {
-    width: 100%;
-    order: 3;
-  }
-
-  .right-content .description {
-    margin-top: 20px;
-  }
-
-  .right-content .navigation {
-    order: 5;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 20px;
-  }
-
-  .navigation a {
-    font-size: inherit;
-    line-height: inherit;
-    letter-spacing: inherit;
-    color: #061732;
-  }
-}
-@media (min-width: 1151px) {
-  .mobile-quit {
-    display: none;
-  }
-}
-</style>
-<style>
-  .video-wrapper {
-    position: relative;
-    width: 100%;
-    padding-top: 71.43%; /* 7:5 aspect ratio */
-  }
-
-  .video-wrapper iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-</style>
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show');
-        }
-      });
-    }, { threshold: 0.1 });
-
-    const fadeEls = document.querySelectorAll('.fade-in');
-    fadeEls.forEach(el => {
-      el.classList.remove('show');
-      observer.observe(el);
-    });
-  });
-</script>
   <script>
-    // Always scroll to top on page load (mobile compatible)
-    window.addEventListener('load', function () {
-      setTimeout(() => {
-        window.scrollTo(0, 0);
-      }, 0);
+    document.addEventListener("DOMContentLoaded", () => {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => entry.isIntersecting && entry.target.classList.add('show'));
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.fade-in').forEach(el => {
+        el.classList.remove('show');
+        observer.observe(el);
+      });
+    });
+
+    window.addEventListener('load', () => {
+      setTimeout(() => window.scrollTo(0, 0), 0);
     });
   </script>
 </head>
 <body>
   <div class="container">
-    <div class="left-title fade-in delay-1">
-      <a href="index.html" class="mobile-quit">Quit</a>
-      <a href="index.html" class="desktop-quit">Quit</a>
-      <div>
-        <span style="font-family: 'Times New Roman', serif; font-style: italic;">
-          Monody
-        </span>
-      </div>
-    </div>
     <div class="center-image fade-in delay-2">
       <img src="monody.jpg" alt="Monody Image" class="fade-in" loading="lazy"/>
-      <div class="caption">(2025)<br>Cement, graphite powder, pigment, paper towels, tapes, and MDF<br>88.5 x 36 x 36 in</div>
     </div>
+
     <div class="right-content fade-in delay-3">
       <div class="description">
+        <b>Monody</b><br>
+        2025<br>
+        Cement, graphite powder, pigment, paper towels, tapes, and MDF<br>
+        88.5 × 36 × 36 in<br><br><br>
         This work started from a desire to question how we perceive materials, and more fundamentally, how we define beauty in contemporary art. Beauty today feels like a concept emptied out by the market, replicated and circulated until it loses meaning. I find myself caught between resisting it and still wanting to make something that appears beautiful.<br><br>
-
-I chose concrete for its weight, its hardness, its associations with construction and permanence. Then I forced it into a form that looks soft, stretched, almost fragile. It resembles the formal language of Brancusi, but the resemblance is uneasy. It is not an homage, but a tension between attraction and critique. I wanted to see if I could make something seductive using a material that resists seduction.<br><br>
-
-It took nearly two months of trials to see whether this shape could even be made. When it was finally finished, I placed it on a roll of toilet paper. That placement felt right. It was understated, absurd, and strangely sincere. It undercut the effort without fully mocking it.<br><br>
-
-Maybe beauty now is not about elevation or transcendence. Maybe it is about conflict, about labor spent on something that refuses to mean what it’s supposed to.
-
+        I chose concrete for its weight, its hardness, its associations with construction and permanence. Then I forced it into a form that looks soft, stretched, almost fragile. It resembles the formal language of Brancusi, but the resemblance is uneasy. It is not an homage, but a tension between attraction and critique. I wanted to see if I could make something seductive using a material that resists seduction.<br><br>
+        It took nearly two months of trials to see whether this shape could even be made. When it was finally finished, I placed it on a roll of toilet paper. That placement felt right. It was understated, absurd, and strangely sincere. It undercut the effort without fully mocking it.<br><br>
+        Maybe beauty now is not about elevation or transcendence. Maybe it is about conflict, about labor spent on something that refuses to mean what it’s supposed to.
       </div>
+
       <div class="navigation">
-        <a href="spread&kneel.html">Previous<br>SPREAD&KNEEL</a>
-        <a href="6undergarments.html">Next<br>6UNDERGARMENTS</a>
+        <a href="spread&kneel.html" class="previous">Previous</a>
+        <a href="index.html" class="home">Home</a>
+        <a href="6undergarments.html" class="next">Next</a>
       </div>
     </div>
   </div>
