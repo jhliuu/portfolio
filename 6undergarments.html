@@ -17,62 +17,48 @@
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-      height: calc(100vh - 40px); /* Full viewport height minus margins */
+      height: calc(100vh - 40px);
       overflow: hidden;
       gap: 20px;
     }
 
-    .left-title {
-      width: 15%;
-      font-size: 50px;
-      line-height: 0.8;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: space-between;
-      overflow: visible;
-      position: relative;
-    }
-    .desktop-quit {
-      display: none;
-    }
+    /* Desktop ≥1151px */
     @media (min-width: 1151px) {
-      .desktop-quit {
-        display: inline-block;
+      .navigation {
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+        position: relative;
+        align-items: center;
+      }
+      .navigation .previous {
         position: absolute;
-        bottom: 0;
         left: 0;
-        font-size: 14px;
-        text-decoration: none;
-        color: #061732;
-        font-weight: normal;
-        letter-spacing: normal;
-        text-transform: none;
+      }
+      .navigation .home {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .navigation .next {
+        margin-left: auto;
       }
     }
 
     .center-image {
-      width: 50%;
+      width: 65%;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
       overflow-y: scroll;
-      scrollbar-width: none; /* Firefox */
-      -ms-overflow-style: none; /* Internet Explorer 10+ */
+      scrollbar-width: none;
+      -ms-overflow-style: none;
     }
-    .center-image::-webkit-scrollbar {
-      display: none; /* Safari and Chrome */
-    }
+    .center-image::-webkit-scrollbar { display: none; }
 
     .center-image img {
       width: 100%;
       height: auto;
-    }
-
-    .caption {
-      font-size: 14px;
-      line-height: 1;
-      margin-top: 20px;
     }
 
     .right-content {
@@ -86,7 +72,7 @@
 
     .description {
       font-size: 14px;
-      line-height: 1;
+      line-height: 1.2;
     }
 
     .navigation {
@@ -94,7 +80,7 @@
       line-height: 1;
       margin-top: 20px;
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-end;
       width: 100%;
     }
 
@@ -103,163 +89,86 @@
       text-decoration: none;
     }
 
-
     a[href="index.html"]:hover,
     .navigation a:hover {
       font-family: 'Times New Roman', serif;
       font-style: italic;
     }
+
+    /* fade-in */
+    .fade-in { opacity: 0; transition: opacity 0.4s ease-out; }
+    .fade-in.show { opacity: 1; }
+
+    /* Mobile ≤1150px */
+    @media (max-width: 1150px) {
+      body { margin: 10px; padding-bottom: 40px; }
+      .container { flex-direction: column; height: auto; gap: 20px; }
+
+      .center-image { width: 100%; order: 2; overflow: visible; }
+
+      .right-content { width: 100%; order: 3; }
+      .right-content .description { margin-top: 20px; }
+
+      .right-content .navigation {
+        order: 5;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        margin-top: 40px;
+        position: relative;
+      }
+      .navigation .previous { margin-right: auto; }
+      .navigation .home {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      
+      .navigation a {
+        font-size: inherit;
+        line-height: inherit;
+        letter-spacing: inherit;
+        color: #061732;
+      }
+    }
   </style>
-  <style>
-  .fade-in {
-    opacity: 0;
-    transition: opacity 0.4s ease-out;
-  }
-  .fade-in.show {
-    opacity: 1;
-  }
-</style>
-<style>
-@media (max-width: 1150px) {
-  body {
-    margin: 10px;
-    padding-bottom: 40px;
-  }
-  .container {
-    display: flex;
-    flex-direction: column;
-    height: auto;
-    gap: 20px;
-  }
 
-  .left-title {
-    width: 100%;
-    order: 1;
-    position: relative;
-    overflow: visible;
-  }
-
-  .mobile-quit {
-    position: absolute;
-    top: 0;
-    right: 0;
-    font-size: 14px;
-    text-decoration: none;
-    color: #061732;
-    font-weight: normal;
-    letter-spacing: normal;
-    text-transform: none;
-  }
-
-  .center-image {
-    width: 100%;
-    order: 2;
-    overflow: visible;
-  }
-
-  .center-image img {
-    width: 100%;
-    height: auto;
-  }
-
-  .caption {
-    order: 4;
-    margin-top: 10px;
-  }
-
-  .right-content {
-    width: 100%;
-    order: 3;
-  }
-
-  .right-content .description {
-    margin-top: 20px;
-  }
-
-  .right-content .navigation {
-    order: 5;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 20px;
-  }
-
-  .navigation a {
-    font-size: inherit;
-    line-height: inherit;
-    letter-spacing: inherit;
-    color: #061732;
-  }
-}
-@media (min-width: 1151px) {
-  .mobile-quit {
-    display: none;
-  }
-}
-</style>
-<style>
-  .video-wrapper {
-    position: relative;
-    width: 100%;
-    padding-top: 71.43%; /* 7:5 aspect ratio */
-  }
-
-  .video-wrapper iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-</style>
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show');
-        }
-      });
-    }, { threshold: 0.1 });
-
-    const fadeEls = document.querySelectorAll('.fade-in');
-    fadeEls.forEach(el => {
-      el.classList.remove('show');
-      observer.observe(el);
-    });
-  });
-</script>
   <script>
-    // Always scroll to top on page load (mobile compatible)
-    window.addEventListener('load', function () {
-      setTimeout(() => {
-        window.scrollTo(0, 0);
-      }, 0);
+    document.addEventListener("DOMContentLoaded", () => {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => entry.isIntersecting && entry.target.classList.add('show'));
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.fade-in').forEach(el => {
+        el.classList.remove('show');
+        observer.observe(el);
+      });
+    });
+
+    window.addEventListener('load', () => {
+      setTimeout(() => window.scrollTo(0, 0), 0);
     });
   </script>
 </head>
 <body>
   <div class="container">
-    <div class="left-title fade-in delay-1">
-      <a href="index.html" class="mobile-quit">Quit</a>
-      <a href="index.html" class="desktop-quit">Quit</a>
-      <div>
-        <span style="font-family: 'Times New Roman', serif; font-style: italic;">
-          6<br>Under-<br>garments
-        </span>
-      </div>
-    </div>
     <div class="center-image fade-in delay-2">
-      <img src="6undergarments.jpg" alt="6U Image" class="fade-in" loading="lazy"/>
-      <div class="caption">(2024)<br>Cotton, wire, and aqua resin<br>56 x 32 x 32 in</div>
+      <img src="6undergarments.jpg" alt="Monody Image" class="fade-in" loading="lazy"/>
     </div>
+
     <div class="right-content fade-in delay-3">
       <div class="description">
+        <b>6 Undergarments</b><br>
+        2024<br>
+        Cotton, wire, and aqua resin<br>
+        56 x 32 x 32 in<br><br><br>
         The issue of Taiwanese identity is multi-layered and dynamic, encompassing historical inheritance, cultural practices, political choices, and the influences of globalization. Taiwanese identity is not simply a binary opposition but is continually adjusted with social changes. The elasticity and diversity of this identity not only characterize Taiwanese society but also demonstrate the adaptability and creativity of Taiwanese people in the face of complex historical and real-world situations.<br><br>In my perspective, Taiwanese identity is uniquely shaped by our position amid cross-strait tensions. Faced with these challenges, the younger generation has developed a political and identity flexibility, allowing them to navigate the crises and paradoxes inherent in their self-identification. This flexibility is not a weakness but a distinctive aspect of Taiwanese identity, reflecting resilience and adaptability.<br><br>This unique identity is also manifested in my artistic work—a sculpture that utilizes the elasticity of Taiwanese military underwear combined with aqua resin to create a memorial monument. This artwork symbolizes the flexible yet enduring nature of Taiwanese identity, frozen in time yet adaptable, much like the younger generation’s ability to maintain their cultural roots while engaging with global influences. The sculpture serves as a metaphor for the balance between preserving local culture and embracing global dynamics, highlighting the complexity and strength of Taiwanese identity.
       </div>
+
       <div class="navigation">
-        <a href="monody.html">Previous<br>MONODY</a>
+        <a href="monody.html" class="previous">Previous</a>
+        <a href="index.html" class="next">Home</a>
       </div>
     </div>
   </div>
