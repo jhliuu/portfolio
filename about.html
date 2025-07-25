@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>about this dude</title>
+  <style>
+    body {
+      margin: 20px;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      background-color: #F4F8F8;
+      color: #061732;
+      box-sizing: border-box;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      height: calc(100vh - 40px); /* Full viewport height minus margins */
+      overflow: hidden;
+      gap: 20px;
+    }
+
+    @media (min-width: 1151px) {
+      .desktop-quit {
+        display: inline-block;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        font-size: 14px;
+        text-decoration: none;
+        color: #061732;
+        font-weight: normal;
+        letter-spacing: normal;
+        text-transform: none;
+      }
+      .navigation {
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+        position: relative;
+        align-items: center;
+      }
+      .navigation .home {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .navigation .next {
+        margin-left: auto;
+      }
+      .right-content {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        overflow: hidden;
+      }
+      .blank-top {
+        height: 50%;
+        width: 100%;
+      }
+      .content-wrapper {
+        height: 50%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+    }
+
+    .center-image {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      overflow-y: scroll;
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none; /* Internet Explorer 10+ */
+    }
+    .center-image::-webkit-scrollbar {
+      display: none; /* Safari and Chrome */
+    }
+
+    .center-image img {
+      width: 100%;
+      height: auto;
+    }
+
+
+    .right-content {
+      width: 65%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+      overflow: hidden;
+    }
+
+    .description {
+      font-size: 14px;
+      line-height: 1.2;
+    }
+
+    .navigation {
+      font-size: 14px;
+      line-height: 1;
+      margin-top: 20px;
+      display: flex;
+      justify-content: flex-end;
+      width: 100%;
+    }
+
+    .navigation a {
+      color: #061732;
+      text-decoration: none;
+    }
+    .description a {
+      color: #061732;
+      text-decoration: none;
+    }
+    .description a:hover {
+      font-family: 'Times New Roman', serif;
+      font-style: italic;
+    }
+
+
+    a[href="index.html"]:hover,
+    .navigation a:hover {
+      font-family: 'Times New Roman', serif;
+      font-style: italic;
+    }
+  </style>
+  <style>
+  .fade-in {
+    opacity: 0;
+    transition: opacity 0.4s ease-out;
+  }
+  .fade-in.show {
+    opacity: 1;
+  }
+</style>
+<style>
+@media (max-width: 1150px) {
+  body {
+    margin: 10px;
+    padding-bottom: 40px;
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    gap: 20px;
+  }
+
+
+  .center-image {
+    width: 100%;
+    order: 2;
+    overflow: visible;
+  }
+
+  .center-image img {
+    width: 100%;
+    height: auto;
+  }
+
+
+  .right-content {
+    width: 100%;
+    order: 3;
+  }
+
+  .right-content .description {
+    margin-top: 20px;
+  }
+
+  .right-content .navigation {
+        order: 5;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        margin-top: 40px;
+        position: relative;
+      }
+      .navigation .previous { margin-right: auto; }
+      .navigation .home {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      
+      .navigation a {
+        font-size: inherit;
+        line-height: inherit;
+        letter-spacing: inherit;
+        color: #061732;
+      }
+    }
+@media (min-width: 1151px) {
+  .mobile-quit {
+    display: none;
+  }
+}
+</style>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    const fadeEls = document.querySelectorAll('.fade-in');
+    fadeEls.forEach(el => {
+      el.classList.remove('show');
+      observer.observe(el);
+    });
+  });
+</script>
+  <script>
+    // Always scroll to top on page load (mobile compatible)
+    window.addEventListener('load', function () {
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+      }, 0);
+    });
+  </script>
+</head>
+<body>
+  <div class="container">
+    <div class="center-image fade-in delay-2">
+      <img src="polaroid.png" alt="jayden" class="fade-in" loading="lazy"/>
+    </div>
+    <div class="right-content fade-in delay-3">
+      <div class="blank-top">
+        <div class="description">
+          <a href="https://www.instagram.com/jhliuu" target="_blank">@jhliuu</a><br>
+          <a href="mailto:jaydenliu.studio@gmail.com">jaydenliu.studio@gmail.com</a>
+        </div>
+      </div>
+      <div class="content-wrapper">
+      <div class="description">
+
+<b>Jayden Liu</b> (b. Taiwan) is a Brooklyn-based artist currently pursuing an MFA in Fine Arts at Parsons School of Design. With a background in theater, his practice draws from everyday routines, social dynamics, and the small frictions that often go unnoticed.
+<br><br>
+Working across sculpture and performance, Liu creates situations that highlight the invisible scripts behind daily life. He is interested in how tension, miscommunication, and quiet contradictions play out in shared spaces—sometimes subtly, sometimes absurdly.
+      </div>
+      <div class="navigation">
+        <a href="index.html" class="previous">Home</a>
+        <a href="cv.html" class="next">CV</a>
+      </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
