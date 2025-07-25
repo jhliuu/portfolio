@@ -17,25 +17,11 @@
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-      height: calc(100vh - 40px); /* Full viewport height minus margins */
+      height: calc(100vh - 40px);
       overflow: hidden;
       gap: 20px;
     }
 
-    .left-title {
-      width: 15%;
-      font-size: 50px;
-      line-height: 0.8;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: space-between;
-      overflow: visible;
-      position: relative;
-    }
-    .desktop-quit {
-      display: none;
-    }
     @media (min-width: 1151px) {
       .desktop-quit {
         display: inline-block;
@@ -53,20 +39,30 @@
         display: flex;
         justify-content: flex-end;
         width: 100%;
+        position: relative;
+        align-items: center;
+      }
+      .navigation .home {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .navigation .next {
+        margin-left: auto;
       }
     }
 
     .center-image {
-      width: 50%;
+      width: 65%;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
       overflow-y: scroll;
-      scrollbar-width: none; /* Firefox */
-      -ms-overflow-style: none; /* Internet Explorer 10+ */
+      scrollbar-width: none;
+      -ms-overflow-style: none;
     }
     .center-image::-webkit-scrollbar {
-      display: none; /* Safari and Chrome */
+      display: none;
     }
 
     .center-image img {
@@ -91,7 +87,7 @@
 
     .description {
       font-size: 14px;
-      line-height: 1;
+      line-height: 1.2;
     }
 
     .navigation {
@@ -108,7 +104,6 @@
       text-decoration: none;
     }
 
-
     a[href="index.html"]:hover,
     .navigation a:hover {
       font-family: 'Times New Roman', serif;
@@ -116,112 +111,94 @@
     }
   </style>
   <style>
-  .fade-in {
-    opacity: 0;
-    transition: opacity 0.4s ease-out;
-  }
-  .fade-in.show {
-    opacity: 1;
-  }
-</style>
-<style>
-@media (max-width: 1150px) {
-  body {
-    margin: 10px;
-    padding-bottom: 40px;
-  }
-  .container {
-    display: flex;
-    flex-direction: column;
-    height: auto;
-    gap: 20px;
-  }
+    .fade-in {
+      opacity: 0;
+      transition: opacity 0.4s ease-out;
+    }
+    .fade-in.show {
+      opacity: 1;
+    }
+  </style>
+  <style>
+    @media (max-width: 1150px) {
+      body {
+        margin: 10px;
+        padding-bottom: 40px;
+      }
+      .container {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        gap: 20px;
+      }
 
-  .left-title {
-    width: 100%;
-    order: 1;
-    position: relative;
-    overflow: visible;
-  }
+      .center-image {
+        width: 100%;
+        order: 2;
+        overflow: visible;
+      }
 
-  .mobile-quit {
-    position: absolute;
-    top: 0;
-    right: 0;
-    font-size: 14px;
-    text-decoration: none;
-    color: #061732;
-    font-weight: normal;
-    letter-spacing: normal;
-    text-transform: none;
-  }
+      .center-image img {
+        width: 100%;
+        height: auto;
+      }
 
-  .center-image {
-    width: 100%;
-    order: 2;
-    overflow: visible;
-  }
+      .right-content {
+        width: 100%;
+        order: 3;
+      }
 
-  .center-image img {
-    width: 100%;
-    height: auto;
-  }
+      .right-content .description {
+        margin-top: 20px;
+      }
 
-  .caption {
-    order: 4;
-    margin-top: 10px;
-  }
+      .right-content .navigation {
+        order: 5;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        margin-top: 40px;
+        position: relative;
+      }
+      .navigation .previous { margin-right: auto; }
+      .navigation .home {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+      }
 
-  .right-content {
-    width: 100%;
-    order: 3;
-  }
-
-  .right-content .description {
-    margin-top: 20px;
-  }
-
-  .right-content .navigation {
-    order: 5;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: center;
-    margin-top: 20px;
-  }
-
-  .navigation a {
-    font-size: inherit;
-    line-height: inherit;
-    letter-spacing: inherit;
-    color: #061732;
-  }
-}
-@media (min-width: 1151px) {
-  .mobile-quit {
-    display: none;
-  }
-}
-</style>
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show');
-        }
-      });
-    }, { threshold: 0.1 });
-
-    const fadeEls = document.querySelectorAll('.fade-in');
-    fadeEls.forEach(el => {
-      el.classList.remove('show');
-      observer.observe(el);
-    });
-  });
-</script>
+      .navigation a {
+        font-size: inherit;
+        line-height: inherit;
+        letter-spacing: inherit;
+        color: #061732;
+      }
+    }
+    @media (min-width: 1151px) {
+      .mobile-quit {
+        display: none;
+      }
+    }
+  </style>
   <script>
-    // Always scroll to top on page load (mobile compatible)
+    document.addEventListener("DOMContentLoaded", () => {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+          }
+        });
+      }, { threshold: 0.1 });
+
+      const fadeEls = document.querySelectorAll('.fade-in');
+      fadeEls.forEach(el => {
+        el.classList.remove('show');
+        observer.observe(el);
+      });
+    });
+  </script>
+  <script>
     window.addEventListener('load', function () {
       setTimeout(() => {
         window.scrollTo(0, 0);
@@ -231,57 +208,48 @@
 </head>
 <body>
   <div class="container">
-    <div class="left-title fade-in delay-1">
-      <a href="index.html" class="mobile-quit">Quit</a>
-      <a href="index.html" class="desktop-quit">Quit</a>
-      <div>
-        <span style="font-family: 'Times New Roman', serif; font-style: italic;">
-          Andre's<br>House
-        </span>
-      </div>
-    </div>
     <div class="center-image fade-in delay-2">
       <img src="image20.JPEG" alt="image20" class="fade-in" loading="lazy" style="margin-bottom: 4px;" />
       <img src="andres-house.JPEG" alt="andres-house" class="fade-in" loading="lazy" style="margin-bottom: 4px;" />
       <img src="image19.JPEG" alt="image19" class="fade-in" loading="lazy" style="margin-bottom: 4px;" />
       <img src="image17.JPEG" alt="image17" class="fade-in" loading="lazy"/>
-      <div class="caption">(2024)<br>Tainaner Ensemble. Experimental Theatre of National Theater. Taipei, Taiwan</div>
     </div>
     <div class="right-content fade-in delay-3">
       <div class="description">
+<b>Andre's House</b><br>
+2024<br>
+Tainaner Ensemble. Experimental Theatre of National Theater. Taipei, Taiwan<br><br><br>
         Artistic Director — Po-shen Lu<br>
-Playwright — Chia-yi Chen<br>
-Director — Yi-kai Chen<br>
-Set Design — Hao-yuan Chang<br>
-Lighting Design — Hsia-ning Wu<br>
-Costume Design — Hsin-yen Huang<br>
-Sound Design — Chi-yang Hsu<br>
-Assistant Sound Designer — Li-an Chen<br>
-Key Visual Photography — 58kg<br>
-Key Visual Design — Pao-shen Kuo
-<br><br>
-Cast — Meng-chi Wang, Shu-chun Wu, Tsai-en Chen, Shih-yung Cheng, Hsin-yi Chao, Chun-hao Liu
-<br><br>
-Producers — Wei-mu Lee, Po-shen Lu<br>
-Production Manager — Chen-chun Liu<br>
-Stage Manager — Ting-ting Chang<br>
-Stage Technical Coordinator — Po-yen Liu<br>
-Lighting Technical Coordinator — Tse-hung Tseng<br>
-Sound Technician — TOPSOUND CO., LTD.<br>
-Assistant Stage Manager — Ying-tzu Chen<br>
-Assistant Director — Pin-wei Chang<br>
-Hair & Makeup / Wardrobe Supervisor — Hsin-yi Lin<br>
-Hair & Makeup Execution — Chun-yi Li<br>
-Promotional Copywriting — Chi-yün Chao<br>
-Publicity — Keng-pang Lin<br>
-Box Office & Accounting — Mei-ling Chi
-<br><br>
-Guiding Unit — Ministry of Culture, Taiwan<br>
-Organizer — Tainaner Ensemble<br>
-Sponsors — National Culture and Arts Foundation, Taipei City Government Department of Cultural Affairs, Yi-Xiang Space
+        Playwright — Chia-yi Chen<br>
+        Director — Yi-kai Chen<br>
+        Set Design — Hao-yuan Chang<br>
+        Lighting Design — Hsia-ning Wu<br>
+        Costume Design — Hsin-yen Huang<br>
+        Sound Design — Chi-yang Hsu<br>
+        Assistant Sound Designer — Li-an Chen<br>
+        Key Visual Photography — 58kg<br>
+        Key Visual Design — Pao-shen Kuo<br><br>
+        Cast — Meng-chi Wang, Shu-chun Wu, Tsai-en Chen, Shih-yung Cheng, Hsin-yi Chao, Chun-hao Liu<br><br>
+        Producers — Wei-mu Lee, Po-shen Lu<br>
+        Production Manager — Chen-chun Liu<br>
+        Stage Manager — Ting-ting Chang<br>
+        Stage Technical Coordinator — Po-yen Liu<br>
+        Lighting Technical Coordinator — Tse-hung Tseng<br>
+        Sound Technician — TOPSOUND CO., LTD.<br>
+        Assistant Stage Manager — Ying-tzu Chen<br>
+        Assistant Director — Pin-wei Chang<br>
+        Hair & Makeup / Wardrobe Supervisor — Hsin-yi Lin<br>
+        Hair & Makeup Execution — Chun-yi Li<br>
+        Promotional Copywriting — Chi-yün Chao<br>
+        Publicity — Keng-pang Lin<br>
+        Box Office & Accounting — Mei-ling Chi<br><br>
+        Guiding Unit — Ministry of Culture, Taiwan<br>
+        Organizer — Tainaner Ensemble<br>
+        Sponsors — National Culture and Arts Foundation, Taipei City Government Department of Cultural Affairs, Yi-Xiang Space
       </div>
       <div class="navigation">
-        <a href="mangotree.html">Next<br>LONG LIVE THE MANGO TREE</a>
+        <a href="index.html" class="previous">Home</a>
+        <a href="mangotree.html" class="next">Next</a>
       </div>
     </div>
   </div>
