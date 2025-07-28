@@ -17,6 +17,31 @@
         opacity: 1;
       }
     }
+    @keyframes fadeInLine {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    .fade-in-line {
+      opacity: 0;
+      animation-name: fadeInLine;
+      animation-duration: 0.3s;
+      animation-fill-mode: forwards;
+      animation-timing-function: ease;
+    }
+    .fade-in-line.delay-0  { animation-delay: 0s; }
+    .fade-in-line.delay-1  { animation-delay: 0.15s; }
+    .fade-in-line.delay-2  { animation-delay: 0.3s; }
+    .fade-in-line.delay-3  { animation-delay: 0.45s; }
+    .fade-in-line.delay-4  { animation-delay: 0.6s; }
+    .fade-in-line.delay-5  { animation-delay: 0.75s; }
+    .fade-in-line.delay-6  { animation-delay: 0.9s; }
+    .fade-in-line.delay-7  { animation-delay: 1.05s; }
+    .fade-in-line.delay-8  { animation-delay: 1.2s; }
+    .fade-in-line.delay-9  { animation-delay: 1.35s; }
+    .fade-in-line.delay-10 { animation-delay: 1.5s; }
+    .fade-in-line.delay-11 { animation-delay: 1.65s; }
+    .fade-in-line.delay-12 { animation-delay: 1.8s; }
+    .fade-in-line.delay-13 { animation-delay: 1.95s; }
     .fade-in-up.delay-0 { animation-delay: 0s; }
     .fade-in-up.delay-1 { animation-delay: 0.15s; }
     .fade-in-up.delay-2 { animation-delay: 0.3s; }
@@ -34,39 +59,31 @@
       overflow-x: hidden;
     }
     body {
-      margin: 0;
+      margin: 20px;
       padding: 0;
-      padding-top: 40px;
       background-color: #F4F8F8;
       color: #061732;
       font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
       font-weight: normal;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
       box-sizing: border-box;
       width: 100%;
       text-transform: none;
     }
 
     nav {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      font-size: 80px;
-      line-height: 0.5;
-      text-align: right;
+      font-size: 24px;
+      line-height: 1;
+      text-align: left;
       font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
       color: #061732;
-      letter-spacing: -4px;
-      align-items: flex-end;
-      font-weight: bold;
-      text-transform: uppercase;
-      margin-left: 100px;
-      padding-right: 100px;
+      letter-spacing: 0;
+      align-items: flex-start;
+      font-weight: normal;
+      text-transform: none;
     }
 
     nav a {
+      display: inline;
       text-decoration: none;
       color: #061732;
       transition: opacity 0.2s;
@@ -80,17 +97,16 @@
       display: flex;
       flex-direction: column;
       gap: 20px;
-      font-size: 80px;
+      font-size: 40px;
       line-height: 0.5;
       text-align: left;
       font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
       color: #061732;
-      letter-spacing: -4px;
+      letter-spacing: 0;
       align-items: flex-start;
-      font-weight: bold;
+      font-weight: normal;
       margin-top: 20px;
-      margin-left: 100px;
-      text-transform: uppercase;
+      text-transform: none;
     }
 
     .secondary-nav a {
@@ -107,17 +123,16 @@
       display: flex;
       flex-direction: column;
       gap: 20px;
-      font-size: 80px;
+      font-size: 40px;
       line-height: 0.5;
-      text-align: right;
+      text-align: left;
       font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
       color: #061732;
-      letter-spacing: -4px;
-      align-items: flex-end;
-      font-weight: bold;
+      letter-spacing: 0;
+      align-items: flex-start;
+      font-weight: normal;
       margin-top: 20px;
-      padding-right: 100px;
-      text-transform: uppercase;
+      text-transform: none;
     }
 
     .tertiary-nav a {
@@ -128,29 +143,6 @@
 
     .tertiary-nav a:hover {
       opacity: 0.5;
-    }
-    @media (max-width: 1150px) {
-      nav,
-      .secondary-nav,
-      .tertiary-nav {
-        font-size: 50px;
-        line-height: 0.4;
-        letter-spacing: -1px;
-        gap: 20px;
-      }
-
-      nav,
-      .tertiary-nav {
-        padding-right: 10px;
-      }
-
-      .secondary-nav {
-        margin-left: 10px;
-      }
-
-      body {
-        padding-bottom: 60px;
-      }
     }
     .desktop-only {
       display: inline;
@@ -168,6 +160,14 @@
       .mobile-only {
         display: inline;
       }
+
+      body {
+        margin: 10px;
+        padding-bottom: 40px;
+      }
+      nav {
+        font-size: 24px;
+      }
     }
   </style>
   <style>
@@ -179,57 +179,28 @@
 </head>
 <body>
   <nav>
-    <a href="info.html" class="fade-in-up delay-0">INFO</a>
-    <a href="cv.html" class="fade-in-up delay-1">CV</a>
-  </nav>
-  <nav class="secondary-nav">
-    <a href="pleasetakeaseat.html" class="fade-in-up delay-2">
-      <span class="desktop-only">Please Take a Seat</span>
-      <span class="mobile-only">Please Take<br><span class="custom-break">a Seat</span></span>
-    </a>
-    <a href="studio11.html" class="fade-in-up delay-3">Studio11</a>
-    <a href="spread&kneel.html" class="fade-in-up delay-4">Spread&Kneel</a>
-    <a href="monody.html" class="fade-in-up delay-5">Monody</a>
-    <a href="6undergarments.html" class="fade-in-up delay-6">
-      <span class="desktop-only">6Undergarments</span>
-      <span class="mobile-only">6under-<br><span class="custom-break">garments</span></span>
-    </a>
-  </nav>
-  <nav class="tertiary-nav">
-    <a href="andreshouse.html" class="fade-in-up delay-7">
-      <span class="desktop-only">Andre's House</span>
-      <span class="mobile-only">andre's<br><span class="custom-break">house</span></span>
-    </a>
-    <a href="mangotree.html" class="fade-in-up delay-8">
-      <span class="desktop-only">Long Live<br><span class="custom-break">the Mango Tree</span></span>
-      <span class="mobile-only">Long Live<br><span class="custom-break">the Mango<br><span class="custom-break">Tree</span></span></span>
-    </a>
-    <a href="innocent.html" class="fade-in-up delay-9">
-      <span class="desktop-only">Things to do at a Trial<br>
-        <span class="custom-break">when you're Innocent</span>
-      </span>
-      <span class="mobile-only">things<br>
-        <span class="custom-break">to do at<br>
-          <span class="custom-break">a trial<br>
-            <span class="custom-break">when<br>
-	      <span class="custom-break">you're<br>
-                <span class="custom-break">innocent</span>
-            </span>
-          </span>
-        </span>
-      </span>
-    </a>
-    <a href="unschuld.html" class="fade-in-up delay-10">Unschuld</a>
-    <a href="thearabiannights.html" class="fade-in-up delay-11">
-      <span class="desktop-only">The Arabian Nights</span>
-      <span class="mobile-only">the<br><span class="custom-break">arabian<br><span class="custom-break">nights</span></span></span>
-    </a>
+    <a href="info.html" class="fade-in-line delay-0">Info</a><br>
+    <a href="cv.html" class="fade-in-line delay-1">CV</a>
+    <br><br><br><br><br><br><br><br>
+    <span class="fade-in-line delay-2">(Projects)</span><br>
+    <a href="pleasetakeaseat.html" class="fade-in-line delay-3">Please Take a Seat</a><br>
+    <a href="studio11.html" class="fade-in-line delay-4">Studio 11</a><br>
+    <a href="spread&kneel.html" class="fade-in-line delay-5">Spread&Kneel</a><br>
+    <a href="monody.html" class="fade-in-line delay-6">Monody</a><br>
+    <a href="6undergarments.html" class="fade-in-line delay-7">6 Undergarments</a>
+    <br><br><br><br><br><br><br><br>
+    <span class="fade-in-line delay-8">(Theatre)</span><br>
+    <a href="andreshouse.html" class="fade-in-line delay-9">Andre's House</a><br>
+    <a href="mangotree.html" class="fade-in-line delay-10">Long Live the Mango Tree</a><br>
+    <a href="innocent.html" class="fade-in-line delay-11">Things to Do at a Trial When You're Innocent</a><br>
+    <a href="unschuld.html" class="fade-in-line delay-12">Unschuld</a><br>
+    <a href="thearabiannights.html" class="fade-in-line delay-13">The Arabian Nights</a>
   </nav>
 </body>
 </html>
   <style>
     .custom-break {
-      margin-top: 0.25em;
+      margin-top: 1em;
       display: inline-block;
     }
 
