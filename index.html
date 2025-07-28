@@ -38,9 +38,9 @@
     body {
       margin: 20px;
       padding: 0;
-      background-color: #F4F8F8;
-      color: #061732;
-      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      background-color: #FFFFFF;
+      color: #000000;
+      font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
       font-weight: normal;
       box-sizing: border-box;
       text-transform: none;
@@ -50,8 +50,8 @@
       font-size: 30px;
       line-height: 1;
       text-align: left;
-      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      color: #061732;
+      font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: #000000;
       letter-spacing: 0;
       align-items: flex-start;
       font-weight: normal;
@@ -61,12 +61,13 @@
     nav a {
       display: inline;
       text-decoration: none;
-      color: #061732;
+      color: #000000;
       transition: opacity 0.2s;
     }
 
     nav a:hover {
-      opacity: 0.5;
+      text-decoration: underline;
+      text-decoration-thickness: 3px;
     }
 
     .secondary-nav {
@@ -76,8 +77,8 @@
       font-size: 30px;
       line-height: 0.5;
       text-align: left;
-      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      color: #061732;
+      font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: #000000;
       letter-spacing: 0;
       align-items: flex-start;
       font-weight: normal;
@@ -87,12 +88,13 @@
 
     .secondary-nav a {
       text-decoration: none;
-      color: #061732;
+      color: #000000;
       transition: opacity 0.2s;
     }
 
     .secondary-nav a:hover {
-      opacity: 0.5;
+      text-decoration: underline;
+      text-decoration-thickness: 3px;
     }
 
     .tertiary-nav {
@@ -102,8 +104,8 @@
       font-size: 30px;
       line-height: 0.5;
       text-align: left;
-      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      color: #061732;
+      font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: #000000;
       letter-spacing: 0;
       align-items: flex-start;
       font-weight: normal;
@@ -113,12 +115,13 @@
 
     .tertiary-nav a {
       text-decoration: none;
-      color: #061732;
+      color: #000000;
       transition: opacity 0.2s;
     }
 
     .tertiary-nav a:hover {
-      opacity: 0.5;
+      text-decoration: underline;
+      text-decoration-thickness: 3px;
     }
     .desktop-only {
       display: inline;
@@ -145,12 +148,11 @@
         font-size: 20px;
         white-space: normal;
       }
-    }
-  </style>
-  <style>
-    a:hover {
-      font-family: 'Times New Roman', Times, serif;
-      font-style: italic;
+      nav a:hover,
+      .secondary-nav a:hover,
+      .tertiary-nav a:hover {
+        text-decoration-thickness: 2px;
+      }
     }
   </style>
 </head>
@@ -159,14 +161,14 @@
     <a href="info.html" class="fade-in-line delay-0">Info</a><br>
     <a href="cv.html" class="fade-in-line delay-0">CV</a>
     <br><br><br><br><br><br><br><br>
-    <span class="fade-in-line delay-1">(Projects)</span><br>
+    <span class="fade-in-line delay-1">●Projects</span><br>
     <a href="pleasetakeaseat.html" class="fade-in-line delay-1">Please Take a Seat</a><br>
     <a href="studio11.html" class="fade-in-line delay-1">Studio 11</a><br>
     <a href="spread&kneel.html" class="fade-in-line delay-1">Spread&Kneel</a><br>
     <a href="monody.html" class="fade-in-line delay-1">Monody</a><br>
     <a href="6undergarments.html" class="fade-in-line delay-1">6 Undergarments</a>
     <br><br><br><br><br><br><br><br>
-    <span class="fade-in-line delay-2">(Performance Arts)</span><br>
+    <span class="fade-in-line delay-2">●Performance Arts</span><br>
     <a href="andreshouse.html" class="fade-in-line delay-2">Andre's House</a><br>
     <a href="mangotree.html" class="fade-in-line delay-2">Long Live the Mango Tree</a><br>
     <a href="innocent.html" class="fade-in-line delay-2">Things to Do at a Trial When You're Innocent</a><br>
