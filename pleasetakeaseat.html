@@ -7,9 +7,9 @@
   <style>
     body {
       margin: 20px;
-      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      background-color: #F4F8F8;
-      color: #061732;
+      font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: #FFFFFF;
+      color: #000000;
       box-sizing: border-box;
     }
 
@@ -30,7 +30,7 @@
         left: 0;
         font-size: 14px;
         text-decoration: none;
-        color: #061732;
+        color: #000000;
         font-weight: normal;
         letter-spacing: normal;
         text-transform: none;
@@ -70,7 +70,6 @@
       height: auto;
     }
 
-
     .right-content {
       width: 35%;
       display: flex;
@@ -95,109 +94,99 @@
     }
 
     .navigation a {
-      color: #061732;
+      color: #000000;
       text-decoration: none;
-    }
-
-
-    a[href="index.html"]:hover,
-    .navigation a:hover {
-      font-family: 'Times New Roman', serif;
-      font-style: italic;
     }
   </style>
   <style>
-  .fade-in {
-    opacity: 0;
-    transition: opacity 0.4s ease-out;
-  }
-  .fade-in.show {
-    opacity: 1;
-  }
-</style>
-<style>
-@media (max-width: 1150px) {
-  body {
-    margin: 10px;
-    padding-bottom: 40px;
-  }
-  .container {
-    display: flex;
-    flex-direction: column;
-    height: auto;
-    gap: 20px;
-  }
-
-
-  .center-image {
-    width: 100%;
-    order: 2;
-    overflow: visible;
-  }
-
-  .center-image img {
-    width: 100%;
-    height: auto;
-  }
-
-
-  .right-content {
-    width: 100%;
-    order: 3;
-  }
-
-  .right-content .description {
-    margin-top: 20px;
-  }
-
-  .right-content .navigation {
-        order: 5;
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-end;
-        align-items: center;
-        margin-top: 40px;
-        position: relative;
-      }
-      .navigation .previous { margin-right: auto; }
-      .navigation .home {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-      }
-      
-      .navigation a {
-        font-size: inherit;
-        line-height: inherit;
-        letter-spacing: inherit;
-        color: #061732;
-      }
+    .fade-in {
+      opacity: 0;
+      transition: opacity 0.4s ease-out;
     }
-@media (min-width: 1151px) {
-  .mobile-quit {
-    display: none;
-  }
-}
-</style>
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show');
-        }
-      });
-    }, { threshold: 0.1 });
+    .fade-in.show {
+      opacity: 1;
+    }
+  </style>
+  <style>
+  @media (max-width: 1150px) {
+    body {
+      margin: 10px;
+      padding-bottom: 40px;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      height: auto;
+      gap: 20px;
+    }
 
-    const fadeEls = document.querySelectorAll('.fade-in');
-    fadeEls.forEach(el => {
-      el.classList.remove('show');
-      observer.observe(el);
-    });
-  });
-</script>
+    .center-image {
+      width: 100%;
+      order: 2;
+      overflow: visible;
+    }
+
+    .center-image img {
+      width: 100%;
+      height: auto;
+    }
+
+    .right-content {
+      width: 100%;
+      order: 3;
+    }
+
+    .right-content .description {
+      margin-top: 20px;
+    }
+
+    .right-content .navigation {
+          order: 5;
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-end;
+          align-items: center;
+          margin-top: 40px;
+          position: relative;
+        }
+        .navigation .previous { margin-right: auto; }
+        .navigation .home {
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+        
+        .navigation a {
+          font-size: inherit;
+          line-height: inherit;
+          letter-spacing: inherit;
+          color: #000000;
+        }
+  }
+  @media (min-width: 1151px) {
+    .mobile-quit {
+      display: none;
+    }
+  }
+  </style>
   <script>
-    // Always scroll to top on page load (mobile compatible)
+    document.addEventListener("DOMContentLoaded", () => {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+          }
+        });
+      }, { threshold: 0.1 });
+
+      const fadeEls = document.querySelectorAll('.fade-in');
+      fadeEls.forEach(el => {
+        el.classList.remove('show');
+        observer.observe(el);
+      });
+    });
+  </script>
+  <script>
     window.addEventListener('load', function () {
       setTimeout(() => {
         window.scrollTo(0, 0);
@@ -218,9 +207,9 @@
     </div>
     <div class="right-content fade-in delay-3">
       <div class="description">
-<b>Please Take a Seat</b><br>
-2025<br>
-Performance, duration: 40’00”<br><br><br>
+        <b>Please Take a Seat</b><br>
+        2025<br>
+        Performance, duration: 40’00”<br><br><br>
         The performance begins with piles of wood hanging on the walls, almost as if slicing the space in half. The performer then takes some of the wood and assembles it with their body, becoming a chair, a tool, an object or an apparatus.
       </div>
       <div class="navigation">
