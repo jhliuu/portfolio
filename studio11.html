@@ -7,9 +7,9 @@
   <style>
     body {
       margin: 20px;
-      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      background-color: #F4F8F8;
-      color: #061732;
+      font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: #FFFFFF;
+      color: #000000;
       box-sizing: border-box;
     }
 
@@ -30,7 +30,7 @@
         left: 0;
         font-size: 14px;
         text-decoration: none;
-        color: #061732;
+        color: #000000;
         font-weight: normal;
         letter-spacing: normal;
         text-transform: none;
@@ -98,94 +98,56 @@
     }
 
     .navigation a {
-      color: #061732;
+      color: #000000;
       text-decoration: none;
     }
 
-    a[href="index.html"]:hover,
-    .navigation a:hover {
-      font-family: 'Times New Roman', serif;
-      font-style: italic;
-    }
-  </style>
+    /* Hover effect removed */
 
-  <style>
-    .fade-in {
-      opacity: 0;
-      transition: opacity 0.4s ease-out;
-    }
-    .fade-in.show {
-      opacity: 1;
-    }
-  </style>
+    /* fade-in */
+    .fade-in { opacity: 0; transition: opacity 0.4s ease-out; }
+    .fade-in.show { opacity: 1; }
 
-  <style>
-  @media (max-width: 1150px) {
-    body {
-      margin: 10px;
-      padding-bottom: 40px;
-    }
-    .container {
-      display: flex;
-      flex-direction: column;
-      height: auto;
-      gap: 20px;
-    }
+    /* Mobile ≤1150px */
+    @media (max-width: 1150px) {
+      body { margin: 10px; padding-bottom: 40px; }
+      .container { flex-direction: column; height: auto; gap: 20px; }
 
-    .center-image {
-      width: 100%;
-      order: 2;
-      overflow: visible;
-    }
+      .center-image { width: 100%; order: 2; overflow: visible; }
 
-    .center-image img,
-    .video-wrapper {
-      width: 100%;
-      height: auto;
-    }
+      .center-image img,
+      .video-wrapper {
+        width: 100%;
+        height: auto;
+      }
 
-    .right-content {
-      width: 100%;
-      order: 3;
-    }
+      .right-content { width: 100%; order: 3; }
+      .right-content .description { margin-top: 20px; }
 
-    .right-content .description {
-      margin-top: 20px;
-    }
+      .right-content .navigation {
+        order: 5;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        margin-top: 40px;
+        position: relative;
+      }
+      .navigation .previous { margin-right: auto; }
+      .navigation .home {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .navigation .next { margin-left: auto; }
 
-    .right-content .navigation {
-      order: 5;
-      display: flex;
-      flex-direction: row;
-      justify-content: flex-end;
-      align-items: center;
-      margin-top: 40px;
-      position: relative;
+      .navigation a {
+        font-size: inherit;
+        line-height: inherit;
+        letter-spacing: inherit;
+        color: #000000;
+      }
     }
-    .navigation .previous {
-     margin-right: auto;
-    }
-    .navigation .home {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-    .navigation .next {
-      margin-left: auto;
-    }
-
-    .navigation a {
-      font-size: inherit;
-      line-height: inherit;
-      letter-spacing: inherit;
-      color: #061732;
-    }
-  }
-  @media (min-width: 1151px) {
-    .mobile-quit {
-      display: none;
-    }
-  }
   </style>
 
   <style>
@@ -213,18 +175,14 @@
         });
       }, { threshold: 0.1 });
 
-      const fadeEls = document.querySelectorAll('.fade-in');
-      fadeEls.forEach(el => {
+      document.querySelectorAll('.fade-in').forEach(el => {
         el.classList.remove('show');
         observer.observe(el);
       });
     });
-  </script>
-  <script>
+
     window.addEventListener('load', function () {
-      setTimeout(() => {
-        window.scrollTo(0, 0);
-      }, 0);
+      setTimeout(() => window.scrollTo(0, 0), 0);
     });
   </script>
 </head>
@@ -246,7 +204,7 @@
         The video incorporates the space of Studio 11 on the fifth floor of Parsons East, the site where the performance <i>Please Take a Seat</i> took place. It explores the potential of chairs, bodies, forms, tools, objects, and apparatuses as modular units that occupy or erase space.
       </div>
       <div class="navigation">
-	<a href="pleasetakeaseat.html" class="previous">Previous</a>
+        <a href="pleasetakeaseat.html" class="previous">Previous</a>
         <a href="index.html" class="home">Home</a>
         <a href="spread&kneel.html" class="next">Next</a>
       </div>
