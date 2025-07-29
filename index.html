@@ -65,10 +65,6 @@
       transition: opacity 0.2s;
     }
 
-    nav a:hover {
-      text-decoration: underline;
-      text-decoration-thickness: 3px;
-    }
 
     .secondary-nav {
       display: flex;
@@ -92,10 +88,6 @@
       transition: opacity 0.2s;
     }
 
-    .secondary-nav a:hover {
-      text-decoration: underline;
-      text-decoration-thickness: 3px;
-    }
 
     .tertiary-nav {
       display: flex;
@@ -117,11 +109,6 @@
       text-decoration: none;
       color: #000000;
       transition: opacity 0.2s;
-    }
-
-    .tertiary-nav a:hover {
-      text-decoration: underline;
-      text-decoration-thickness: 3px;
     }
     .desktop-only {
       display: inline;
@@ -151,8 +138,14 @@
       nav a:hover,
       .secondary-nav a:hover,
       .tertiary-nav a:hover {
-        text-decoration-thickness: 2px;
+        font-weight: bold;
       }
+    }
+
+    nav a:hover,
+    .secondary-nav a:hover,
+    .tertiary-nav a:hover {
+      font-weight: bold;
     }
   </style>
 </head>
