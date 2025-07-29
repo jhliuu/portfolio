@@ -89,8 +89,6 @@
       text-decoration: none;
     }
 
-    /* Hover effect removed */
-
     /* fade-in */
     .fade-in { opacity: 0; transition: opacity 0.4s ease-out; }
     .fade-in.show { opacity: 1; }
@@ -133,13 +131,14 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      const observer = new IntersectionObserver(entries => entries.forEach(entry => header.target.classList.add('show')), { threshold: 0.1 });
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => entry.isIntersecting && entry.target.classList.add('show'));
+      }, { threshold: 0.1 });
       document.querySelectorAll('.fade-in').forEach(el => {
         el.classList.remove('show');
         observer.observe(el);
       });
     });
-
     window.addEventListener('load', () => setTimeout(() => window.scrollTo(0, 0), 0));
   </script>
 </head>
