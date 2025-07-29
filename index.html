@@ -21,6 +21,11 @@
       from { opacity: 0; }
       to   { opacity: 1; }
     }
+    /* Whole-page fade-in */
+    body {
+      opacity: 0;
+      animation: fadeIn 0.6s ease forwards;
+    }
     .fade-in-line {
       opacity: 0;
       animation-name: fadeInLine;
@@ -47,7 +52,7 @@
     }
 
     nav {
-      font-size: 30px;
+      font-size: 50px;
       line-height: 1;
       text-align: left;
       font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -70,7 +75,7 @@
       display: flex;
       flex-direction: column;
       gap: 20px;
-      font-size: 30px;
+      font-size: 24px;
       line-height: 0.5;
       text-align: left;
       font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -132,7 +137,7 @@
         padding-bottom: 40px;
       }
       nav {
-        font-size: 20px;
+        font-size: 40px;
         white-space: normal;
       }
     }
@@ -141,21 +146,21 @@
 </head>
 <body>
   <nav>
-    <a href="info.html" class="fade-in-line delay-0">Info</a><br>
-    <a href="cv.html" class="fade-in-line delay-0">CV</a>
-    <br><br><br><br><br><br><br><br>
-    <span class="fade-in-line delay-1">●Projects</span><br>
-    <a href="pleasetakeaseat.html" class="fade-in-line delay-1">Please Take a Seat</a><br>
-    <a href="studio11.html" class="fade-in-line delay-1">Studio 11</a><br>
-    <a href="spread&kneel.html" class="fade-in-line delay-1">Spread&Kneel</a><br>
-    <a href="monody.html" class="fade-in-line delay-1">Monody</a><br>
-    <a href="6undergarments.html" class="fade-in-line delay-1">6 Undergarments</a>
-    <br><br><br><br><br><br><br><br>
-    <span class="fade-in-line delay-2">●Performance Arts</span><br>
-    <a href="andreshouse.html" class="fade-in-line delay-2">Andre's House</a><br>
-    <a href="mangotree.html" class="fade-in-line delay-2">Long Live the Mango Tree</a><br>
-    <a href="innocent.html" class="fade-in-line delay-2">Things to Do at a Trial When You're Innocent</a><br>
-    <a href="unschuld.html" class="fade-in-line delay-2">Unschuld</a><br>
-    <a href="thearabiannights.html" class="fade-in-line delay-2">The Arabian Nights</a>
+    <a href="info.html">Info</a><br>
+    <a href="cv.html">CV</a>
+    <br><br><br>
+    <span>●Projects</span><br>
+    <a href="pleasetakeaseat.html"><i>Please Take a Seat</i></a><br>
+    <a href="studio11.html"><i>Studio 11</i></a><br>
+    <a href="spread&kneel.html"><i>Spread&Kneel</i></a><br>
+    <a href="monody.html"><i>Monody</i></a><br>
+    <a href="6undergarments.html"><i>6 Undergarments</i></a>
+    <br><br><br>
+    <span>●Performance Arts</span><br>
+    <a href="andreshouse.html"><i>Andre's House</i></a><br>
+    <a href="mangotree.html"><i>Long Live the Mango Tree</i></a><br>
+    <a href="innocent.html"><i>Things to Do at a Trial When You're Innocent</i></a><br>
+    <a href="unschuld.html"><i>Unschuld</i></a><br>
+    <a href="thearabiannights.html"><i>The Arabian Nights</i></a>
   </nav>
 </body>	</html>
