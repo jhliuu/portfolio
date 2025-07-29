@@ -1,5 +1,4 @@
-
-
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,9 +8,9 @@
   <style>
     body {
       margin: 20px;
-      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      background-color: #F4F8F8;
-      color: #061732;
+      font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: #FFFFFF;
+      color: #000000;
       box-sizing: border-box;
     }
 
@@ -87,15 +86,11 @@
     }
 
     .navigation a {
-      color: #061732;
+      color: #000000;
       text-decoration: none;
     }
 
-    a[href="index.html"]:hover,
-    .navigation a:hover {
-      font-family: 'Times New Roman', serif;
-      font-style: italic;
-    }
+    /* Hover effect removed */
 
     /* fade-in */
     .fade-in { opacity: 0; transition: opacity 0.4s ease-out; }
@@ -132,26 +127,21 @@
         font-size: inherit;
         line-height: inherit;
         letter-spacing: inherit;
-        color: #061732;
+        color: #000000;
       }
     }
   </style>
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => entry.isIntersecting && entry.target.classList.add('show'));
-      }, { threshold: 0.1 });
-
+      const observer = new IntersectionObserver(entries => entries.forEach(entry => header.target.classList.add('show')), { threshold: 0.1 });
       document.querySelectorAll('.fade-in').forEach(el => {
         el.classList.remove('show');
         observer.observe(el);
       });
     });
 
-    window.addEventListener('load', () => {
-      setTimeout(() => window.scrollTo(0, 0), 0);
-    });
+    window.addEventListener('load', () => setTimeout(() => window.scrollTo(0, 0), 0));
   </script>
 </head>
 <body>
@@ -181,3 +171,4 @@
   </div>
 </body>
 </html>
+```
