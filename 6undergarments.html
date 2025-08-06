@@ -22,18 +22,25 @@
       gap: 20px;
     }
 
-    /* Desktop ≥1151px */
     @media (min-width: 1151px) {
+      .desktop-quit {
+        display: inline-block;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        font-size: 14px;
+        text-decoration: none;
+        color: #000000;
+        font-weight: normal;
+        letter-spacing: normal;
+        text-transform: none;
+      }
       .navigation {
         display: flex;
         justify-content: flex-end;
         width: 100%;
         position: relative;
         align-items: center;
-      }
-      .navigation .previous {
-        position: absolute;
-        left: 0;
       }
       .navigation .home {
         position: absolute;
@@ -57,6 +64,7 @@
     .center-image::-webkit-scrollbar {
       display: none;
     }
+
     .center-image img {
       width: 100%;
       height: auto;
@@ -90,21 +98,46 @@
       text-decoration: none;
     }
 
-    /* Hover effect removed */
 
-    /* fade-in */
-    .fade-in { opacity: 0; transition: opacity 0.4s ease-out; }
-    .fade-in.show { opacity: 1; }
+    .fade-in {
+      opacity: 0;
+      transition: opacity 0.4s ease-out;
+    }
+    .fade-in.show {
+      opacity: 1;
+    }
 
-    /* Mobile ≤1150px */
     @media (max-width: 1150px) {
-      body { margin: 10px; padding-bottom: 40px; }
-      .container { flex-direction: column; height: auto; gap: 20px; }
+      body {
+        margin: 10px;
+        padding-bottom: 40px;
+      }
+      .container {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        gap: 20px;
+      }
 
-      .center-image { width: 100%; order: 2; overflow: visible; }
+      .center-image {
+        width: 100%;
+        order: 2;
+        overflow: visible;
+      }
 
-      .right-content { width: 100%; order: 3; }
-      .right-content .description { margin-top: 20px; }
+      .center-image img {
+        width: 100%;
+        height: auto;
+      }
+
+      .right-content {
+        width: 100%;
+        order: 3;
+      }
+
+      .right-content .description {
+        margin-top: 20px;
+      }
 
       .right-content .navigation {
         order: 5;
@@ -121,8 +154,6 @@
         left: 50%;
         transform: translateX(-50%);
       }
-      .navigation .next { margin-left: auto; }
-
       .navigation a {
         font-size: inherit;
         line-height: inherit;
@@ -130,8 +161,12 @@
         color: #000000;
       }
     }
+    @media (min-width: 1151px) {
+      .mobile-quit {
+        display: none;
+      }
+    }
   </style>
-
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const observer = new IntersectionObserver(entries => {
@@ -142,33 +177,37 @@
         });
       }, { threshold: 0.1 });
 
-      document.querySelectorAll('.fade-in').forEach(el => {
+      const fadeEls = document.querySelectorAll('.fade-in');
+      fadeEls.forEach(el => {
         el.classList.remove('show');
         observer.observe(el);
       });
     });
-
-    window.addEventListener('load', () => {
-      setTimeout(() => window.scrollTo(0, 0), 0);
+  </script>
+  <script>
+    window.addEventListener('load', function () {
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+      }, 0);
     });
   </script>
 </head>
 <body>
   <div class="container">
     <div class="center-image fade-in delay-2">
-      <img src="6undergarments.jpg" alt="6 Undergarments" class="fade-in" loading="lazy"/>
+       <img src="6undergarments.jpg" alt="6 Undergarments" class="fade-in" loading="lazy"/>
     </div>
 
     <div class="right-content fade-in delay-3">
       <div class="description">
-        <i>6 Undergarments</i><br>
+<i>6 Undergarments</i><br>
         2024<br>
         Cotton, wire, and aqua resin<br>
         56 x 32 x 32 in<br><br><br>
         The issue of Taiwanese identity is multi-layered and dynamic, encompassing historical inheritance, cultural practices, political choices, and the influences of globalization. Taiwanese identity is not simply a binary opposition but is continually adjusted with social changes. The elasticity and diversity of this identity not only characterize Taiwanese society but also demonstrate the adaptability and creativity of Taiwanese people in the face of complex historical and real-world situations.<br><br>
         Taiwanese identity is uniquely shaped by our position amid cross-strait tensions. Faced with these challenges, the younger generation has developed a political and identity flexibility, allowing them to navigate the crises and paradoxes inherent in their self-identification. This flexibility is not a weakness but a distinctive aspect of Taiwanese identity, reflecting resilience and adaptability.<br><br>
         
-
+      </div>
       <div class="navigation">
         <a href="index.html" class="next">(Close)</a>
       </div>
