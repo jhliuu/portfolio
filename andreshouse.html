@@ -1,219 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Andre's House</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>安德烈之屋</title>
   <style>
     body {
-      margin: 20px;
-      font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      background-color: #FFFFFF;
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
       color: #000000;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 14px;
+      overflow-x: hidden;
+      max-width: 100%;
+      width: 100%;
       box-sizing: border-box;
     }
 
-    .container {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      overflow: hidden;
-      gap: 20px;
-    }
-
-    @media (min-width: 1151px) {
-      .desktop-quit {
-        display: inline-block;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        font-size: 14px;
-        text-decoration: none;
-        color: #000000;
-        font-weight: normal;
-        letter-spacing: normal;
-        text-transform: none;
-      }
-      .navigation {
-        display: flex;
-        justify-content: flex-end;
-        width: 100%;
-        position: relative;
-        align-items: center;
-      }
-      .navigation .home {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-      }
-      .navigation .next {
-        margin-left: auto;
-      }
-    }
-
-    .center-image {
-      width: 65%;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      overflow-y: scroll;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-    }
-    .center-image::-webkit-scrollbar {
-      display: none;
-    }
-
-    .center-image img {
+    .content {
       width: 100%;
-      height: auto;
-    }
-
-    .caption {
-      font-size: 14px;
-      line-height: 1;
-      margin-top: 20px;
-    }
-
-    .right-content {
-      width: 35%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: flex-start;
-      overflow: hidden;
-    }
-
-    .description {
-      font-size: 14px;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px 24px;
       line-height: 1.2;
+      text-align: left;
+      word-wrap: break-word;
+      box-sizing: border-box;
+      white-space: normal;
+      overflow-wrap: break-word;
+      /* height: 100vh; */
+      /* display: flex; */
+      /* flex-direction: column; */
+      /* justify-content: center; */
     }
-
-    .navigation {
-      font-size: 14px;
-      line-height: 1;
-      margin-top: 20px;
-      display: flex;
-      justify-content: flex-end;
-      width: 100%;
-    }
-
-    .navigation a {
-      color: #000000;
-      text-decoration: none;
-    }
-
-  </style>
-  <style>
-    .fade-in {
-      opacity: 0;
-      transition: opacity 0.4s ease-out;
-    }
-    .fade-in.show {
-      opacity: 1;
+    .content img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 8px 0;
     }
   </style>
-  <style>
-    @media (max-width: 1150px) {
-      body {
-        margin: 10px;
-        padding-bottom: 40px;
-      }
-      .container {
-        display: flex;
-        flex-direction: column;
-        height: auto;
-        gap: 20px;
-      }
-
-      .center-image {
-        width: 100%;
-        order: 2;
-        overflow: visible;
-      }
-
-      .center-image img {
-        width: 100%;
-        height: auto;
-      }
-
-      .right-content {
-        width: 100%;
-        order: 3;
-      }
-
-      .right-content .description {
-        margin-top: 20px;
-      }
-
-      .right-content .navigation {
-        order: 5;
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-end;
-        align-items: center;
-        margin-top: 40px;
-        position: relative;
-      }
-      .navigation .previous { margin-right: auto; }
-      .navigation .home {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-      }
-
-      .navigation a {
-        font-size: inherit;
-        line-height: inherit;
-        letter-spacing: inherit;
-        color: #000000;
-      }
-    }
-    @media (min-width: 1151px) {
-      .mobile-quit {
-        display: none;
-      }
-    }
-  </style>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('show');
-          }
-        });
-      }, { threshold: 0.1 });
-
-      const fadeEls = document.querySelectorAll('.fade-in');
-      fadeEls.forEach(el => {
-        el.classList.remove('show');
-        observer.observe(el);
-      });
-    });
-  </script>
-  <script>
-    window.addEventListener('load', function () {
-      setTimeout(() => {
-        window.scrollTo(0, 0);
-      }, 0);
-    });
-  </script>
 </head>
 <body>
-  <div class="container">
-    <div class="center-image fade-in delay-2">
-      <img src="image20.JPEG" alt="image20" class="fade-in" loading="lazy" style="margin-bottom: 4px;" />
-      <img src="andres-house.JPEG" alt="andres-house" class="fade-in" loading="lazy" style="margin-bottom: 4px;" />
-      <img src="image19.JPEG" alt="image19" class="fade-in" loading="lazy" style="margin-bottom: 4px;" />
-      <img src="image17.JPEG" alt="image17" class="fade-in" loading="lazy"/>
-    </div>
-    <div class="right-content fade-in delay-3">
-      <div class="description">
-<i>Andre's House</i><br>
-2024<br>
-Tainaner Ensemble. Experimental Theatre of National Theater. Taipei, Taiwan<br><br><br>
-        Artistic Director — Po-shen Lu<br>
+  <div class="content">
+     <div>
+       <a href="index.html" style="text-decoration: none; color: inherit;">home</a> / 
+       <a href="info.html" style="text-decoration: none; color: inherit;">info</a> / 
+       <a href="cv.html" style="text-decoration: none; color: inherit;">cv</a>
+
+<br><br><br><br><br>
+
+<img src="image20.JPEG" alt="1">
+ <i>Andre's House（安德烈之屋）</i>, 2024. Tainaner Ensemble（臺南人劇團）. Experimental Theatre of National Theater. Taipei, Taiwan.
+
+<br><br><br>
+
+<img src="andres-house.JPEG" alt="2">
+ <i>Andre's House（安德烈之屋）</i>
+
+<br><br><br>
+
+<img src="image19.JPEG" alt="3">
+ <i>Andre's House（安德烈之屋）</i>
+
+<br><br><br>
+
+<img src="image17.JPEG" alt="4">
+ <i>Andre's House（安德烈之屋）</i>
+
+<br><br><br><br><br>
+
+ Artistic Director — Po-shen Lu<br>
         Playwright — Chia-yi Chen<br>
         Director — Yi-kai Chen<br>
         Set Design — Hao-yuan Chang<br>
@@ -240,9 +98,40 @@ Tainaner Ensemble. Experimental Theatre of National Theater. Taipei, Taiwan<br><
         Guiding Unit — Ministry of Culture, Taiwan<br>
         Organizer — Tainaner Ensemble<br>
         Sponsors — National Culture and Arts Foundation, Taipei City Government Department of Cultural Affairs, Yi-Xiang Space
-      </div>
-      <div class="navigation">
-        <a href="index.html" class="next">(Close)</a>
+<br><br><br><br><br>
+藝術總監 — 呂柏伸<br>
+編　　劇 — 陳佳儀<br>
+導　　演 — 陳奕愷<br>
+舞臺設計 — 張皓媛<br>
+燈光設計 — 吳峽寧<br>
+服裝設計 — 黃心研<br>
+音樂設計 — 徐啟洋<br>
+音樂設計助理 — 陳俐安<br>
+主視覺攝影 — 58kg<br>
+主視覺設計 — 郭保伸
+<br><br>
+演　　員 — 王夢琦、吳姝純、陳采恩、程時雍、趙欣怡、劉峻豪
+<br><br>
+製 作 人 — 李維睦、呂柏伸<br>
+製作經理 — 劉辰君<br>
+舞臺監督 — 張婷婷<br>
+舞臺技術統籌 — 劉柏言<br>
+燈光技術統籌 — 曾擇弘<br>
+音響技術 — 唐宋音響<br>
+舞臺監督助理 — 陳映慈<br>
+導演助理 — 張品葳<br>
+妝髮執行暨服裝管理 — 林昕誼<br>
+妝髮執行 — 李俊儀<br>
+宣傳文案 — 趙啟運<br>
+宣　　傳 — 林耿邦<br>
+票務會計 — 紀美玲
+ <br><br>
+指導單位 — 文化部<br>
+主辦單位 — 台南人劇團<br>
+贊助單位 — 國藝會、臺北市政府文化局、藝響空間
+<br><br><br><br><br>
+      <div style="text-align: left; font-size: 14px;">
+        <a href="index.html" style="text-decoration: none; color: inherit;">(close)</a>
       </div>
     </div>
   </div>
