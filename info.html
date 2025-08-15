@@ -1,231 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Info</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>info</title>
   <style>
     body {
-      margin: 20px;
-      font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      background-color: #FFFFFF;
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
       color: #000000;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 14px;
+      overflow-x: hidden;
+      max-width: 100%;
+      width: 100%;
       box-sizing: border-box;
     }
 
-    .container {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      height: calc(100vh - 40px); /* Full viewport height minus margins */
-      overflow: hidden;
-      gap: 20px;
-    }
-
-    @media (min-width: 1151px) {
-      .desktop-quit {
-        display: inline-block;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        font-size: 14px;
-        text-decoration: none;
-        color: #061732;
-        font-weight: normal;
-        letter-spacing: normal;
-        text-transform: none;
-      }
-      .navigation {
-        display: flex;
-        justify-content: flex-end;
-        width: 100%;
-        position: relative;
-        align-items: center;
-      }
-      .navigation .home {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-      }
-      .navigation .next {
-        margin-left: auto;
-      }
-      .right-content {
-        width: 65%;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        align-items: flex-start;
-        overflow: hidden;
-      }
-    }
-
-    .center-image {
-      width: 35%;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      overflow-y: scroll;
-      scrollbar-width: none; /* Firefox */
-      -ms-overflow-style: none; /* Internet Explorer 10+ */
-    }
-    .center-image::-webkit-scrollbar {
-      display: none; /* Safari and Chrome */
-    }
-
-    .center-image img {
+    .content {
       width: 100%;
-      height: auto;
-    }
-
-
-    .right-content {
-      width: 65%;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      align-items: flex-start;
-      overflow: hidden;
-    }
-
-    .description {
-      font-size: 14px;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px 24px;
       line-height: 1.2;
-    }
-
-    .navigation {
-      font-size: 14px;
-      line-height: 1;
-      margin-top: 60px;
+      text-align: left;
+      word-wrap: break-word;
+      box-sizing: border-box;
+      white-space: normal;
+      overflow-wrap: break-word;
+      height: 100vh;
       display: flex;
-      justify-content: flex-end;
-      width: 100%;
+      flex-direction: column;
+      justify-content: center;
     }
-
-    .navigation a {
-      color: #000000;
-      text-decoration: none;
-    }
-    .description a {
-      color: #000000;
-      text-decoration: none;
-    }
-
   </style>
-  <style>
-  .fade-in {
-    opacity: 0;
-    transition: opacity 0.4s ease-out;
-  }
-  .fade-in.show {
-    opacity: 1;
-  }
-</style>
-<style>
-@media (max-width: 1150px) {
-  body {
-    margin: 10px;
-    padding-bottom: 40px;
-  }
-  .container {
-    display: flex;
-    flex-direction: column;
-    height: auto;
-    gap: 20px;
-  }
-
-
-  .center-image {
-    width: 100%;
-    order: 2;
-    overflow: visible;
-  }
-
-  .center-image img {
-    width: 100%;
-    height: auto;
-  }
-
-
-  .right-content {
-    width: 100%;
-    order: 3;
-  }
-
-  .right-content .description {
-    margin-top: 20px;
-  }
-
-  .right-content .navigation {
-        order: 5;
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-end;
-        align-items: center;
-        margin-top: 40px;
-        position: relative;
-      }
-      .navigation .previous { margin-right: auto; }
-      .navigation .home {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-      }
-      
-      .navigation a {
-        font-size: inherit;
-        line-height: inherit;
-        letter-spacing: inherit;
-        color: #000000;
-      }
-    }
-@media (min-width: 1151px) {
-  .mobile-quit {
-    display: none;
-  }
-}
-</style>
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show');
-        }
-      });
-    }, { threshold: 0.1 });
-
-    const fadeEls = document.querySelectorAll('.fade-in');
-    fadeEls.forEach(el => {
-      el.classList.remove('show');
-      observer.observe(el);
-    });
-  });
-</script>
-  <script>
-    // Always scroll to top on page load (mobile compatible)
-    window.addEventListener('load', function () {
-      setTimeout(() => {
-        window.scrollTo(0, 0);
-      }, 0);
-    });
-  </script>
 </head>
 <body>
-  <div class="container">
-    <div class="center-image fade-in delay-2">
-      
-    </div>
-    <div class="right-content fade-in delay-3">
-      <div class="description">
-        <a href="https://www.instagram.com/jhliuu" target="_blank">@jhliuu</a><br>
-        <a href="mailto:jaydenliu.studio@gmail.com">jaydenliu.studio@gmail.com</a><br><br><br>
-        <b>Jayden Liu</b>（劉峻豪／Chun-Hao Liu）(b. Taiwan) is a Brooklyn-based artist currently pursuing an MFA in Fine Arts at Parsons School of Design. With a background in theater, his practice draws from everyday routines, social dynamics, and the small frictions that often go unnoticed.
-        <br><br>
-        Working across sculpture and performance, Liu creates situations that highlight the invisible scripts behind daily life. He is interested in how tension, miscommunication, and quiet contradictions play out in shared spaces.
-      </div>
-      <div class="navigation">
-        <a href="index.html" class="next">(Close)</a>
+  <div class="content">
+    <div>@jhliuu<br>jaydenliu.studio@gmail.com</div>
+    <br><br>
+    <div>
+      <b>Jayden Liu</b>（劉峻豪／Chun-Hao Liu）(b. Taiwan) is a Brooklyn-based artist currently pursuing an MFA in Fine Arts at Parsons School of Design. With a background in theater, his practice draws from everyday routines, social dynamics, and the small frictions that often go unnoticed.
+      <br><br>
+      Working across sculpture and performance, Liu creates situations that highlight the invisible scripts behind daily life. He is interested in how tension, miscommunication, and quiet contradictions play out in shared spaces.<br><br><br>
+      <div style="text-align: left; font-size: 14px;">
+        <a href="index.html" style="text-decoration: none; color: inherit;">(close)</a>
       </div>
     </div>
   </div>
