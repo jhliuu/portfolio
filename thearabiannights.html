@@ -1,214 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>The Arabian Nights</title>
   <style>
     body {
-      margin: 20px;
-      font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      background-color: #FFFFFF;
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
       color: #000000;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 14px;
+      overflow-x: hidden;
+      max-width: 100%;
+      width: 100%;
       box-sizing: border-box;
     }
 
-    .container {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      overflow: hidden;
-      gap: 20px;
-    }
-
-    @media (min-width: 1151px) {
-      .desktop-quit {
-        display: inline-block;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        font-size: 14px;
-        text-decoration: none;
-        color: #000000;
-        font-weight: normal;
-        letter-spacing: normal;
-        text-transform: none;
-      }
-      .navigation {
-        display: flex;
-        justify-content: flex-end;
-        width: 100%;
-        position: relative;
-        align-items: center;
-      }
-      .navigation .home {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-      }
-      .navigation .next {
-        margin-left: auto;
-      }
-    }
-
-    .center-image {
-      width: 65%;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      overflow-y: scroll;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-    }
-    .center-image::-webkit-scrollbar {
-      display: none;
-    }
-
-    .center-image img {
+    .content {
       width: 100%;
-      height: auto;
-    }
-
-    .right-content {
-      width: 35%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: flex-start;
-      overflow: hidden;
-    }
-
-    .description {
-      font-size: 14px;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px 24px;
       line-height: 1.2;
+      text-align: left;
+      word-wrap: break-word;
+      box-sizing: border-box;
+      white-space: normal;
+      overflow-wrap: break-word;
+      /* height: 100vh; */
+      /* display: flex; */
+      /* flex-direction: column; */
+      /* justify-content: center; */
     }
-
-    .navigation {
-      font-size: 14px;
-      line-height: 1;
-      margin-top: 20px;
-      display: flex;
-      justify-content: flex-end;
-      width: 100%;
-    }
-
-    .navigation a {
-      color: #000000;
-      text-decoration: none;
-    }
-
-
-    .fade-in {
-      opacity: 0;
-      transition: opacity 0.4s ease-out;
-    }
-    .fade-in.show {
-      opacity: 1;
-    }
-
-    @media (max-width: 1150px) {
-      body {
-        margin: 10px;
-        padding-bottom: 40px;
-      }
-      .container {
-        display: flex;
-        flex-direction: column;
-        height: auto;
-        gap: 20px;
-      }
-
-      .center-image {
-        width: 100%;
-        order: 2;
-        overflow: visible;
-      }
-
-      .center-image img {
-        width: 100%;
-        height: auto;
-      }
-
-      .right-content {
-        width: 100%;
-        order: 3;
-      }
-
-      .right-content .description {
-        margin-top: 20px;
-      }
-
-      .right-content .navigation {
-        order: 5;
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-end;
-        align-items: center;
-        margin-top: 40px;
-        position: relative;
-      }
-      .navigation .previous { margin-right: auto; }
-      .navigation .home {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-      }
-      .navigation a {
-        font-size: inherit;
-        line-height: inherit;
-        letter-spacing: inherit;
-        color: #000000;
-      }
-    }
-    @media (min-width: 1151px) {
-      .mobile-quit {
-        display: none;
-      }
+    .content img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 8px 0;
     }
   </style>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('show');
-          }
-        });
-      }, { threshold: 0.1 });
-
-      const fadeEls = document.querySelectorAll('.fade-in');
-      fadeEls.forEach(el => {
-        el.classList.remove('show');
-        observer.observe(el);
-      });
-    });
-  </script>
-  <script>
-    window.addEventListener('load', function () {
-      setTimeout(() => {
-        window.scrollTo(0, 0);
-      }, 0);
-    });
-  </script>
 </head>
 <body>
-  <div class="container">
-    <div class="center-image fade-in delay-2">
-      <img src="image1.JPG" alt="Arab1" class="fade-in" loading="lazy" style="margin-bottom: 4px;" />
-      <img src="image3.JPG" alt="Arab2" class="fade-in" loading="lazy" style="margin-bottom: 4px;" />
-      <img src="image4.JPG" alt="Arab3" class="fade-in" loading="lazy" style="margin-bottom: 4px;" />
-      <img src="image5.JPG" alt="Arab4" class="fade-in" loading="lazy"/>
-    </div>
-    <div class="right-content fade-in delay-3">
-      <div class="description">
-<i>The Arabian Nights</i><br>
-2022<br>
-Dept. of Drama and Theatre at NTU. National Taiwan Arts Education Center. Taipei, Taiwan.<br><br><br>
+  <div class="content">
+     <div>
+       <a href="index.html" style="text-decoration: none; color: inherit;">home</a> / 
+       <a href="info.html" style="text-decoration: none; color: inherit;">info</a> / 
+       <a href="cv.html" style="text-decoration: none; color: inherit;">cv</a>
+
+<br><br><br><br><br>
+
+<img src="image1.JPG" alt="1">
+ <i>The Arabian Nights</i>, 2022. Dept. of Drama and Theatre at NTU. National Taiwan Arts Education Center. Taipei, Taiwan.
+
+<br><br><br>
+
+<img src="image3.JPG" alt="2">
+ <i>The Arabian Nights</i> — Madman
+
+<br><br><br>
+
+<img src="image4.JPG" alt="3">
+ <i>The Arabian Nights</i> — Chief of Police
+
+<br><br><br>
+
+<img src="image5.JPG" alt="4">
+ <i>The Arabian Nights</i> — Characters of the Confusion
+
+<br><br><br><br><br>
+
 Producer — Hsiao-mei Hsieh<br>
 Executive Producer — Po-lin Lee<br>
 Playwright — Mary Zimmerman<br>
 Translator — Man-ning Chu<br>
-Director — Po-shen Lu<br><br>
+Director — Po-shen Lu<br>
+Stage Manager — Chieh-yu Yang<br><br>
+Cast — Shih-ying Wang, Chia-ying Chiang, Yu-cheng Tu, Yue-hsin Chou, Chen-yu Lin, Hao-chen Hu, I-wen Ni, Tzu-chun Kao, Shuo-chen Kao, Fu-chun Chang, Chieh-wei Kuo, Li-an Chen, Hou-chi Chen, Tzu-hui Chen, Chi-huan Huang, Chun-hao Liu<br><br>
 Set Design — Po-lin Lee<br>
 Technical Director — Chih-feng Chen<br>
 Costume Design — I-mei Wang<br>
@@ -218,24 +87,33 @@ Composer — Chi-yang Hsu<br>
 Sound Design — I-chun Hung<br>
 Video Design — Cheng-yuan Wang<br>
 Choreographer — Chen-yu Shao<br>
-Line Producer — Yu-hsiang Lin<br>
-Graphic Design — Fang-chi Tsai<br><br>
-Cast — Shih-ying Wang, Chia-ying Chiang, Yu-cheng Tu, Yue-hsin Chou, Chen-yu Lin, Hao-chen Hu, I-wen Ni, Tzu-chun Kao, Shuo-chen Kao, Fu-chun Chang, Chieh-wei Kuo, Li-an Chen, Hou-chi Chen, Tzu-hui Chen, Chi-huan Huang, Chun-hao Liu<br><br>
-Stage Manager — Chieh-yu Yang<br>
-Assistant Directors — Lu-han Weng, Wei-chun Hsiao<br>
-Assistant Stage Managers — Hsin-yu Hsu, Chen-hsin Kung<br>
-Assistant Set Designer — Jung-huan Pan<br>
-Assistant Technical Directors — Yao-ting Wang, Yu Kang<br>
-Assistant Costume & Hair/Makeup Technicians — I-chen Lin, Yu-ting Chiu, Tzu-hsuan Hu, Shih-han Peng, Chi-sheng Lan<br>
-Assistant Lighting Designers — Wan-tung Lee, Chia-kang Lin<br>
-Assistant Lighting Technicians — Le-mei Hsu, Kai-chi Feng, Chien-cheng Huang<br>
-Assistant Composers — Hsiang-wen Chang, Hui-chueh Hsu, Chieh-hsin Chen<br>
-Assistant Sound Designers — Chih-ling Wu, I-ying Chiu<br>
-Assistant Video Designers — Chen-te Chiang, Chia-tien Hsu, Hsiao-hsi Huang, Tsai-lung Han<br>
-Assistant Line Producers — I-en Ho, Yun-chih Lee, Hsing-wen Lu, Yuan-jun Chung
-      </div>
-      <div class="navigation">
-        <a href="index.html" class="next">(Close)</a>
+Graphic Design — Fang-chi Tsai<br>
+Line Producer — Yu-hsiang Lin
+
+<br><br><br><br><br>
+製作　人 — 謝筱玫<br>
+製作總監 — 李柏霖<br>
+劇作　家 — Mary Zimmerman<br>
+劇本翻譯 — 朱曼寧<br>
+導　　演 — 呂柏伸<br>
+舞台監督 — 楊捷伃
+<br><br>
+演　　員 — 王詩穎、江佳穎、杜育丞、周悅新、林珍瑜、胡皓辰、倪宜紋、高子珺、高碩辰、張富鈞、郭潔蔚、陳俐安、陳厚錡、陳姿卉、黃啟桓、劉峻豪
+<br><br>
+舞台設計 — 李柏霖<br>
+舞台技術 — 陳志峰<br>
+服裝設計 — 王怡美<br>
+妝髮設計 — 歐書廷<br>
+燈光設計 — 鄧振威<br>
+音樂設計 — 徐啟洋<br>
+聲音設計 — 洪伊俊<br>
+影像設計 — 王正源<br>
+舞蹈設計 — 邵震宇<br>
+平面設計 — 蔡枋錡<br>
+執行製作 — 林于湘
+<br><br><br><br><br>
+      <div style="text-align: left; font-size: 14px;">
+        <a href="index.html" style="text-decoration: none; color: inherit;">(close)</a>
       </div>
     </div>
   </div>
