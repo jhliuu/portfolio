@@ -1,259 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>CV</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>cv</title>
   <style>
     body {
-      margin: 20px;
-      font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      background-color: #FFFFFF;
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
       color: #000000;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 14px;
+      overflow-x: hidden;
+      max-width: 100%;
+      width: 100%;
       box-sizing: border-box;
     }
 
-    .container {
-      display: block;
-      height: auto;
-    }
-
-    @media (min-width: 1151px) {
-      .container {
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-end;
-        height: calc(100vh - 40px);
-        overflow: hidden;
-        gap: 20px;
-      }
-      .desktop-quit {
-        display: inline-block;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        font-size: 14px;
-        text-decoration: none;
-        color: #000000;
-        font-weight: normal;
-        letter-spacing: normal;
-        text-transform: none;
-      }
-      .navigation {
-        display: flex;
-        justify-content: flex-end;
-        width: 100%;
-        position: relative;
-        align-items: center;
-      }
-      .navigation .home {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-      }
-      .navigation .next {
-        margin-left: auto;
-      }
-      .right-content {
-        width: 65%;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        align-items: flex-start;
-        overflow: hidden;
-        position: relative;
-      }
-    }
-
-.center-image {
-  width: 35%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  white-space: nowrap;
-  overflow-x: auto;
-  overflow-y: scroll;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* Internet Explorer 10+ */
-}
-
-    .center-image img {
+    .content {
       width: 100%;
-      height: auto;
-    }
-
-
-    .right-content {
-      width: 65%;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px 24px;
+      line-height: 1.2;
+      text-align: left;
+      word-wrap: break-word;
+      box-sizing: border-box;
+      white-space: normal;
+      overflow-wrap: break-word;
+      height: 100vh;
       display: flex;
       flex-direction: column;
-      justify-content: flex-end;
-      align-items: flex-start;
-      overflow: hidden;
+      justify-content: center;
     }
-
-    .description {
-      font-size: 14px;
-      line-height: 1.2;
-    }
-
-    .navigation {
-      font-size: 14px;
-      line-height: 1;
-      margin-top: 60px;
-      display: flex;
-      justify-content: flex-end;
-      width: 100%;
-    }
-
-    .navigation a {
-      color: #000000;
-      text-decoration: none;
-    }
-    .description a {
-      color: #000000;
-      text-decoration: none;
-    }
-    .center-image a {
-      color: #000000;
-      text-decoration: none;
-    }
-
-
   </style>
-  <style>
-  .fade-in {
-    opacity: 0;
-    transition: opacity 0.4s ease-out;
-  }
-  .fade-in.show {
-    opacity: 1;
-  }
-</style>
-<style>
-@media (max-width: 1150px) {
-  body {
-    margin: 10px;
-    padding-bottom: 40px;
-  }
-  .container {
-    display: flex;
-    flex-direction: column;
-    height: auto;
-    gap: 20px;
-  }
-
-
-  .center-image {
-    width: 100%;
-    order: 2;
-    overflow: visible;
-  }
-
-  .center-image img {
-    width: 100%;
-    height: auto;
-  }
-
-
-  .right-content {
-    width: 100%;
-    order: 3;
-  }
-
-  .right-content .description {
-    margin-top: 20px;
-  }
-
-  .right-content .navigation {
-        order: 5;
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-end;
-        align-items: center;
-        margin-top: 40px;
-        position: relative;
-      }
-      .navigation .previous { margin-right: auto; }
-      .navigation .home {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-      }
-      
-      .navigation a {
-        font-size: inherit;
-        line-height: inherit;
-        letter-spacing: inherit;
-        color: #000000;
-      }
-    }
-@media (min-width: 1151px) {
-  .mobile-quit {
-    display: none;
-  }
-}
-</style>
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show');
-        }
-      });
-    }, { threshold: 0.1 });
-
-    const fadeEls = document.querySelectorAll('.fade-in');
-    fadeEls.forEach(el => {
-      el.classList.remove('show');
-      observer.observe(el);
-    });
-  });
-</script>
-  <script>
-    // Always scroll to top on page load (mobile compatible)
-    window.addEventListener('load', function () {
-      setTimeout(() => {
-        window.scrollTo(0, 0);
-      }, 0);
-    });
-  </script>
 </head>
 <body>
-  <div class="container">
-    <div class="center-image fade-in delay-2">
-    </div>
-    <div class="right-content fade-in delay-3">
-      <div class="description">
-        <b>Jayden Liu</b>（劉峻豪／Chun-Hao Liu）<br>
-	Lives and works in New York.<br>
-        <a href="https://www.instagram.com/jhliuu" target="_blank">@jhliuu</a><br>
-        <a href="mailto:jaydenliu.studio@gmail.com">jaydenliu.studio@gmail.com</a><br><br>
-        <br><br><br>
-        ●Education<br>
-	2024 - 2026 MFA Fine Arts, Parsons School of Design.<br>
-	2019 - 2023 BA Drama and Theatre, National Taiwan University.<br><br><br>
+  <div class="content">
+     <div><b>Jayden Liu</b>（劉峻豪／Chun-Hao Liu）<br>
+Lives and works in New York.<br>
+@jhliuu<br>
+jaydenliu.studio@gmail.com
+<br><br><br>
 
-	●Group Exhibitions<br>
-	2025 <i>Common Ground</i>, 25 East Gallery, New York, NY.<br>
-	2024 <i>To Continue Being Alive</i>, 25 East Gallery, New York, NY.<br><br><br>
 
-	●Performance Arts<br>
-	2024 <i>Andre's House</i>, Actor, Tainaner Ensemble, Experimental Theater of National Theater, Taipei, Taiwan.<br>
-	2023 <i>Reality No-Show</i>, Assistant Projection Designer, Tainaner Ensemble, National Kaohsiung Center for the Arts, Kaohsiung, Taiwan.<br>
-	2023 <i>Reality No-Show</i>, Assistant Projection Designer, Tainaner Ensemble, Taipei Performing Arts Center, Taipei, Taiwan.<br>
-	2023 <i>Long Live the Mango Tree</i>, Actor, GOATY Ensemble, University Café, Taipei, Taiwan.<br>
-	2023 <i>Things to Do at a Trial When You're Innocent</i>, Actor, GOATY Ensemble, Mononi Art Venue, Taipei, Taiwan.<br>
-	2022 <i>Unschuld</i>, Actor, Dept. of Drama and Theatre at NTU, National Taiwan Arts Education Center, Taipei, Taiwan.<br>
-	2022 <i>The Arabian Nights</i>, Actor, Dept. of Drama and Theatre at NTU, National Taiwan Arts Education Center, Taipei, Taiwan.<br><br><br>
 
-	●Artist Assisting<br>
-	2025 H. Lan Thao Lam, Research Assistant.<br>
-	2025 Charles Goldman, Teaching Assistant.
-      </div>
-      <div class="navigation">
-        <a href="index.html" class="next">(Close)</a>
+●Education<br>
+2024 - 2026 MFA Fine Arts, Parsons School of Design.<br>
+2019 - 2023 BA Drama and Theatre, National Taiwan University.<br><br>
+
+
+●Group Exhibitions<br>
+2025 <i>Common Ground</i>, 25 East Gallery, New York, NY.<br>
+2024 <i>To Continue Being Alive</i>, 25 East Gallery, New York, NY.<br><br>
+
+
+●Performance Arts<br>
+2024 <i>Andre's Hous</i>e, Actor, Tainaner Ensemble, Experimental Theater of National Theater, Taipei, Taiwan.<br>
+2023 <i>Reality No-Show</i>, Assistant Projection Designer, Tainaner Ensemble, National Kaohsiung Center for the Arts, Kaohsiung, Taiwan.<br>
+2023 <i>Reality No-Show</i>, Assistant Projection Designer, Tainaner Ensemble, Taipei Performing Arts Center, Taipei, Taiwan.<br>
+2023 <i>Long Live the Mango Tree</i>, Actor, GOATY Ensemble, University Café, Taipei, Taiwan.<br>
+2023 <i>Things to Do at a Trial When You're Innocent</i>, Actor, GOATY Ensemble, Mononi Art Venue, Taipei, Taiwan.<br>
+2022 <i>Unschuld</i>, Actor, Dept. of Drama and Theatre at NTU, National Taiwan Arts Education Center, Taipei, Taiwan.<br>
+2022 <i>The Arabian Nights</i>, Actor, Dept. of Drama and Theatre at NTU, National Taiwan Arts Education Center, Taipei, Taiwan.
+<br><br>
+
+●Artist Assisting<br>
+2025 H. Lan Thao Lam, Research Assistant.<br>
+2025 Charles Goldman, Teaching Assistant.<br><br><br>
+      <div style="text-align: left; font-size: 14px;">
+        <a href="index.html" style="text-decoration: none; color: inherit;">(close)</a>
       </div>
     </div>
   </div>
